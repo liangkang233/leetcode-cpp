@@ -35,7 +35,7 @@ public:
     }
     TreeNode* addOneRow(TreeNode* root, int val, int depth) {
         // 使用dfs确定所有层数为depth的树，由题意添加子树默认都添加为左子树
-        // 注意 按照题目要求去找depth-1行并修改 否则将会改变子树关系 Solution2时错误的
+        // 注意 按照题目要求去找depth-1行并修改 否则将会改变子树左右顺序关系 Solution2时错误的
         Val = val, Depth = depth;
         if(depth <= 1)
             return new TreeNode(val, root, nullptr);

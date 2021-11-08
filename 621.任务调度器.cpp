@@ -12,7 +12,6 @@ using namespace std;
 class Solution {
 public:
     int leastInterval(vector<char>& tasks, int n) {
-        // 用map做记录，这里试试用数组是不是快些
         int mymap['Z'+1] = {0};
         vector<int> nums;
         for(auto && i : tasks)

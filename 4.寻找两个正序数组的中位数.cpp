@@ -85,7 +85,7 @@ public:
 
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         int size = nums1.size() + nums2.size();
-        // 中位数无论奇数还是偶数，其中位数都是第size/2 + 1 和 (size+1)/2)个元素的平均数
+        // 无论总个数是奇数还是偶数，其中位数都是第size/2 + 1 和 (size+1)/2)个元素的平均数
         return (findKth(nums1, nums2, size/2 + 1) + findKth(nums1, nums2, (size + 1)/2) ) / 2.0;
     }
 

@@ -207,4 +207,7 @@ for (auto n :vec) {
         }
     };
     priority_queue<pair<int,int>,vector<pair<int,int>>,com> q;
+
+
+    // list用法: http://c.biancheng.net/view/6892.html
     
