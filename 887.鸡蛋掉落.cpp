@@ -12,7 +12,7 @@ using namespace std;
 class Solution {
 public:
     // 李永乐视频解析 https://www.bilibili.com/video/BV1KE41137PK
-    // 1 <= k <= 100
+    // 1 <= k <= 100  所以下面的动态规划用100个做一组
     // 1 <= n <= 10^4
     unordered_map<int, int> memo;// 此处动态规划将 二维数组 转为 无序哈希表；memo(n*100 + k) => memo[n][k]
     int dp(int k, int n) {
@@ -28,7 +28,7 @@ public:
                     int x = (lo + hi) / 2;
                     int t1 = dp(k - 1, x - 1);// 摔碎了，向低的半边 x-1 个查找的dp
                     int t2 = dp(k, n - x);// 没摔碎，向高的半边 n-x个 查找的dp
-                    if (t1 < t2)
+                    if (t1 < t2)    //如果t1<t2 说明该X点在极小值点左边，示意图看这个 https://leetcode-cn.com/problems/super-egg-drop/solution/ji-dan-diao-luo-by-leetcode-solution-2/
                         lo = x;
                     else if (t1 > t2)
                         hi = x;

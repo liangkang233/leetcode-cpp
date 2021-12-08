@@ -11,6 +11,7 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
+    // 时间复杂度为 O(n)
     int findMin(vector<int>& nums) {
         int temp = nums[0];
         for (auto &&num : nums) {

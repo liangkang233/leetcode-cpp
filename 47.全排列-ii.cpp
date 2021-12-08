@@ -22,11 +22,11 @@ public:
             L--;
         if ( L == begin)  //全为升 即从左看全为降序,字典序排列完毕
             return false;
-        while( R != L  && *R <= *(L-1) ) // 从L的右边遍历找到第一个大于flag的点，不存在即转换L右边的点
+        while( R != L  && *R <= *(L-1) ) // 从L的右边遍历找到第一个大于(L-1)的点，不存在即转换L右边的点
             R--;
         swap(*R, *(L-1));
         // reverse(L, R+1);
-        reverse(L, end);    //反转后面整个排列
+        reverse(L, end);    //反转(L-1)后面整个排列
         return true;
     }
 
