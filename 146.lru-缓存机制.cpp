@@ -32,8 +32,8 @@ struct node {
 class LRUCache {
 public:
     int cap;
-    // vector<node* > mymap;
     unordered_map<int, node*> cache;
+    // 用 map 记录 node 指针地址
     node *head , *tail ;
 
     void add_node(node* temp) {
@@ -62,9 +62,7 @@ public:
     
     int get(int key) {
         // 查找后只刷新缓存，不会添加删除缓存
-        // if (mymap[key] != nullptr) {
         if ( cache.count(key) ) {
-            // node* test = mymap[key];
             node* test = cache[key];
             flush_node(test);
             return test->value;
@@ -80,20 +78,16 @@ public:
                 // 删除缓存中最不常用的值
                 node* test1 = head->next;
                 remove_node(test1);
-                // mymap[test1->key] = nullptr;
                 cache.erase(test1->key);
                 delete test1;
             }
             node* temp1 = new node(key, value, nullptr, nullptr);
             add_node(temp1);
-            // mymap[key] = temp1;   
             cache.insert(make_pair(key, temp1));   
         }
         else {
-            // get操作已经操作缓存,无需更新
-            // node* test = mymap[key];
+            // get操作已经刷新缓存,只需更新value
             node* test = cache[key];
-            test->key = key;
             test->value = value;   
         }
     }

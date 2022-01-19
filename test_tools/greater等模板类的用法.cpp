@@ -29,6 +29,7 @@ public:
         vector<int>io {133, 22, 34, 444, 5};
         sort(io.begin(), io.end(), cmp);    // sort第三个参数传函数指针，在sort内比较大小会使用 cmp(a,b)
         sort(io.begin(), io.end(), greater1());    // 传参重载实现了()的类的类对象实例,这里传了个临时对象 在sort内比较大小会使用 greater1()(a,b)
+        sort(io.begin(), io.end(), greater<int>());
         for(auto&& i : io) {
             cout << i << endl;
         }

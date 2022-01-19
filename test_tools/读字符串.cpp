@@ -52,5 +52,14 @@ int main () {
     cout << *(--vec3.end()) << endl;
 
 
+
+
+    // substr 用法  arg1:起点 arg2:长度
+    string str="We think in generalities, but we live in details.";
+    string str2 = str.substr (3,5); // "think"
+    int pos = str.find("live"); // position of "live" in str
+    string str3 = str.substr (pos); // get from "live" to the end
+    cout << str2 << ' ' << str3 << '\n';
+
     return 0;
 }

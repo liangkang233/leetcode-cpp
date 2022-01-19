@@ -25,12 +25,12 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
     
-    // 仅声明未定义
+    // 成员函数的声明
     int something(int io) {};           // 普通类方法
     TreeNode(int x, TreeNode *left) {}; //类的构造函数
 };
 
-// 上述类内声明的外定义
+// 上述成员函数的类外定义
 int TreeNode::something(int io) {return io;};
 TreeNode::TreeNode(int x, TreeNode *left):val(x), left(left), right(nullptr) {};
 
@@ -61,18 +61,24 @@ TreeNode::TreeNode(int x, TreeNode *left):val(x), left(left), right(nullptr) {};
             return que.top().val;
         }
     };
-    //题目23  "重载<"，用默认的less（所以省略了该参数）
+    // 题目23  "重载类的<"，用默认的less（所以省略了该参数）
+    // 注意重载函数放在类内 默认会有this 下面这个两个参数的>重载一定要放类外 否则报错
+    struct Status {
+        int val;
+        ListNode *ptr;
+        // 类内重载
+        bool operator < (const Status &rhs) const {
+            return val > rhs.val;
+        }
+    };
+    // 算术 相等 比较 通常应该为非成员函数 即类外重载
+    bool operator > (const Status &lhs, const Status &rhs) {
+        return lhs.val > rhs.val;
+    }
+
     class Solution {
     public:
-        struct Status {
-            int val;
-            ListNode *ptr;
-            bool operator < (const Status &rhs) const {
-                return val > rhs.val;
-            }
-        };
         priority_queue <Status> q;
-
         ListNode* mergeKLists(vector<ListNode*>& lists) {
             for (auto node: lists) {
                 if (node) q.push({node->val, node});
@@ -87,9 +93,15 @@ TreeNode::TreeNode(int x, TreeNode *left):val(x), left(left), right(nullptr) {};
             return head.next;
         }
     };
+    
     // 题目 https://leetcode-cn.com/problems/maximum-number-of-events-that-can-be-attended/solution/you-xian-dui-lie-yi-tian-chu-yi-ge-xuan-pkcim/
     // "重载()" 其实greater和less就是一个模板调用的模板类，里面重载了元素的() 返回> 或<的bool
-    // 此处数据类型为pair，不知道该怎么重载其greater所以就这样写了。
+    // 内置类型运算符 无法重载 pair是一个模板类 所以可以重载pair运算符
+    bool operator() (const mypair& L, const mypair& R) {
+        return L.first + L.second > R.first + R.second;
+    }
+
+    // 最后一种方法 直接构造优先队列需要的 比较类 类似原greater
     struct com{
         bool operator()(pair<int,int>&a,pair<int,int>&b){
             return a.second>b.second;
