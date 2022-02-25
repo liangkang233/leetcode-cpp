@@ -23,6 +23,21 @@ void test () {
 }
 // Output:
 // myvector contains: 10 20 30 40 50 60 70
+// copy只负责拷贝元素，不负责开辟空间，源容器空间不足复制会报错
+// 追加容器一般用 insert
+
+//用法1:在指定位置it前“插入”值为val的元素,返回指向这个元素的迭代器,
+iterator insert( iterator it, const TYPE &val ); 
+//用法2:在指定位置it前“插入”num个值为val的元素 
+void insert( iterator it, size_type num, const TYPE &val ); 
+//用法3:在指定位置it前“插入”区间[start, end)的所有元素. 
+void insert( iterator it, input_iterator start, input_iterator end ); 
+
+// 使用back_inserter
+copy(v2.begin(),v2.end(),back_inserter(v1));
+move(v2.begin(),v2.end(),back_inserter(v1));
+// 切记move右值引用后并不代表该指向资源被释放，使用该元素的行为未定义 最好手动释放
+// 例如 一般对于stack的引用移动pop会写成：x = move(_q.front()); q.pop();这样
 
 
 //  容器常用打印方法,下面string替换为打印容器元素类型
@@ -81,12 +96,13 @@ int main ()
     a.insert(unordered_map<int, string>::value_type(3, "iop"));
 
     // insert插入重复索引不会覆盖什么也不执行。insert返回一个pair。
-    // 该pair的fist成员为一个指向插入元素或阻止插入的元素的迭代器
+    // 该pair的fist成员为一个指向插入元素或阻止插入的元素的pair
+    // first成员为指向元素的 下标 键值 迭代器
     // second成员为bool表示是否插入成功。
     // b.insert_or_assign //插入时发现有重复的会替换掉，
     // []方式也是可以覆盖的。
     auto test = a.insert(make_pair(1, "nihao"));
-    auto test = a.insert({1, "nihao"});
+    auto test = a.insert({1, "nihao"}); //等价上式
     // cout << typeid(test.first).name() << endl;
     cout << test.first->first << endl;
     cout << test.first->second << endl;
