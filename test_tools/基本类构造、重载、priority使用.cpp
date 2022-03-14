@@ -26,8 +26,8 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
     
     // 成员函数的声明
-    int something(int io) {};           // 普通类方法
-    TreeNode(int x, TreeNode *left) {}; //类的构造函数
+    int something(int io);           // 普通类方法
+    TreeNode(int x, TreeNode *left); // 类的构造函数
 };
 
 // 上述成员函数的类外定义

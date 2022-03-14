@@ -63,3 +63,42 @@ int main () {
 
     return 0;
 }
+
+// C分隔符切割字符串: strtok 
+// 该函数返回被分解的第一个子字符串，如果没有可检索的字符串，则返回一个空指针。 
+// strtok会将原字符串str的分隔符改为 '\0'  strtok内存储了类似静态局部变量保存上一次切割后的字符串
+    #include <string.h>
+    #include <stdio.h>
+    int main () {
+        char str[80] = "This is - www.runoob.com - website";
+        const char s[2] = "-";
+        char *token;
+        token = strtok(str, s); 		// 获取第一个子字符串
+        while( token != NULL ) {    	// 继续获取其他的子字符串
+            printf( "%s\n", token );
+            token = strtok(NULL, s);
+        }
+        return(0);
+    }
+
+// 转换字符串 C <stdlib.h>
+// atof, atoi, atol, atoll 
+// 或者 strtod, strtof, strtol, strtol, strtoll, strtold strtoul, strtoull
+// a代表char* 为c中字符串 其他的  注意这里的 f 转出来为double类型
+// itoa ltoa  其他情况可以用 sprintf 或 snprintf 转字符串
+#include <stdio.h>
+#include <stdlib.h>
+int main () {
+// 会将非数字字符串导入第二个参数 第三个参数(非浮点数才有)还可设定转换进制
+    char mytest[] = "0Xff mytest";
+    char *ptr;
+    int i = strtol(mytest, &ptr, 16);
+    // int i = strtol(mytest, nullptr, 16);
+    printf("%d, str:%s", i, ptr);
+    return 0;
+}
+
+// 转换字符串 C++ <string.h>
+// stof, stold, stol, stoll, stoul, stoull
+// s代表string 为c++中string      数字转字符串，只需to_string即可
+// to_string; 
