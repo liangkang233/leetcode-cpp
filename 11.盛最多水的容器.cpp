@@ -30,14 +30,33 @@ public:
     }
 };
 // @lc code=end
+// [1,2,4,3]\n
 
-    // 暴力法会超时
-    int maxArea(vector<int>& height) {
-        int ans = 0;
-        for (int i = 0; i < height.size(); i++) {
-            for (int j = i+1; j < height.size(); j++) {
-                ans = max( min(height[i], height[j]) * (j - i), ans);
-            }
-        }
-        return ans;
+// https://leetcode-cn.com/problems/container-with-most-water/solution/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution/
+// 理解了题解后，就能解释为什么 例如 [3,4,1,2] i=0, j=3时 为什么 j-- 而不是下法求出的 i++
+// 贪心的思路错了
+int maxArea(vector<int>& height) {
+    int ans = INT_MIN, i = 0, j = height.size()-1;
+    cout << height[i] << " " << height[j] << endl;
+    while (i < j) {
+        ans = max(min(height[i], height[j]) * (j-i), ans);
+        if(min(height[i+1], height[j]) >= min(height[i], height[j-1]))
+            i++;
+        else
+            j--;
+        cout << height[i] << " " << height[j] << endl;
     }
+    return ans;
+}
+
+
+// 暴力法会超时
+int maxArea(vector<int>& height) {
+    int ans = 0;
+    for (int i = 0; i < height.size(); i++) {
+        for (int j = i+1; j < height.size(); j++) {
+            ans = max( min(height[i], height[j]) * (j - i), ans);
+        }
+    }
+    return ans;
+}

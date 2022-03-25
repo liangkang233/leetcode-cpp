@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 // @lc code=start
@@ -42,3 +43,19 @@ public:
     }
 };
 // @lc code=end
+
+
+// 二刷
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        // 使用lower_bound upper_bound 来做
+        auto start = lower_bound(nums.begin(), nums.end(), target);
+        if(start==nums.end() || *start > target)
+            return vector<int>(2, -1);
+        else {
+            auto end = upper_bound(nums.begin(), nums.end(), target) - 1;
+            return vector<int>{(int)distance(nums.begin(), start), (int)distance(nums.begin(), end)};
+        }
+    }
+};

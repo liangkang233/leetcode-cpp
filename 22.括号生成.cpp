@@ -90,3 +90,36 @@ public:
             }
         }
     } */
+
+// 二刷
+class Solution {
+public:
+    void mydfs(vector<string>& result, string& temp, int i, int j) { // i 表示还需要几个i j表示还剩几个未配对左括号
+        if(i==0 && j==0) {
+            result.push_back(temp);
+            return ;
+        }
+        if(i>0) { // 添加左括号
+            temp.push_back('(');
+            mydfs(result, temp, i-1, j+1);
+            temp.pop_back();
+        }
+        if(j>0) { // 添加右括号
+            temp.push_back(')');
+            mydfs(result, temp, i, j-1);
+            temp.pop_back();
+        }
+    }
+    vector<string> generateParenthesis(int n) {
+        vector<string> result;
+        string temp;
+        mydfs(result, temp, n, 0);
+        return result;
+    }
+};
+// 1\n
+// 2\n
+// 3\n
+// 4\n
+// 7\n
+// 8\n

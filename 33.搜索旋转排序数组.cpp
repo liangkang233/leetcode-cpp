@@ -7,6 +7,8 @@
 #include<vector>
 using namespace std;
 
+// 153题目差不多
+
 // @lc code=start
 class Solution {
 public:
@@ -52,32 +54,29 @@ public:
 
 // 跟官方的思路差不多，不过不用先找到最大临界值再二分 直接进行判断二分 
 // 注意 边界 等于 问题
-class Solution1 {
+// 二刷
+class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int n = (int)nums.size();
-        if (!n) 
-            return -1;
-        else if (n == 1) 
-            return nums[0] == target ? 0 : -1;
-
-        int l = 0, r = n - 1;
-        while (l <= r) {
-            int mid = (l + r) / 2;
-            if (nums[mid] == target) return mid;    // target判断是否为mid
-            if (nums[0] <= nums[mid]) {             // 说明0到mid是升序
-                if (nums[0] <= target && target < nums[mid])  // target在该升序中
-                    r = mid - 1;
-                else 
-                    l = mid + 1;
-            } 
-            else {                                  // 说明mid到n-1是升序
-                if (nums[mid] < target && target <= nums[n - 1])  // target在该升序中
-                    l = mid + 1;
-                else 
-                    r = mid - 1;
+        int i = 0, j = nums.size()-1;
+        while (i <= j) {
+            int mid = i+j >> 1;
+            if(nums[mid] == target)
+                return mid;
+            if(nums[mid] < nums[j]) { // mid-j 递增
+                if(nums[mid] < target && nums[j] >= target)
+                    i = mid+1;
+                else
+                    j = mid-1;
+            }
+            else { // i-mid 递增
+                if(nums[mid] > target && nums[i] <= target)
+                    j = mid-1;
+                else
+                    i = mid+1;
             }
         }
+        // return i<nums.size() && nums[i]==target ? -1 : i;
         return -1;
     }
 };

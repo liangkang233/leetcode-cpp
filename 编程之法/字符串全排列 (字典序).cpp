@@ -6,7 +6,7 @@ using namespace std;
 
 // 蓝桥杯中带分数使用到这些思想
 // 或者直接使用 next_permutation
-/* 对于next_permutation函数，其函数原型为：
+/* 对于 next_permutation 函数，其函数原型为：
     #include <algorithm>
     bool next_permutation(iterator start,iterator end)
 当当前序列不存在下一个排列时，函数返回false，否则返回true */

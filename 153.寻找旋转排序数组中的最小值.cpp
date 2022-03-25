@@ -24,22 +24,26 @@ public:
 };
 // @lc code=end
 
-// 使用二分法寻找最小值
-class Solution1 {
+
+// 二刷
+// 33题差不多
+
+class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int low = 0;
-        int high = nums.size() - 1;
-        while (low < high) {
-            int pivot = (high + low) / 2;
-            if (nums[pivot] < nums[high]) {
-                high = pivot;
+        int i = 0, j = (int)nums.size() - 1;
+        while (i < j) {
+            int mid = i+j >> 1;
+            if(nums[mid] < nums[j]) { //mid 到 j 为递增
+                j = mid;
             }
-            else {
-                low = pivot + 1;
+            else { // i 到 mid 为递增
+                i = mid + 1;
             }
-        }
-        return nums[low];
+        }        
+        return nums[i];
     }
 };
 
+
+// 摸鱼做法 sort 后输出 nums[0]

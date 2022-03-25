@@ -30,7 +30,7 @@ public:
 // @lc code=end
 
 
-// 这个标准二分的改版更好 有重复数据也可排出结果
+// 这个标准二分的改版 等价求出 lower_bound
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {

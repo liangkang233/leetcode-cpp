@@ -75,3 +75,39 @@ public:
 };
 
 
+// 二刷
+class Solution {
+public:
+    // 法1 将数据位拆成二进制来计算，求二进制下的每一数位
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> ans;
+        for (int i = 0; i < 1<<nums.size(); i++) {
+            vector<int> temp;
+            for (int j = 0; j<nums.size(); j++) {
+                if(i & 1<<j)
+                    temp.push_back(nums[j]);
+            }
+            ans.push_back(temp);
+        }
+        return ans;
+    }
+
+    // 法2 dfs 回溯
+    vector<vector<int>> ans;
+    void mydfs(vector<int>& nums, vector<int>& temp, int index) {
+        if(index >= nums.size()) {
+            ans.push_back(temp);
+            return;
+        }
+        mydfs(nums, temp, index+1);
+        temp.push_back(nums[index]);
+        mydfs(nums, temp, index+1);
+        temp.pop_back();
+    }
+    vector<vector<int>> subsets2(vector<int>& nums) {
+        vector<int> temp;
+        mydfs(nums, temp, 0);
+        return ans;
+    }
+
+};

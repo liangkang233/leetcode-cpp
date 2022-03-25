@@ -53,3 +53,35 @@ vector<vector<int>> permuteUnique(vector<int>& nums) {
         ans.push_back(nums);
     return ans;     
 }
+
+
+// 递归回溯 和90题一样去重思路 最后出来的结果就是字典序的
+// visit 记录下标是否访问过 
+class Solution {
+public:
+    void mydfs(vector<vector<int>>& ans, vector<int>& nums, vector<int>& temp, vector<bool>& visit) {
+        if(temp.size() == nums.size()){
+            ans.push_back(temp);
+            return;
+        }
+        for (int i = 0; i < nums.size(); i++) {
+            if(visit[i] || (i>0 && !visit[i-1] && nums[i-1]==nums[i])) // 剪枝 去重
+                continue;
+            temp.push_back(nums[i]);
+            visit[i] = true;
+            mydfs(ans, nums, temp, visit);
+            temp.pop_back();
+            visit[i] = false;
+        }
+    }
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<bool> visit(nums.size(), false);
+        vector<int> temp;
+        sort(nums.begin(), nums.end());
+        mydfs(ans, nums, temp, visit);
+        return ans;
+    }
+};
+// [1,2,3,4]\n
+// [1,-3,-7,-2,5,9,4,-8]\n

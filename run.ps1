@@ -1,1 +1,0 @@
-./'Vs test'/Project1/Project1.sln
