@@ -112,3 +112,16 @@ TreeNode::TreeNode(int x, TreeNode *left):val(x), left(left), right(nullptr) {};
 
     // list用法: http://c.biancheng.net/view/6892.html
     
+
+    // multiset set 自定义元素比较规则 与 队列一样 传入重载了()的比较类
+    #include <set>
+    struct rule{
+        bool operator()(pair<int,int>&a, pair<int,int>&b){
+            return a.second + a.first > b.second + b.first;
+        }
+    };
+    set<pair<int, int>, rule> myset;
+
+    // 或者重载元素的比较运算符
+    multiset<Status, greater<Status>>
+

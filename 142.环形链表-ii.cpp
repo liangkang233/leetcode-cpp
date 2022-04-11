@@ -66,3 +66,41 @@ public:
         return nullptr;
     }
 };
+
+// https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/huan-xing-lian-biao-ii-by-leetcode-solution/
+// 下面为不完备证明  完整的还是看官方
+// slow: i = x + b + k(b+c)   => 2i = 2x + 2b + 2k(b+c)
+// fast: 2i = x + b + n(b+c)
+// 上式子相减 0 = x + b + (2k-n)(b+c) => x = c + (n-2k-1)(b+c)
+// 此时 让 fast 节点回到初始位置, slow 不变 继续两个节点同时步进1位 重合时即为答案
+
+
+
+// 计算过程: 设重合处 需要经历 x 步 坐标为 x-1，尾部经历 n 步 坐标 n-1
+// 在第i步重合 fast slow指针 此时 fast 经过 2i 步， slow 经过 i 步。
+// 2i = (n+1) + (i-x)  =>  x = n+1- i
+// 此时 让 fast 节点回到初始位置, slow 不变 继续两个节点同时步进1位
+// 当 fast = x 时， slow = i+x = n+1 也到达重合点x 即为输出答案
+// 二刷
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        if(head) {
+            int index = 0;
+            ListNode * fast = head, *slow = head;
+            while(fast->next && fast->next->next) {
+                fast=fast->next->next;
+                slow = slow->next;
+                if(slow == fast) {
+                    ListNode *fast = head;
+                    while (fast != slow) {
+                        fast = fast->next;
+                        slow = slow->next;
+                    }
+                    return fast;
+                }
+            }
+        }
+        return nullptr;
+    }
+};

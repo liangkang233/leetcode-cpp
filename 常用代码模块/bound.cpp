@@ -16,11 +16,12 @@ public:
 
 int main() {
 	int x = 1;
-    int a[5] = { 1,2,3,4,5 };
-    // 找不到对应值时会返回 vector.end() 若是输入指针则返回-1的地址
-    int *p = upper_bound(a, a + 5, x);
+    int a[5] = {3,7,9,12,15};
+    // 若是输入指针则 注意不能超出数组有效范围 没有那个end属性 查找大于数组最大值时返回的也是最后一个元素的指针
+    // 返回值是对应元素的下标或迭代器 找不到对应值时会返回 vector.end() 
+    int *p = upper_bound(a, a + 4, x);
     cout << "*p = " << *p << endl;
-    p = lower_bound(a, a + 5, x);
+    p = lower_bound(a, a + 4, x);
     cout << "*p = " << *p << endl;
 
     // 以函数对象的形式定义查找规则 j为容器遍历值 i为输入的查找值
@@ -35,11 +36,11 @@ int main() {
 
     // uper找出大于指定值，即找出j>i才停 j是遍历值 函数内成立跳出循环
     // 以函数对象的形式定义查找规则 i为容器遍历值 j为输入的查找值
-    vector<int>::iterator iter = upper_bound(myvector.begin(), myvector.end(), x, mycomp2());
-    if(iter==myvector.end())
+    vector<int>::iterator iter1 = upper_bound(myvector.begin(), myvector.end(), x, mycomp2());
+    if(iter1==myvector.end())
     	cout << "error"<<endl;
     else
-    	cout << "*iter = " << *iter;
+    	cout << "*iter1 = " << *iter1;
     return 0;
 }
 
@@ -69,7 +70,9 @@ public:
 };
 
 // 推荐做法
-// 衍生 std::lower_bound 的类似实现 寻找大于等于指定num的第一个下标
+// 衍生 std::lower_bound 的类似实现 寻找大于等于指定num的第一个下标 
+
+// last 初始值 = size时 就和 lower_bound 一样 超出范围会返回 end下标
 int mylower_bound(int* array ,int size,int key){
 	int first = 0, middle ,last = size-1;
 	while(first<last){

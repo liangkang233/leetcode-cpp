@@ -28,3 +28,18 @@ public:
 };
 // @lc code=end
 
+// 二刷
+class Solution {
+public:
+    int integerBreak(int n) {
+        // 易知 i>2 时 最大乘积 dp[i-1] 一定至少拆解为两个数乘积 返回值就是 dp 其余情况直接 return 1
+        // dp[i] 为不包含自身在内的 i 拆分数最大乘积
+        vector<int> dp(n, 1); // dp[0] = dp[1] = 1
+        for (int i = 2; i < n; i++) {
+            for (int j = 0; j < i; j++)
+                dp[i] = max(dp[i], (i-j) * max(dp[j], j+1));
+        }
+        return dp.back();
+    }
+};
+

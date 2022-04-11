@@ -1,5 +1,5 @@
 /*
- * @lc app=leetcode.cn id=410 lang=cpp
+ * @lc app=leetcode.cn id=56 lang=cpp
  *
  * [56] 合并区间
  */
@@ -50,3 +50,25 @@ public:
         }
         return merged;
     }
+
+// 二刷
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        vector<vector<int>> ans;
+        sort(intervals.begin(), intervals.end());
+        // for(auto && i : intervals)
+        //     cout << i[0] << " " << i[1] << endl;
+        int L = intervals[0][0], R = intervals[0][1];
+        for (int i = 1; i < intervals.size(); i++) {
+            if(intervals[i][0] > R) {
+                ans.push_back(vector<int>{L, R});
+                L = intervals[i][0];
+            }
+            R = max(intervals[i][1], R);
+        }
+        ans.push_back(vector<int>{L, R});
+        return ans;
+    }
+};
+// [[80,200],[27,30],[56,301],[23,623],[90,412],[3,54],[5,674],[23,56],[90,598]]\n

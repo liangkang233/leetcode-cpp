@@ -63,6 +63,7 @@ public:
 
 
 // 法2 使用辅助栈（官方），同步当前栈最小值状态
+// 感觉投机取巧了
 class MinStack1 {
     stack<int> x_stack;
     stack<int> min_stack;
@@ -90,3 +91,46 @@ public:
     }
 };
 
+// 二刷
+struct Node {        // 构建辅助的单向链表
+    int val, minVal; // 当前指针的值 以及链表头到当前尾部的最小值
+    Node* last;
+    Node(int a, int b, Node* c): val(a), minVal(b), last(c) {}
+};
+
+class MinStack {
+public:
+    Node* tail;
+    MinStack() {
+        tail = nullptr;
+    }
+    
+    void push(int val) {
+        if(!tail)
+            tail = new Node(val, val, nullptr);
+        else
+            tail = new Node(val, min(val, tail->minVal), tail);
+    }
+    
+    void pop() {
+        if(tail) {
+            Node* temp = tail;
+            tail = tail->last;
+            delete temp;
+        }
+    }
+    
+    int top() {
+        if(tail)
+            return tail->val;
+        else 
+            return -1;
+    }
+    
+    int getMin() {
+        if(tail)
+            return tail->minVal;
+        else 
+            return -1;
+    }
+};

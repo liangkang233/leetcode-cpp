@@ -30,7 +30,8 @@ public:
 // @lc code=end
 
 
-// 这个标准二分的改版 等价求出 lower_bound
+// 这个标准二分的改版 有效求出插入位置 范围为 0-size 会超出下标范围 
+// 效果和 lower_bound 一样
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
@@ -47,7 +48,9 @@ public:
 };
 
 
-// 衍生 std::lower_bound 的类似实现 寻找大于等于指定num的第一个下标
+// 衍生 std::lower_bound 的类似实现 寻找第一个大于等于指定num的下标 不会超出下标范围
+
+// last 初始值 = size时 就和 lower_bound 一样 超出范围会返回 end下标
 int mylower_bound(int* array ,int size,int key){
 	int first = 0, middle ,last = size-1;
 	while(first<last){

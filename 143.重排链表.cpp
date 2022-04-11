@@ -51,6 +51,7 @@ public:
 // @lc code=end
 
 // 时间 空间复杂度为 O(N)
+// 错误的 题目要求 不只是更改节点值 是进行节点交换
 class Solution1 {
 public:
     // 直接记录在数组中
@@ -73,3 +74,36 @@ public:
     }
 };
 
+
+// 二刷
+// 快慢指针 找到链表中点 反转后拼接
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        if(head && head->next){
+            ListNode* fast = head, *slow = head;
+            while (fast->next && fast->next->next) {
+                slow = slow->next;
+                fast = fast->next->next;
+            } // slow 为中点 奇数个   偶数个为偏左中点
+            fast = slow->next;
+            slow->next = nullptr;
+            // 反转链表
+            ListNode* rHead = fast;
+            while (fast->next) {
+                ListNode* temp = fast->next->next;
+                fast->next->next = rHead;
+                rHead = fast->next;
+                fast->next = temp;
+            }
+            // 拼接链表
+            while (rHead) {
+                ListNode* temp = head->next, *temp1 = rHead->next;
+                head->next = rHead;
+                rHead->next = temp;
+                head = temp;
+                rHead = temp1;
+            }
+        }
+    }
+};

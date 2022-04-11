@@ -23,9 +23,10 @@ while (start < end) {
 // @lc code=start
 class Solution {
 public:
-    // 以行首为目标二分 后对改行的列二分
+    // 以第一列即行首为目标二分 后对该行进行列二分
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         auto row = [](const vector<int>& a, const vector<int>& b) {return a[0] < b[0];};
+        // 注意第二个形参一定要 const 建议全部写成const, 第三个比较参数的类型要与前面容器元素类型一致 即target 要从int -> vector
         auto it = upper_bound(matrix.begin(), matrix.end(), vector<int>{target}, row);
         int index = distance(matrix.begin(), it); // 以行首二分 寻找第一个大于 target 值  没找到返回的it为end
         index--;
@@ -37,9 +38,10 @@ public:
 };
 // @lc code=end
 
-// 如果行首一定大于上一行尾才可使用此法 否则要从最右边列开始二分查找 ./test_tools/二维二分法.cpp
+// 如果行首一定大于上一行尾才可使用此法 否则要从最右边列开始二分查找 ./常用代码模块/二维二分法.cpp
 // 以右上角启动 找到第一行为起始 使用upper 然后减一 删掉右边的列
 // 然后对该列进行二分 找到upper减一的行 删掉上面的行 如此迭代
+// 题目240 就是这样
 
 // [[1,3,5,7],[10,11,16,20],[23,30,34,60]]\n60\n
 // [[1,3,5,7],[10,11,16,20],[23,30,34,60]]\n0\n

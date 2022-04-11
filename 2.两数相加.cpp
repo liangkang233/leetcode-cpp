@@ -45,3 +45,26 @@ public:
 };
 // @lc code=end
 
+// 二刷 直接在l1上操作 省时间和空间
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* ans = l1;
+        for (int flag = 0; flag || l1 || l2; ) {
+            int temp1 = 0, temp2 = 0;
+            if(l1) temp1 = l1->val;
+            if(l2) temp2 = l2->val;
+            l1->val = flag + temp1 + temp2;
+            if(l1->val >= 10) {
+                flag = 1;
+                l1->val -= 10;
+            } else
+                flag = 0;
+            if(l2)  l2 = l2->next;
+            if (!l1->next && (flag || l2))
+                l1->next = new ListNode(0, nullptr);
+            if(l1)  l1 = l1->next;
+        }
+        return ans;
+    }
+};

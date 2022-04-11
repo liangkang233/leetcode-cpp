@@ -66,6 +66,8 @@ public:
 };
 // @lc code=end
 
+
+// 可以压缩为空间复杂度O(1)
 class Solution1 {
 public:
     // 动态规划 O(n), 仅仅维护以第i个数结尾的数组而不是 维护第x个至第y个的数组

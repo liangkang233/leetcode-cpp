@@ -25,6 +25,25 @@ public:
 };
 // @lc code=end
 
+// 二刷 稍微省点空间
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<int> dp(n, 1); // 记录每一行格子 dp[i] i列的路径数量
+        for (int i = 1; i < m; i++) {
+            vector<int> temp(n, 1);
+            for (int j = 1; j < n; j++) {
+                temp[j] = dp[j] + temp[j-1];
+            }
+            swap(temp, dp);
+        }
+        return dp[n-1];
+    }
+};
+// 30\n8\n
+
+
+
 // 排列组合做法
 /* 从左上角到右下角的过程中，我们需要移动 m+n−2 次，
 其中有 m-1 次向下移动，n-1 次向右移动。

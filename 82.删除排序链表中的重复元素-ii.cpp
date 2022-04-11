@@ -16,7 +16,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-// @lc code=startclass Solution {
+// @lc code=start
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
@@ -43,3 +43,25 @@ public:
 // [1,1,1,2,3]\n
 // []\n
 // [1]\n
+
+// 二刷 加了delete 就很慢  刷题不考虑内存泄漏也太 👶🌶
+// @lc code=start
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode myhead = ListNode(-1, head), *temp = &myhead; // 不需要new一个对象
+        while (temp && temp->next) {
+            if(temp->next->next && temp->next->next->val == temp->next->val) {
+                int val = temp->next->val;
+                while(temp->next && temp->next->val == val) {
+                    ListNode* del = temp->next; 
+                    temp->next = temp->next->next;
+                    delete del;
+                }
+                continue;
+            }
+            temp = temp->next;
+        }
+        return myhead.next;
+    }
+};

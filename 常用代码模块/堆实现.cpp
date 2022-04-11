@@ -34,3 +34,52 @@ void heap_sort(int arr[], int len) {
         max_heapify(arr, 0, i - 1);
     }
 }
+
+
+
+
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+// 自实现大根堆 父节点i 左子节点 2i+1 右子节点 2i+2
+void maxtoheap(vector<int>& nums, int i, int len) {
+    while (2*i+1 < len) {
+        int son = 2*i+1;
+        if(2*i+2 < len && nums[2*i+2] > nums[2*i+1])
+            son++;
+        if(nums[son] > nums[i]) {
+            swap(nums[son], nums[i]);
+            i = son;
+        }
+        else
+            break;
+    }
+}
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        if(nums.size() <= 2)
+            return -1;
+        int len = nums.size();
+        for (int i = nums.size()/2-1; i >= 0; i--)
+            maxtoheap(nums, i, len);
+        for (int i = nums.size()-1; i > 0; i--) {
+            swap(nums[0], nums[i]);
+            maxtoheap(nums, 0, i);
+        }
+        for (auto &&i : nums)
+            cout << i << " ";
+        cout << endl; 
+    }
+};
+
+int main () {
+    vector<int> test{1,23,5,67523,23,574,2,3358,6554,687,1,6776,8,654};
+    Solution().majorityElement(test);
+    return 0;
+}

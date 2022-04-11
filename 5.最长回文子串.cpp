@@ -71,3 +71,58 @@ public:
         return s.substr(start, end - start + 1);
     }
 };
+
+
+// 二刷 节省空间的做法 压缩为1维
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int maxi = 0, count = 1;
+        // vector<vector<bool>> dp(s.size(), vector<bool>(s.size(), true));
+        vector<bool> dp(s.size(), true), temp(dp); //dp[j] 表示 i -> j 是否为回文 temp[j] 表示 i+1 -> j 是否为回文
+        for (int i = s.size()-2; i >= 0; i--) {
+            for (int j = i+1; j < s.size(); j++) {
+                if(temp[j-1] && s[i] == s[j]) {
+                    dp[j] = true;
+                    if(j-i+1 > count) {
+                        maxi = i;
+                        count = j-i+1;
+                    }
+                }
+                else 
+                    dp[j] = false;
+            }
+            swap(dp, temp);
+        }
+        return s.substr(maxi, count);
+    }
+};
+// @lc code=end
+// "asdjghajkhjkhsjadhfjaaaaaaaaaaaaaaoooooooooooooppppppppppsssshgjfkah"\n
+// "asdjghajkhjabccbaagffgfgfgfgfyuttyuioppoiuytytyuioppoiuythgjfkah"\n
+// "a"\n
+
+// 三刷
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.size(), maxLen = 1, index = 0;
+        // vector<vector<bool>> dp(n, vector<bool>(n, true)); // i j 相等默认为true
+        vector<bool> dp(n, true), temp(dp); // 优化为一维 代表上一行尾部为j-1的记录 temp为当前行即尾部为j的记录
+        for (int j = 1; j < n; j++) { // i 为头 j 为尾
+            for (int i = j-1; i >= 0; i--) {
+                if(s[i]==s[j] && dp[i+1]) {
+                    temp[i] = true;
+                    if(j-i+1 > maxLen) {
+                        maxLen = j-i+1;
+                        index = i;
+                    }
+                }
+                else
+                    temp[i] = false;
+            }
+            swap(dp, temp);
+        }
+        return s.substr(index, maxLen);
+    }
+};

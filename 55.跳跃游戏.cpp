@@ -12,6 +12,7 @@
 using namespace std;
 
 // @lc code=start
+// 从头到尾的贪心遍历 比尾部反向遍历要快
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
@@ -26,6 +27,21 @@ public:
 };
 // @lc code=end
 
+// 贪心 从尾部遍历到头 记录能够到达头部的最小下标 只要当前位置到达最小下标的距离小于等于跳跃值即可判定该节点为true
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int R = nums.size() - 1;
+        for (int i = nums.size() - 2; i >= 0 ; i--) {
+            if(nums[i] >= R - i)
+                R = i;
+        }
+        return nums[0] >= R - 0;
+    }
+};
+// [0]
+// [2,3,1,1,4,6,7,3,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,6]\n
+// [3,2,1,0,4]\n
 
 
 // bfs 会超时很慢
