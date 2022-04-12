@@ -5,6 +5,8 @@ using namespace std;
 
 #define mynull -1000
 
+// 用于测试的辅助构建树函数
+
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
