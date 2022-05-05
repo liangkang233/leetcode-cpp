@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <stack>
 using namespace std;
 
 // Definition for singly-linked list.
@@ -104,6 +105,35 @@ public:
                 head = temp;
                 rHead = temp1;
             }
+        }
+    }
+};
+
+// 三刷 用栈做
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        stack<ListNode*> st;
+        ListNode* fast = head, *slow = head;
+        // fast && fast->next   slow 节点偶数 为偏向右边的节点 奇数为正中间
+        // fast->next && fast->next->next   slow 为偏向左边的中间节点 奇数为正中间
+        while (fast->next && fast->next->next) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        fast = slow->next;
+        slow->next = nullptr;
+        while(fast) { // push 栈
+            st.push(fast);
+            fast = fast->next;
+        }
+        slow = head;
+        while (!st.empty()) {  // 合并 两个链表  前半段链表slow开头个数 >= 后半段个数
+            ListNode* temp = slow->next, *rhead = st.top();
+            st.pop();
+            slow->next = rhead;
+            rhead->next = temp;
+            slow = temp;
         }
     }
 };

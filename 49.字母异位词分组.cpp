@@ -64,3 +64,35 @@ var groupAnagrams = function (strs) {
     return [...ans.values()];
 };
  */
+
+// 二刷 感觉效果 不如 sort 字符串
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> ans;
+        unordered_map<string, int> mymap; // key为转换过来的键值 ans为对应下标
+        auto toKey = [](const string& a) -> string {
+            string key;
+            int count[26] = {0};
+            for(int i = 0; i < a.size(); i++)
+                count[a[i]-'a']++;
+            for (int i = 0; i < 26; i++) {
+                if(count[i] > 0) {
+                    key.push_back(i+'a');
+                    key += to_string(count[i]);
+                }
+            }
+            return key;
+        };
+        for (int i = 0; i < strs.size(); i++) {
+            string key = toKey(strs[i]);
+            if(mymap.find(key) == mymap.end()) {
+                ans.push_back(vector<string>{strs[i]});
+                mymap[key] = ans.size() - 1;
+            }else {
+                ans[mymap[key]].push_back(strs[i]);
+            }
+        }
+        return ans;
+    }
+};

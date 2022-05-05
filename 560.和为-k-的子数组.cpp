@@ -59,3 +59,21 @@ public:
         return count;
     }
 };
+
+// 二刷还是没掌握精髓 前缀和不需要用一个数组维护
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int ans = 0, n = nums.size();
+        vector<int> prefix(n + 1);
+        for (int i = 0; i < n; i++)
+            prefix[i+1] = prefix[i] + nums[i];
+        unordered_map<int, int> mymap;  // key 为数据  value为对应 出现次数
+        mymap[0] = 1;
+        for (int i = 0; i < n; i++) {
+            ans += mymap[prefix[i+1] - k];
+            mymap[prefix[i+1]]++;
+        }
+        return ans;
+    }
+};

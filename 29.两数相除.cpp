@@ -4,6 +4,7 @@
  * [29] 两数相除
  */
 #include <iostream>
+#include <vector>
 using namespace std;
 
 /*
@@ -60,3 +61,31 @@ public:
 };
 // @lc code=end
 
+// https://leetcode-cn.com/problems/xoh6Oh/solution/zheng-shu-chu-fa-by-leetcode-solution-3572/
+class Solution {
+public:
+    // 如果结果溢出 返回 2^31-1   大体思路 用加法 来做除法
+    int divide(int dividend, int divisor) {
+        if(dividend == 0)
+            return 0;
+        if(dividend == INT_MIN && divisor == -1)
+            return INT_MAX; // 溢出转为特定值
+        if(divisor == INT_MIN) // divisor为最小值时防止溢出
+            return dividend == INT_MIN ? 1 : 0;
+        int a = dividend > 0 ? -dividend : dividend; // a b 皆转为负数
+        int b = divisor > 0 ? -divisor : divisor;
+        int ans = 0;
+        vector<int> temp{b}; // 不能有除法 乘法 所以只能用加法 做倒序
+        // while (a <= temp.back() + temp.back()) // 防止溢出 用下式
+        while (a - temp.back() <= temp.back())
+            temp.push_back(temp.back() + temp.back());
+        for (int i = temp.size()-1; i>=0; i--) {
+            if(a <= temp[i]) {
+                ans += (1 << i);
+                a -= temp[i];
+            }
+        }
+        // 注意 ^ 优先级
+        return (a ^ b) >= 0 ? ans : -ans; // 用除数符号位 判断是否为负数
+    }
+};

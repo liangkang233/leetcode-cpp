@@ -95,3 +95,51 @@ int findKthLargest(vector<int>& nums, int k) {
     return nums[0];
 }
 
+// 二刷 使用小根堆 时刻维护第k大的元素
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int, vector<int>, greater<int>> myque; // 小根堆
+        for (int i = 0; i < nums.size(); i++) {
+            if(myque.size() < k)
+                myque.push(nums[i]);
+            else if (nums[i] > myque.top()) {
+                myque.pop();
+                myque.push(nums[i]);
+            }
+        }
+        return myque.top();        
+    }
+};
+// @lc code=end
+// [3,2,3,1,2,4,5,5,6]\n4
+
+// 快排
+class Solution {
+public:
+    int part (vector<int>& nums, int L, int R) {
+        int stand = nums[L];
+        while (L < R) {
+            cout << L << R << endl;
+            while (L < R && stand >= nums[R]) --R;
+            nums[L] = nums[R];
+            while (L < R && nums[L] >= stand) ++L;
+            nums[R] = nums[L];
+        }
+        nums[L] = stand;
+        return L;
+    }
+    void quickSelect(vector<int>& nums, int L, int R) {
+        if(L < R) {
+            int index = part(nums, L, R);
+            quickSelect(nums, L, index-1);
+            quickSelect(nums, index+1, R);
+        }
+    }
+    int findKthLargest(vector<int>& nums, int k) {
+        quickSelect(nums, 0, nums.size() - 1);
+        // for (auto &&i : nums)
+        //     cout << i << " ";
+        return nums[k-1];
+    }
+};

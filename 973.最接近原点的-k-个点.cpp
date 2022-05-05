@@ -57,3 +57,36 @@ public:
         return ans;
     }
 };
+
+
+// 二刷 直接堆的效果甚至没有 sort好 
+// 这里的数组应该优化为 pair 第一个元素为矢量距离  第二个元素为其 points下标
+class mycmp {
+public:
+    bool operator() (const vector<int>& A, const vector<int>& B) {
+        return pow(A[0], 2) + pow(A[1], 2) < pow(B[0], 2) + pow(B[1], 2);
+    }
+};
+
+class Solution {
+public:
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        priority_queue<vector<int>, vector<vector<int>>, mycmp> myque; // 大根堆 维护k个元素的大根堆
+        auto myfun = [](const vector<int>& A, const vector<int>& B) {
+            return pow(A[0], 2) + pow(A[1], 2) < pow(B[0], 2) + pow(B[1], 2);};
+        for (int i = 0; i < points.size(); i++) {
+            if(myque.size() < k)
+                myque.push(points[i]);
+            else if (myfun(points[i], myque.top())) {
+                myque.push(points[i]);
+                myque.pop();
+            }
+        }
+        vector<vector<int>> ans(k);
+        for (int i = 0; i < k; i++) {
+            ans[i] = myque.top();
+            myque.pop();
+        }
+        return ans;
+    }
+};

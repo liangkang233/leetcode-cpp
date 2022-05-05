@@ -24,14 +24,16 @@ int main () {
     }
     while (c_str == ' ') ;
 
-// 法2  类似法1 使用cin.get 读入
+// 法2  cin读取只有空格回车的字符串时并不会继续传入数据 可以采用cin.get 读入回车 空格等单个字符
+// 这里仅仅是 读取一行串 并不需要 cin.get
     while (cin >> temp) {
         vec2.push_back(temp);
         if (cin.get() == '\n')
             break;
     }
     
-// 法3 读入一行，以其作为一个string流
+// 法3 读入一行，以其作为一个string流 stringstream 输入输出皆可  istringstream 与 ostringstream 结合体
+// 下面的示例 有点脱裤子放屁了
     string str;
     getline(cin, str);
     stringstream strin(str);
@@ -40,8 +42,8 @@ int main () {
     }
     
 
-    // 使用ostream打印数据
-    ostream_iterator<int> output(cout, ",");
+    // 使用 ostream_iterator 打印数据
+    ostream_iterator<int> output(cout, ","); // 头文件 <iterator>
     copy(vec1.begin(), --vec1.end(), output);
     cout << *(--vec1.end()) << endl;
 
@@ -52,6 +54,20 @@ int main () {
     cout << *(--vec3.end()) << endl;
 
 
+
+    // istream_iterator 用法  基本用不上
+    double value1, value2;
+    std::cout << "Please, insert two values: ";
+    std::istream_iterator<double> eos;              // end-of-stream iterator
+    std::istream_iterator<double> iit (std::cin);   // stdin iterator  其迭代器 自动移动添加 没有begin end之类操作
+
+    if (iit!=eos)
+        value1=*iit;
+    ++iit;
+    if (iit!=eos)
+        value2=*iit;
+
+    std::cout << value1 << "*" << value2 << "=" << (value1 * value2) << '\n';
 
 
     // substr 用法  arg1:起点 arg2:长度

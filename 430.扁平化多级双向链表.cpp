@@ -50,3 +50,34 @@ public:
 // @lc code=end
 
 // [1,null,2,null,3,null]\n
+
+
+// 二刷
+class Solution {
+public:
+    Node* mydfs(Node* head) { // 返回递归后的尾巴
+        // cout << head->val << endl;
+        if(head->child || head->next) {
+            Node* temp = head->next;
+            if(head->child) {
+                Node* tail = mydfs(head->child);
+                head->next = head->child;
+                head->next->prev = head;
+                head->child = nullptr;
+
+                tail->next = temp;
+                if(!temp) // 右边不存在 该递归尾巴即为child尾巴
+                    return tail;
+                temp->prev = tail;
+            }
+            return mydfs(temp);
+        }
+        return head;
+    }
+
+    Node* flatten(Node* head) {
+        if(head)
+            mydfs(head);
+        return head;
+    }
+};

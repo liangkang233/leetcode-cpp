@@ -46,3 +46,34 @@ public:
 // [0,0,0,0,0,0,0,0,0]\n
 // [-2,-2,1,1,1,1]\n
 // [1,2,-2,-1]\n
+
+// 二刷 注意此题不可像 167 那样二分查找 结果会少
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> ans;
+        if(nums.size() < 3)
+            return ans;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size() - 2 && nums[i] <= 0; i++) {
+            int target = -nums[i], L = i + 1, R = nums.size()-1;
+            if(nums[R] + nums[R-1] < target || (i > 0 && nums[i] == nums[i-1])) continue;
+            while (L < R) {
+                // cout << L << " " << R << endl;
+                if(nums[L] + nums[R] == target) {
+                    ans.push_back(vector<int>{nums[i], nums[L], nums[R]});
+                    L++;
+                    while (L<R && nums[L] == nums[L-1])
+                        L++;
+                }
+                else if(nums[L] + nums[R] < target) {
+                    L++;
+                }
+                else {
+                    R--;
+                }
+            }
+        }
+        return ans;
+    }
+};

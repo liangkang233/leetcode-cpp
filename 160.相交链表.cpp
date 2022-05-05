@@ -62,3 +62,23 @@ public:
         return nullptr;
     }
 };
+
+// 二刷
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode* tempA = headA, *tempB = headB;
+        bool flag = true;
+        while (tempA != tempB) {
+            if(!tempA)
+                tempA = headB;
+            else
+                tempA = tempA->next;
+            if(!tempB)
+                tempB = headA;
+            else
+                tempB = tempB->next;
+        } // 同时为空 说明两链表无接触
+        return tempA ? tempA : nullptr;
+    }
+};

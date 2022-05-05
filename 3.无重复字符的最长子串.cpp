@@ -58,3 +58,21 @@ public:
         return num > maxnum ? num : maxnum; //防止max是默认值,或者没更新
     }
 };
+
+// 二刷 滑动窗口
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int ans = 0, myset[127] = {0};
+        for (int i = 0, j = 0; i < s.size(); i++) {
+            if(myset[s[i]] > 0) {
+                while (j <= i && myset[s[i]] > 0 ) {
+                    myset[s[j++]] = 0;
+                }
+            }
+            myset[s[i]] = 1;
+            ans = max(ans, i-j+1);
+        }
+        return ans;
+    }
+};

@@ -53,7 +53,7 @@ bool isPrime1(int n) {
 // 质数还有一个特点，就是它总是等于 6x-1 或者 6x-5，其中 x 是大于等于1的自然数。
 bool isPrime2(int num) {
     if (num <= 3) {
-        return num > 1;
+        return num > 1; // 小于0 1  0 都是合数
     }
     // 不在6的倍数两侧的一定不是质数
     if (num % 6 != 1 && num % 6 != 5) {

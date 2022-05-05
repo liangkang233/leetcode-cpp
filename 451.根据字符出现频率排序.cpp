@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <queue>
 #include <algorithm>
 using namespace std;
 
@@ -63,3 +64,29 @@ public:
 };
 
 
+// 二刷 使用堆 不如用sort
+typedef pair<char,int> mypair;
+class mycmp {
+public:
+    bool operator() (const mypair& a, const mypair& b) {
+        return a.second < b.second;
+    }
+};
+
+class Solution {
+public:
+    string frequencySort(string s) {
+        unordered_map<char, int> mymap;
+        priority_queue<mypair, vector<mypair>, mycmp>myque;
+        for (int i = 0; i < s.size(); i++)
+            mymap[s[i]]++;
+        for (auto &&pi : mymap)
+            myque.emplace(pi);
+        string ans;
+        while(!myque.empty()) {
+            ans.append(myque.top().second, myque.top().first);
+            myque.pop();
+        }
+        return ans;
+    }
+};

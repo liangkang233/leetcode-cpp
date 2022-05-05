@@ -4,6 +4,7 @@
  * [30] 串联所有单词的子串
  */
 
+// TODO
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,7 +14,6 @@ using namespace std;
 class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words) {
-        // TODO
     }
 };
 // @lc code=end

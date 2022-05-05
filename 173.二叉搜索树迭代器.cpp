@@ -60,6 +60,42 @@ public:
 };
 // @lc code=end
 
+// 二刷
+class BSTIterator {
+public:
+    stack<TreeNode*> st;
+    TreeNode* Now;
+    BSTIterator(TreeNode* root) {
+        Now = root;
+        while (Now) {
+            st.push(Now);
+            Now = Now->left;
+        }
+    }
+    
+    bool hasNext() {
+        return !st.empty();
+    }
+    
+    int next() {
+        if(hasNext()) {
+            Now = st.top();
+            st.pop();
+            int ans = Now->val;
+            if(Now->right) {
+                Now = Now->right;
+                while (Now) {
+                    st.push(Now);
+                    Now = Now->left;
+                }
+            }
+            return ans;
+        }
+        return -1;
+    }
+};
+
+
 // 官方解法 空间复杂度O(h) h为树高
 class BSTIterator {
 private:
@@ -140,3 +176,33 @@ vector<int> postorderTraversal(TreeNode* root) {
     reverse(vec.begin(), vec.end());
     return vec;
 }
+
+// 三刷 用栈实现的中序
+class BSTIterator {
+private:
+stack<TreeNode*> st;
+public:
+    BSTIterator(TreeNode* root) {
+        while (root) {
+            st.push(root);
+            root = root->left;
+        }
+    }
+    int next() {
+        if(hasNext()) {
+            TreeNode* now = st.top();
+            st.pop();
+            int n = now->val;
+            now = now->right;
+            while (now) {
+                st.push(now);
+                now = now->left;
+            }                
+            return n;
+        }
+        return -1;
+    }
+    bool hasNext() {
+        return !st.empty();
+    }
+};

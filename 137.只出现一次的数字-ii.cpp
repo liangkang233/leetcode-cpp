@@ -70,3 +70,35 @@ public:
     }
 };
 
+
+// 二刷
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        unordered_map<int, int> mymap;
+        for (int i = 0; i < nums.size(); i++)
+            mymap[nums[i]]++;
+        for (auto &&pi : mymap) {
+            if(pi.second == 1)
+                return pi.first;
+        }
+        return -1;
+    }
+};
+class Solution {
+public:
+    // 尝试空间1
+    int singleNumber(vector<int>& nums) {
+        int ans = 0;
+        for(int i = 0; i < 32; i++) {
+            int count = 0, bit = 1 << i;
+            for(int j = 0; j < nums.size(); j++) {
+                if((nums[j] & bit) != 0)
+                    count++;
+            }
+            if(count % 3 == 1)
+                ans += 1 << i;
+        }
+        return ans;
+    }
+};

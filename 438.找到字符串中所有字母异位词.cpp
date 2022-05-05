@@ -42,3 +42,36 @@ public:
 // ""aba"\n"ab"\n"
 // ""abasukdfhkajvhuyaewqjklajdskljhakjnsahsjdhjnxjababjdbvughuwbabafbiuageiwhfjkhab"\n"b"\n"
 // ""abasukdfhkajvhuyaewqjklajdskljhakjnsahsjdhjnxjababjdbvughuwbabafbiuageiwhfjkhab"\n"ab"\n"
+
+
+// 对比数据部分可以继续优化
+class Solution {
+public:
+    bool myfun(vector<int>& record) {
+        for (int j = 0; j < 26; j++) {
+            if(record[j] != 0)
+                return false;
+        }
+        return true;
+    }
+    vector<int> findAnagrams(string s, string p) {
+        vector<int> ans, record(26);
+        int slen = s.size(), plen = p.size();
+        if(slen >= plen) {
+            int i = 0;
+            for (; i < plen; i++) {
+                record[p[i] - 'a']++;
+                record[s[i] - 'a']--;
+            }
+            if(myfun(record))
+                ans.push_back(0);
+            for(; i < slen; i++) {
+                record[s[i] - 'a']--;
+                record[s[i-plen] - 'a']++;
+                if(myfun(record))
+                    ans.push_back(i - plen + 1);
+            }
+        }
+        return ans;
+    }
+};

@@ -28,10 +28,12 @@ public:
 };
 // @lc code=end
 
+class Solution {
+public:
     // 迭代法 空间复杂度O(n) 时间复杂度O(1)
     ListNode* reverseList(ListNode* head) {
         ListNode* rev = nullptr;
-        while (head != nullptr) {
+        while (head != nullptr) {  // rhead 为翻转链表的队列头 head为上一次遍历的翻转头
             ListNode* temp = head->next;
             head->next = rev;
             rev = head;
@@ -39,3 +41,21 @@ public:
         }
         return rev;
     }
+};
+
+// 二刷
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode *now = head, *rhead = head;
+        if(head) {
+            while (now->next) { // rhead 为翻转链表的队列头 head为队列尾 不断变换head->next 上面的方法是不断移动head
+                ListNode * temp = now->next;
+                now->next = temp->next;
+                temp->next = rhead;
+                rhead = temp;
+            }
+        }
+        return rhead; 
+    }
+};

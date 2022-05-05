@@ -29,6 +29,22 @@ public:
     }
 };
 // @lc code=end
-
 // [1,2,3]\n0\n
 // [1,2,3,12,5,46,568,325,12,525,784,5,7,12,52,73,475,568,35,47]\n23\n
+
+// 二刷
+class Solution {
+public:
+    // 计入每个小于k乘积 中包含最后一个元素的子数组
+    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
+        if(k <= 1) return 0;
+        int ans = 0, temp = 1;
+        for (int i = 0, j = 0; i < nums.size(); i++) {
+            temp *= nums[i];
+            while (temp >= k)
+                temp /= nums[j++];
+            ans += i - j + 1;
+        }
+        return ans;
+    }
+};

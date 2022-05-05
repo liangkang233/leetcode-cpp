@@ -4,13 +4,13 @@
  * [142] 环形链表 II
  */
 
-//  Definition for singly-linked list.
+// Definition for singly-linked list.
 #include <iostream>
 using namespace std;
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int a) : val(a), next(nullptr) {}
 };
 
 // @lc code=start
@@ -69,18 +69,18 @@ public:
 
 // https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/huan-xing-lian-biao-ii-by-leetcode-solution/
 // 下面为不完备证明  完整的还是看官方
-// slow: i = x + b + k(b+c)   => 2i = 2x + 2b + 2k(b+c)
-// fast: 2i = x + b + n(b+c)
-// 上式子相减 0 = x + b + (2k-n)(b+c) => x = c + (n-2k-1)(b+c)
+// slow: i = a + b + k(b+c)   => 2i = 2x + 2b + 2k(b+c)
+// fast: 2i = a + b + n(b+c)
+// 上式子相减 0 = a + b + (2k-n)(b+c) => a = c + (n-2k-1)(b+c)
 // 此时 让 fast 节点回到初始位置, slow 不变 继续两个节点同时步进1位 重合时即为答案
 
 
 
-// 计算过程: 设重合处 需要经历 x 步 坐标为 x-1，尾部经历 n 步 坐标 n-1
+// 计算过程: 设重合处 需要经历 a 步 坐标为 a-1，尾部经历 n 步 坐标 n-1
 // 在第i步重合 fast slow指针 此时 fast 经过 2i 步， slow 经过 i 步。
-// 2i = (n+1) + (i-x)  =>  x = n+1- i
+// 2i = (n+1) + (i-a)  =>  a = n+1- i
 // 此时 让 fast 节点回到初始位置, slow 不变 继续两个节点同时步进1位
-// 当 fast = x 时， slow = i+x = n+1 也到达重合点x 即为输出答案
+// 当 fast = a 时， slow = i+a = n+1 也到达重合点x 即为输出答案
 // 二刷
 class Solution {
 public:
