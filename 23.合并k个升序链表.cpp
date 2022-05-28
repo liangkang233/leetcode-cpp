@@ -143,6 +143,35 @@ public:
 };
 
 
+// 二刷
+class mycmp {
+public:
+    bool operator() (const ListNode* L, const ListNode* R) {
+        return L->val > R->val;
+    }
+};
+
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        priority_queue<ListNode*, vector<ListNode*>, mycmp> myque; // 小根堆
+        ListNode head = ListNode(-1), *now = &head;
+        for (int i = 0; i < lists.size(); i++) {
+            if(lists[i])
+                myque.push(lists[i]);
+        }
+        while (!myque.empty()) {
+            now->next = myque.top();
+            now = now->next;
+            myque.pop();
+            if(now->next)
+                myque.push(now->next);
+        }
+        return head.next;
+    }
+};
+
+
 // 网友提供的堆优先队列，有库实现的用起来真的是方便，比自己实现的不用考虑的内存越界等问题
 // 优先队列使用方法： https://blog.csdn.net/xiaoquantouer/article/details/52015928
 

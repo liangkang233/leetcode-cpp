@@ -4,9 +4,6 @@
  * [310] 最小高度树
  */
 
-// TODO
-
-
 #include <iostream>
 #include <vector>
 #include <string>

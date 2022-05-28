@@ -76,3 +76,21 @@ int myupper_bound(int* array ,int size,int key){
 	}
 	return first;
 }
+
+// 二刷
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int L = 0, R = nums.size() - 1;
+        while (L < R) {
+            int mid = (L + R) / 2;
+            if(nums[mid] < target) {
+                L = mid + 1;
+            } else {
+                R = mid;
+            }
+        }
+        return L;
+        // return distance(nums.begin(), lower_bound(nums.begin(), nums.end(), target));
+    }
+};

@@ -63,3 +63,24 @@ public:
         return num; 
     }
 };
+
+// 二刷 官方的那种二分想不到
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int L = 0, R = nums.size()-1;
+        while (L < R) {
+            int mid = (L + R) / 2; // 假设mid下标为奇数 个数为偶
+            bool flag  = nums[mid+1] != nums[mid];
+            if(!(mid & 1)) { // mid下标 为偶数
+                flag = !flag;
+            }
+            if(flag) {
+                L = mid+1;
+            } else {
+                R = mid;
+            }
+        }
+        return nums[L];
+    }
+};

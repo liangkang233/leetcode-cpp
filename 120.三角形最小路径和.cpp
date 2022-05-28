@@ -32,3 +32,21 @@ public:
 };
 // @lc code=end
 
+
+// 二刷
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        vector<int> dp(triangle.size()+2, INT_MAX), temp(dp);
+        dp[1] = triangle[0][0];
+        for (int i = 2; i <= triangle.size(); i++) {
+            for (int j = 1; j <= i; j++)
+                temp[j] = min(dp[j-1], dp[j]) + triangle[i-1][j-1];
+            swap(dp, temp);
+        }
+        int ans = INT_MAX;
+        for (int i = 1; i < dp.size()-1; i++)
+            ans = min(ans, dp[i]);
+        return ans;
+    }
+};

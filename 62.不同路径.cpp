@@ -59,3 +59,22 @@ public:
     }
 };
 
+// 二刷
+// @lc code=start
+class Solution {
+public:
+    int uniquePaths(int m, int n) { // 即为求 古典概率Cn m+n 一定要正序的做累乘
+        m--, n--;
+        if(m<n)
+            swap(m,n); // 古典概率 交换行列不影响结果 取较小值
+        long long ans = 1;
+        for (int i = m+1, j = 1; j <= n; i++, j++)
+            ans = ans * i / j;
+        // 这么做有可能除法会有浮点数 造成错误
+        // int N = m+n, ans = 1;
+        // for (; m > 0; m--, N--)
+        //     ans = ans * N / m; 
+        return ans;
+    }
+};
+// @lc code=end

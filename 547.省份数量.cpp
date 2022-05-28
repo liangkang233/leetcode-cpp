@@ -110,3 +110,40 @@ public:
         return circles;
     }
 };
+
+// 典型并查集 二刷
+class Solution {
+private:
+    vector<int> fa, rank;
+public:
+    int find(int i) {
+        if(i != fa[i])
+            fa[i] = find(fa[i]);
+        return fa[i];
+    }
+    void merge(int x, int y) {
+        int rx = find(x), ry = find(y);
+        if(rank[rx] < rank[ry]) {
+            swap(rx, ry);
+        } else if(rank[rx] == rank[ry]) {
+            rank[rx] += 1;
+        }
+        fa[ry] = rx;
+    }
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        int ans = 0;
+        rank.resize(isConnected.size(), 0);
+        for(int i = 0; i < isConnected.size(); i++) fa.push_back(i);
+        for(int i = 0; i < isConnected.size(); i++) {
+            for (int j = 0; j < isConnected[i].size(); j++) {
+                if(isConnected[i][j])
+                    merge(i, j);
+            }
+        }
+        for (int i = 0; i < isConnected.size(); i++) {
+            if(fa[i] == i) // 父节点是自己 表明是 根节点之一
+                ans++;
+        }
+        return ans;
+    }
+};

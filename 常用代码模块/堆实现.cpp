@@ -1,3 +1,9 @@
+// range heap example
+#include <iostream>     // std::cout
+#include <algorithm>    // std::make_heap, std::pop_heap, std::push_heap, std::sort_heap
+#include <vector>       // std::vector
+using namespace std;
+
 // 堆排序
 // 父节点: i,   子节点: 2i+1 2i+2
 // 子节点: i,   父节点: (i-1)/2
@@ -36,50 +42,68 @@ void heap_sort(int arr[], int len) {
 }
 
 
-
-
-
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <unordered_map>
-using namespace std;
-
-// 自实现大根堆 父节点i 左子节点 2i+1 右子节点 2i+2
-void maxtoheap(vector<int>& nums, int i, int len) {
-    while (2*i+1 < len) {
-        int son = 2*i+1;
-        if(2*i+2 < len && nums[2*i+2] > nums[2*i+1])
-            son++;
-        if(nums[son] > nums[i]) {
-            swap(nums[son], nums[i]);
-            i = son;
-        }
-        else
-            break;
+// 自实现大根堆 make_heap 
+void maxHeapify(vector<int>& a, int i, int heapSize) {
+    int l = i * 2 + 1, r = i * 2 + 2, largest = i; //完全二叉树 左右子节点
+    if (l < heapSize && a[l] > a[largest]) {
+        largest = l;
+    } 
+    if (r < heapSize && a[r] > a[largest]) {
+        largest = r;
+    }
+    if (largest != i) {
+        swap(a[i], a[largest]);
+        maxHeapify(a, largest, heapSize);
     }
 }
-
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-        if(nums.size() <= 2)
-            return -1;
-        int len = nums.size();
-        for (int i = nums.size()/2-1; i >= 0; i--)
-            maxtoheap(nums, i, len);
-        for (int i = nums.size()-1; i > 0; i--) {
-            swap(nums[0], nums[i]);
-            maxtoheap(nums, 0, i);
-        }
-        for (auto &&i : nums)
-            cout << i << " ";
-        cout << endl; 
+void buildMaxHeap(vector<int>& a, int heapSize) { // 生成堆
+    for (int i = heapSize / 2; i >= 0; --i) {
+        maxHeapify(a, i, heapSize);
+    } 
+}
+void my_push_heap(vector<int>& a, int i) { // 最后一个元素下标i是新加入的
+    while (i > 1) {
+        int fa = (i-1)/2;
+        if (a[i] <= a[fa])
+            break;
+        //如果子小于父就要不断向上交换下去
+        swap(a[i], a[fa]);
+        i = fa;
     }
-};
+}
+void my_pop_heap(vector<int>& a, int& heapSize) { // 需要删除堆头 即为a[0]的值
+    swap(a[0], a[heapSize]);
+    heapSize--;
+    maxHeapify(a, 0, heapSize);
+}
 
+// !!! 注意重载 make_heap 运算符时 与 priority_queue 不同 传入的是函数指针或实例的类 而非重载了 () 的类的类型名
+// 并且之后的 pop_heap push_heap 都需要 传入该运算函数
+
+// 使用 make_heap 的实例
 int main () {
-    vector<int> test{1,23,5,67523,23,574,2,3358,6554,687,1,6776,8,654};
-    Solution().majorityElement(test);
-    return 0;
+    int myints[] = {10,20,30,5,15};
+    std::vector<int> v(myints,myints+5);
+
+    std::make_heap (v.begin(),v.end());
+    std::cout << "initial max heap   : " << v.front() << '\n';
+
+    for (unsigned i=0; i<v.size(); i++)
+        std::cout << v[i] << ' ' ;
+    std::cout << '\n';
+
+    std::pop_heap (v.begin(),v.end()); v.pop_back(); // 注意是先pop_heap 会把删除的元素放在容器尾 再pop_back
+    std::cout << "max heap after pop : " << v.front() << '\n';
+
+    v.push_back(99); std::push_heap (v.begin(),v.end());
+    std::cout << "max heap after push: " << v.front() << '\n';
+
+    std::sort_heap (v.begin(),v.end());
+
+    std::cout << "final sorted range :";
+    for (unsigned i=0; i<v.size(); i++)
+        std::cout << ' ' << v[i];
+    std::cout << '\n';
+
+  return 0;
 }

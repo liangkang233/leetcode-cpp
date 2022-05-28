@@ -105,3 +105,40 @@ public:
 
 
 // 二刷
+class LRUCache {
+public:
+    typedef pair<int, int> pi;
+    list<pi> lru; // 存储对应 key value 的pair 链表 按照使用顺序排列 
+    unordered_map<int, list<pi>::iterator> mymap; // 记录key对应 链表节点 迭代器
+    int capacity;
+
+    LRUCache(int capacity) {
+        this->capacity = capacity;
+    }
+    
+    int get(int key) {
+        if(mymap.find(key) != mymap.end()) {
+            pi temp = *mymap[key];
+            lru.erase(mymap[key]); // 刷新缓存
+            lru.emplace_back(temp);
+            list<pi>::iterator it = lru.end();
+            mymap[key] = --it;
+            return temp.second;
+        }
+        return -1;
+    }
+    
+    void put(int key, int value) {
+        if(get(key) < 0) {
+            if(mymap.size() == capacity) {
+                int del = lru.front().first;
+                mymap.erase(mymap.find(del));
+                lru.pop_front();
+            }
+            lru.emplace_back(make_pair(key, value));
+            list<pi>::iterator it = lru.end();
+            mymap[key] = --it;
+        } else // 缓存已经刷新过
+            mymap[key]->second = value;
+    }
+};

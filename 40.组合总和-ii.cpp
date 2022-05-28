@@ -69,3 +69,34 @@ public:
         return res;
     }
 };
+
+// 二刷  这里还是没掌握到精髓 
+// if(i > index && candidates[i] == candidates[index]) // 去重
+// 应该写为 if(i > index && candidates[i] == candidates[i-1]) 就无需后面的第二个去重了
+class Solution {
+private:
+    vector<vector<int>> ans;
+public:
+    void mydfs(vector<int>& candidates, vector<int>& temp, int index, int target) {
+        if (target == 0) {
+            ans.push_back(temp);
+        } else {
+            for (int i = index; i < candidates.size() && target-candidates[i] >= 0; i++) {
+                if(i > index && candidates[i] == candidates[index]) // 去重
+                    continue;
+                temp.push_back(candidates[i]);
+                // cout << candidates[i] << " ";
+                mydfs(candidates, temp, i+1, target-candidates[i]);
+                temp.pop_back();
+                while (i+1 < candidates.size() && candidates[i+1] == candidates[i]) i++; // 相同元素只需对第一次出现的进行dfs 
+                // 这一步相当于把当前不选的值相同的都删了 多次一举直接之前就continue
+            }
+        }
+    }
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        sort(candidates.begin(), candidates.end());
+        vector<int> temp;
+        mydfs(candidates, temp, 0, target);
+        return ans;
+    }
+};

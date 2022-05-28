@@ -230,6 +230,12 @@
 
   
 
+- [ ] [69.x-的平方根](https://github.com/liangkang233/leetcode-cpp/blob/main/69.x-的平方根.cpp)    **[math , binary-search]**
+
+  ​	注意边界, 求浮点数也可用二分 推荐牛顿法
+
+  
+
 - [ ] [71.简化路径](https://github.com/liangkang233/leetcode-cpp/blob/main/71.简化路径.cpp)    **[string , stack]**
 
   ​	用栈记录上次的路径，尾部手动补一个'/' 省得判断  自己写的很烂，不好看  推荐使用 双端队列 [*deque*](http://c.biancheng.net/view/6860.html)
@@ -252,7 +258,9 @@
 
   ​	滑动窗口做的，之前做过好几道类似的。
 
-  
+- [ ] [77.组合](https://github.com/liangkang233/leetcode-cpp/blob/main/77.组合.cpp)    **[backtracking]**
+
+  ​	ji剪枝 递归回溯 即可
 
 - [ ] [78.子集](78.子集.cpp)    **[array , backtracking , bit-manipulation]**
 
@@ -296,6 +304,10 @@
 
   
 
+- [ ] [93.复原-ip-地址](https://github.com/liangkang233/leetcode-cpp/blob/main/93.复原-ip-地址.cpp)    **[string , backtracking]**
+
+  ​	没有技巧 纯编码
+
 - [x] [94.二叉树的中序遍历](https://github.com/liangkang233/leetcode-cpp/blob/main/94.二叉树的中序遍历.cpp)    **[hash-table , stack , tree]**
 
   
@@ -334,6 +346,12 @@
 
   
 
+- [ ] [115.不同的子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/115.不同的子序列.cpp)    **[string , dynamic-programming]**
+
+  ​	与 [1143.最长公共子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/1143.最长公共子序列.cpp) 很像 
+
+  
+
 - [ ] [117.填充每个节点的下一个右侧节点指针-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/117.填充每个节点的下一个右侧节点指针-ii.cpp)    **[tree , depth-first-search , breadth-first-search]**
 
   ​	一般的做法是层序遍历的bfs，官方答案 能够节省空间复杂度 优秀
@@ -364,6 +382,14 @@
 
   
 
+- [ ] [127.单词接龙](https://github.com/liangkang233/leetcode-cpp/blob/main/127.单词接龙.cpp)    **[breadth-first-search]**
+
+  ​	相似题 [752.打开转盘锁](https://github.com/liangkang233/leetcode-cpp/blob/main/752.打开转盘锁.cpp)
+
+- [ ] [128.最长连续序列](https://github.com/liangkang233/leetcode-cpp/blob/main/128.最长连续序列.cpp)    **[array , union-find]**
+
+  ​	很巧妙的用无序set 做排序判断连续值 时间复杂度O(n)
+
 - [x] [129.求根节点到叶节点数字之和](https://github.com/liangkang233/leetcode-cpp/blob/main/129.求根节点到叶节点数字之和.cpp)    **[tree , depth-first-search]**
 
 - [ ] [130.被围绕的区域](https://github.com/liangkang233/leetcode-cpp/blob/main/130.被围绕的区域.cpp)    **[depth-first-search , breadth-first-search , union-find]**
@@ -373,6 +399,10 @@
 - [ ] [131.分割回文串](https://github.com/liangkang233/leetcode-cpp/blob/main/131.分割回文串.cpp)    **[backtracking]**
 
   ​	这道题需要考虑优化问题，可惜测试样例没有给大量的数据使用普通回文判断不会超时
+
+- [ ] [132.分割回文串-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/132.分割回文串-ii.cpp)    **[dynamic-programming]**
+
+  ​	131的进阶题，求出dp所有下标组合的长度后，还需用set去重的bfs求出最短路径。蠢到了，官方解法是再次动态规划，求出结果，多多学习。
 
   
 
@@ -519,9 +549,17 @@
 
   
 
+- [ ] [208.实现-trie-前缀树.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/208.实现-trie-前缀树.cpp)    **[design , trie]**
+
+  ​	前缀树典型应用
+
 - [ ] [209.长度最小的子数组](https://github.com/liangkang233/leetcode-cpp/blob/main/209.长度最小的子数组.cpp)    **[array , two- pointers , binary- search , sliding-window]**
 
   ​	滑动窗口时间复杂度为O(n)，前缀和的二分可以做到 log(n)
+
+- [ ] [210.课程表-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/210.课程表-ii.cpp)    **[depth-first-search , breadth-first-search , graph , topological-sort]**
+
+  ​	经典拓扑排序问题 dfs 注意判断是否有环
 
   
 
@@ -536,6 +574,12 @@
   ​	类似[378.有序矩阵中第-k-小的元素](https://github.com/liangkang233/leetcode-cpp/blob/main/378.有序矩阵中第-k-小的元素.cpp) 可以试试修改快排来做，堆排 优先队列也可 **TOP K问题** 先考虑堆的做法
 
   ​	
+
+- [ ] [220.存在重复元素-iii](https://github.com/liangkang233/leetcode-cpp/blob/main/220.存在重复元素-iii.cpp)    **[sort , ordered-map]**
+
+  ​	用排序sort做，每添加一个新元素就对原有元素左右相减 窗口遍历过程中 若出现重复必定true
+
+  
 
 - [ ] [230.二叉搜索树中第k小的元素](https://github.com/liangkang233/leetcode-cpp/blob/main/230.二叉搜索树中第k小的元素.cpp)    **[binary-search , tree]**
 
@@ -570,8 +614,14 @@
   ​	 没想到 官方的Z字寻找 时间复杂度 O(n*m) 跑出来效果比二维二分好。可能是样本数据量大部分比较小 这个二维效果不太好。
 
   
-  
+
 - [x] [242.有效的字母异位词](https://github.com/liangkang233/leetcode-cpp/blob/main/242.有效的字母异位词.cpp)    **[hash-table , sort]**
+
+  
+  
+- [ ] [256.粉刷房子](https://github.com/liangkang233/leetcode-cpp/blob/main/256.粉刷房子.cpp)    **[dynamic-programming]**
+
+  ​	Plus题，映射[剑指 Offer II 091. 粉刷房子 - 力扣（LeetCode）](https://leetcode.cn/problems/JEj789/)
 
   
 
@@ -590,6 +640,18 @@
 - [ ] [264.丑数II](https://github.com/liangkang233/leetcode-cpp/blob/main/264.丑数-ii.cpp)	**[math , dynamic-programming , heap]]**
 
   ​	直接用两个容器动态规划会超时，需要优化。也可以使用堆(优先队列)
+
+  
+
+- [ ] [269.火星字典](https://github.com/liangkang233/leetcode-cpp/blob/main/269.火星字典.cpp)    **[unknow]**
+
+  ​	plus题 这个拓扑排序进阶 写的不好 看看官方的吧
+
+  
+
+- [ ] [279.完全平方数](https://github.com/liangkang233/leetcode-cpp/blob/main/279.完全平方数.cpp)    **[math , dynamic-programming , breadth-first-search]**
+
+  ​	使用动态规划 bfs皆可 贪心结果不一定正确。
 
   
 
@@ -653,7 +715,13 @@
 
 - [ ] [322.零钱兑换](https://github.com/liangkang233/leetcode-cpp/blob/main/322.零钱兑换.cpp)    **[dynamic-programming]**
 
-  ​	还记得是来实验室做的第一道动态规划 梦开始的地方 经典
+  ​	还记得是来实验室做的第一道动态规划 梦开始的地方 经典，此题即为完全01背包问题 变形
+
+  
+
+- [ ] [329.矩阵中的最长递增路径](https://github.com/liangkang233/leetcode-cpp/blob/main/329.矩阵中的最长递增路径.cpp)    **[depth-first-search , topological-sort , memoization]**
+
+  ​	直接dfs遍历即可 注意标记去重。
 
   
 
@@ -708,6 +776,10 @@
   ​	[264.丑数II](https://github.com/liangkang233/leetcode-cpp/blob/main/264.丑数-ii.cpp)有类似做法。此题先找前k对，因为最小值必然只会找到数组的前 min(k, size) 个元素，之后用堆 set去重。注意pair无法直接用于unordered_set，需要传入哈希函数。另一种做法是直接 `set<tuple<int, int, int>> s;` 做排序去重
 
   
+  
+- [ ] [377.组合总和-ⅳ](https://github.com/liangkang233/leetcode-cpp/blob/main/377.组合总和-ⅳ.cpp)    **[dynamic-programming]**
+
+  ​	多重背包问题 变形 ，和硬币换算类似。把i j 遍历元素一换 就是求所有子序列的值(顺序不同视作统一序列)
 
 
 - [ ] [378.有序矩阵中第-k-小的元素](https://github.com/liangkang233/leetcode-cpp/blob/main/378.有序矩阵中第-k-小的元素.cpp)    **[binary-search , heap]**
@@ -754,6 +826,12 @@
 
   
 
+- [ ] [399.除法求值](https://github.com/liangkang233/leetcode-cpp/blob/main/399.除法求值.cpp)    **[union-find , graph]**
+
+  ​	题不难，但是写起来很累
+
+  
+
 - [x] [409.最长回文串](https://github.com/liangkang233/leetcode-cpp/blob/main/409.最长回文串.cpp)    **[hash-table]**
 
 - [ ] [410.分割数组的最大值](https://github.com/liangkang233/leetcode-cpp/blob/main/410.分割数组的最大值.cpp)    **[binary-search , dynamic-programming]**
@@ -770,7 +848,19 @@
 
   ​	做这个题让我想起以前本科做的单片机计算器
 
+- [x] [416.分割等和子集](https://github.com/liangkang233/leetcode-cpp/blob/main/416.分割等和子集.cpp)    **[dynamic-programming]**
+
+  ​	进接题目为 [494.目标和.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/494.目标和.cpp)
+
+  
+
   ​	
+
+- [ ] [421.数组中两个数的最大异或值](https://github.com/liangkang233/leetcode-cpp/blob/main/421.数组中两个数的最大异或值.cpp)    **[bit-manipulation , trie]**
+
+  ​	使用位运算效果一般 常规方法还是前缀树 每个节点的深度都为31，这里关键点在于数字是反向的填入即从高位到低位的填入树中。异或过程即找反向的树，不存在就转为跟当前树同向。
+
+  
 
 - [ ] [429.n-叉树的层序遍历](https://github.com/liangkang233/leetcode-cpp/blob/main/429.n-叉树的层序遍历.cpp)    **[unknow]**
 
@@ -806,6 +896,10 @@
 
   
 
+- [ ] [444.序列重建](https://github.com/liangkang233/leetcode-cpp/blob/main/444.序列重建.cpp)    **[unknow]**
+
+  ​	拓扑排序进接题 此处优化方案为     mp 是字典记录每个 1~n 在 org 中的下标，表示字典 mp[1~n]=0~n-1。若 mp 唯一存在 必定 seqs 所有相邻节点都存在 以此来判断唯一
+
 - [ ] [445.两数相加-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/445.两数相加-ii.cpp)    **[linked-list]**
 
   ​	写的很shit 直接stack 反向加，其他做法是转成string 两数相加
@@ -833,6 +927,12 @@
 - [ ] [479.最大回文数乘积](https://github.com/liangkang233/leetcode-cpp/blob/main/479.最大回文数乘积.cpp)    **[unknow]**
 
   ​	暴力枚举 的hard题 绝了，还是打表🐂
+
+  
+
+- [ ] [494.目标和](https://github.com/liangkang233/leetcode-cpp/blob/main/494.目标和.cpp)    **[dynamic-programming , depth-first-search]**
+
+  ​	do动态规划的转移式难想到，此题数据规模小 直接哈希打表记录勉强能过。
 
   
 
@@ -868,6 +968,12 @@
 
   
 
+- [ ] [528.按权重随机选择](https://github.com/liangkang233/leetcode-cpp/blob/main/528.按权重随机选择.cpp)    **[unknow]**
+
+  ​	生成随机数 二分查前缀
+
+  
+
 - [ ] [537.复数乘法](https://github.com/liangkang233/leetcode-cpp/blob/main/537.复数乘法.cpp)    **[math , string]**
 
   ​	写起来不太舒服，sscanf sprintf 格式化的做法，答案用正则表达式 查字符 切割字符(split=>strtok)皆可
@@ -887,7 +993,9 @@
 
 - [x] [541.反转字符串-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/541.反转字符串-ii.cpp)    **[string]**
 
-  ​	
+- [ ] [542.01-矩阵.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/542.01-矩阵.cpp)    **[depth-first-search , breadth-first-search]**
+
+  ​	此题用bfs扫描感觉比较好，dfs写不出来。答案的动态规划 想不到..
 
 
 - [ ] [547.省份数量](https://github.com/liangkang233/leetcode-cpp/blob/main/547.省份数量.cpp) 	**[depth-first-search , union-find]**
@@ -960,6 +1068,16 @@
 
   ​	与 [5.最长回文子串](https://github.com/liangkang233/leetcode-cpp/blob/main/5.最长回文子串.cpp) 一样
 
+- [ ] [648.单词替换](https://github.com/liangkang233/leetcode-cpp/blob/main/648.单词替换.cpp)    **[hash-table , trie]**
+
+  ​	前缀树 相关题目  析构函数不写可以提升速度😂
+
+  
+
+- [ ] [653.两数之和-iv-输入-bst.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/653.两数之和-iv-输入-bst.cpp)    **[tree]**
+
+  ​	搜索树中序遍历比较大小 set查询是否存在
+
   
 
 - [ ] [673.最长递增子序列的个数](https://github.com/liangkang233/leetcode-cpp/blob/main/673.最长递增子序列的个数.cpp)    **[dynamic-programming]**
@@ -968,7 +1086,23 @@
 
   
 
+- [ ] [676.实现一个魔法字典](https://github.com/liangkang233/leetcode-cpp/blob/main/676.实现一个魔法字典.cpp)    **[hash-table , trie]**
+
+  ​	前缀树 进阶题
+
+- [ ] [677.键值映射](https://github.com/liangkang233/leetcode-cpp/blob/main/677.键值映射.cpp)    **[trie]**
+
+  ​	前缀树常规题 记得初始化 该树初始值
+
+  ​	
+
 - [x] [680.验证回文字符串-ⅱ](https://github.com/liangkang233/leetcode-cpp/blob/main/680.验证回文字符串-ⅱ.cpp)    **[string]**
+
+  
+
+- [ ] [684.冗余连接](https://github.com/liangkang233/leetcode-cpp/blob/main/684.冗余连接.cpp)    **[tree , union-find , graph]**
+
+  ​	并查集基础应用
 
   
 
@@ -981,6 +1115,14 @@
 - [x] [693.交替位二进制数](https://github.com/liangkang233/leetcode-cpp/blob/main/693.交替位二进制数.cpp)    **[bit-manipulation]**
 
   
+
+- [x] [695.岛屿的最大面积](https://github.com/liangkang233/leetcode-cpp/blob/main/695.岛屿的最大面积.cpp)    **[array , depth-first-search]**
+
+  ​	
+
+- [ ] [703.数据流中的第-k-大元素](https://github.com/liangkang233/leetcode-cpp/blob/main/703.数据流中的第-k-大元素.cpp)    **[heap]**
+
+  ​	少用 make_heap 要注意的东西太多了
 
 
 - [ ] [705.设计哈希集合](https://github.com/liangkang233/leetcode-cpp/blob/main/705.设计哈希集合.cpp)    **[Unknown]**
@@ -1019,6 +1161,12 @@
 
   
 
+- [ ] [729.我的日程安排表-i](https://github.com/liangkang233/leetcode-cpp/blob/main/729.我的日程安排表-i.cpp)    **[array]**
+
+  ​	用有序map二分查来做，之后的做法类似[56.合并区间](https://github.com/liangkang233/leetcode-cpp/blob/main/56.合并区间.cpp) 要注意map下标没有重载+- 必须再创一个变量。还有线段树的做法 学不来。
+
+  
+
 - [x] [735.行星碰撞](https://github.com/liangkang233/leetcode-cpp/blob/main/735.行星碰撞.cpp)    **[stack]**
 
   ​	用数组构造栈，好活
@@ -1035,9 +1183,17 @@
 
   
 
+- [x] [746.使用最小花费爬楼梯](https://github.com/liangkang233/leetcode-cpp/blob/main/746.使用最小花费爬楼梯.cpp)    **[trie , dynamic-programming]**
+
 - [x] [747.至少是其他数字两倍的最大数](https://github.com/liangkang233/leetcode-cpp/blob/main/747.至少是其他数字两倍的最大数.cpp)    **[array , dynamic-programming]**
 
   ​	
+
+- [ ] [752.打开转盘锁](https://github.com/liangkang233/leetcode-cpp/blob/main/752.打开转盘锁.cpp)    **[bit-manipulation]**
+
+  ​	状态不好，写的很差  切记 这种题 用bfs 才能正确 否则dfs后面到达 中间值数字可能 花的步数更少 导致结果偏大
+
+  
 
 - [ ] [763.划分字母区间](https://github.com/liangkang233/leetcode-cpp/blob/main/763.划分字母区间.cpp)    **[string , recursion]**
 
@@ -1054,6 +1210,10 @@
 - [ ] [784.字母大小写全排列](https://github.com/liangkang233/leetcode-cpp/blob/main/784.字母大小写全排列.cpp)    **[ordered-map]**
 
   ​	与[46.全排列](https://github.com/liangkang233/leetcode-cpp/blob/main/46.全排列.cpp)  [47.全排列-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/47.全排列-ii.cpp) 有点像，注意要保留无变化的
+
+- [ ] [785.判断二分图](https://github.com/liangkang233/leetcode-cpp/blob/main/785.判断二分图.cpp)    **[graph , stack]**
+
+  ​	直接用两个set遍历记录，之前报错老是忘了 有可能没有遍历扩散到的节点。官方直接用一个数组记录即可，并查集也能做。
 
   
 
@@ -1073,6 +1233,10 @@
 
   
 
+- [ ] [820.单词的压缩编码](https://github.com/liangkang233/leetcode-cpp/blob/main/820.单词的压缩编码.cpp)    **[depth-first-search , graph , trie]**
+
+  ​	直接 哈希表 删同后缀字符长度 比前缀树 好写多了 效果还好。
+
 - [ ] [821.字符的最短距离](https://github.com/liangkang233/leetcode-cpp/blob/main/821.字符的最短距离.cpp)    **[union-find]**
 
   ​	遍历两遍 第一遍记录特定字符位置。想节约空间的话 将这两步合并。
@@ -1089,6 +1253,10 @@
 
   ​    若骨牌背向 此区间不变
 
+- [ ] [839.相似字符串组](https://github.com/liangkang233/leetcode-cpp/blob/main/839.相似字符串组.cpp)    **[union-find]**
+
+  ​	所有 单词都是 异位词 则相似即为 字符串两个字符不同。通过遍历判断相似 得出 edage 进行并查集 分组 此处可以不用路径压缩
+
   
 
 - [x] [841.钥匙和房间](https://github.com/liangkang233/leetcode-cpp/blob/main/841.钥匙和房间.cpp)    **[depth-first-search]**
@@ -1100,6 +1268,21 @@
   ​	用双指针写的很烦，像shit一样，用栈写非常香。
 
   
+
+- [x] [852.山脉数组的峰顶索引](https://github.com/liangkang233/leetcode-cpp/blob/main/852.山脉数组的峰顶索引.cpp)    **[array , binary-search]**
+
+  
+
+
+- [ ] [873.最长的斐波那契子序列的长度](https://github.com/liangkang233/leetcode-cpp/blob/main/873.最长的斐波那契子序列的长度.cpp)    **[minimax , dynamic-programming]**
+
+  ​	一开始想简单了，以为可以只用 dp[i] 的形式记录所有数据。最后的序列得需要 至少两个元素才可，用记录 斐波那契 序列的最后两位可以节省时间。还是官方的言简意赅。压缩到一维的map中。
+
+  
+
+- [ ] [875.爱吃香蕉的珂珂](https://github.com/liangkang233/leetcode-cpp/blob/main/875.爱吃香蕉的珂珂.cpp)    **[two-pointers]**
+
+  ​	二分扩展题，小技巧 a>0 时 a / b 向上取余 => (a + b -1 ) / b;
 
 - [ ] [876.链表的中间结点](https://github.com/liangkang233/leetcode-cpp/blob/main/876.链表的中间结点.cpp)    **[ordered-map , linked-list , two-pointers]**
 
@@ -1126,40 +1309,46 @@
 - [ ] [891.子序列宽度之和](https://github.com/liangkang233/leetcode-cpp/blob/main/891.子序列宽度之和.cpp)	**[greedy]**	
 
   ​	有难度，找公式。
+
   
-  
-  
+
 - [ ] [897.递增顺序搜索树](https://github.com/liangkang233/leetcode-cpp/blob/main/897.递增顺序搜索树.cpp)    **[math]**
 
   ​	官方解是直接改原链表指向。是否原地修改 看情况而定 
+
   
-  
-  
+
 - [ ] [917.仅仅反转字母](https://github.com/liangkang233/leetcode-cpp/blob/main/917.仅仅反转字母.cpp)    **[two-pointers , greedy]**
 
   ​	双指针简单应用  判断是否为字符使用 isalpha()
 
-  
 
+
+
+
+- [ ] [919.完全二叉树插入器](https://github.com/liangkang233/leetcode-cpp/blob/main/919.完全二叉树插入器.cpp)    **[math , queue]**
+
+  ​	层序遍历 补充父节点队列即可
+
+  
 
 - [ ] [925.长按键入](https://github.com/liangkang233/leetcode-cpp/blob/main/925.长按键入.cpp)    **[tree]**
 
   ​	第一次写的很烂，思路跟答案差不多，很多情况没考虑到。
-  
-  
-  
-- [ ] [919.完全二叉树插入器](https://github.com/liangkang233/leetcode-cpp/blob/main/919.完全二叉树插入器.cpp)    **[math , queue]**
 
-  ​	层序遍历 补充父节点队列即可
+
+- [ ] [926.将字符串翻转到单调递增](https://github.com/liangkang233/leetcode-cpp/blob/main/926.将字符串翻转到单调递增.cpp)    **[string]**
+
+  ​	做标记 记录从那个位置全为1即可解出
+
   
-  
-  
+
 - [ ] [933.最近的请求次数](https://github.com/liangkang233/leetcode-cpp/blob/main/933.最近的请求次数.cpp)    **[tree , depth-first-search]**
 
   ​	网络仿真软件的事件也是如此实现，按照时间顺序push入事件队列 处理事件。
+
   
-  
-  
+
 - [x] [953.验证外星语词典](https://github.com/liangkang233/leetcode-cpp/blob/main/953.验证外星语词典.cpp)    **[string]**
 
   ​	
@@ -1217,9 +1406,13 @@
 
   
 
+- [ ] [1122.数组的相对排序](https://github.com/liangkang233/leetcode-cpp/blob/main/1122.数组的相对排序.cpp)    **[array , sort]**
+
+  
+
 - [ ] [1143.最长公共子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/1143.最长公共子序列.cpp)    **[dynamic-programming]**
 
-  ​	典型二维动态规划 等价题目[583.两个字符串的删除操作](https://github.com/liangkang233/leetcode-cpp/blob/main/583.两个字符串的删除操作.cpp) 
+  ​	典型二维动态规划 等价题目[583.两个字符串的删除操作](https://github.com/liangkang233/leetcode-cpp/blob/main/583.两个字符串的删除操作.cpp)  二刷还是忘 艹🤡 涉及两个变量都相关的 转移方程 一般 `dp[i][j] 与 dp[i-1][j-1] 相关`    相关题目 [115.不同的子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/115.不同的子序列.cpp)
 
   
 
@@ -1237,7 +1430,7 @@
 
 - [ ] [1249.移除无效的括号](https://github.com/liangkang233/leetcode-cpp/blob/main/1249.移除无效的括号.cpp)    **[stack]**
 
-  ​	fdjk
+  ​	基本应用栈
 
   
 
@@ -1353,7 +1546,7 @@
 
   1. 子序列元素相同并不代表是 **同一子序列** ，只要子序列元素索引不同即为不同子序列，**子集合** 才是考虑元素不同（题目 891）
 
-  2. **子序列** 是不要求连续的，而 **子数组** 和 **子串** 一样，是需要连续的 
+  2. **子序列** 是不要求连续的 相对位置不变，而 **子数组** 和 **子串** 一样，是需要连续的 
 
   ​	例如 *12345678* 的子序列 可以是 *1345678* 子数组 只能是 *45678* 之类的
 
@@ -1385,40 +1578,51 @@
   3. C++ 科学计数法表达数字(double)  `0.01 => 1e-2;  100 => 1e2;`
   4. [C++ std库实现的二分查找](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/bound.cpp) lower_bound()返回第一个大于等于 upper_bound()返回第一个大于
   5. 随机值问题：[382.链表随机节点](https://github.com/liangkang233/leetcode-cpp/blob/main/382.链表随机节点.cpp) 无需注入srand随机种子   [rand使用方法](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/rand.cpp) ***srand正确用法应该放在类的构造函数内***，只初始化一次。
+  5. size() 返回值为无符号数，其与负数相比较时负数会转为无符号数，所以判断结果会出问题。一定要在判断前转为int。
 
-- size() 返回值为无符号数，其与负数相比较时负数会转为无符号数，所以判断结果会出问题。一定要在判断前转为int。
-
-- 顺序容器中关于 [emplace_back](https://github.com/liangkang233/leetcode-cpp/blob/main/test_tools/emplace_back.cpp) 用法 还包含了vector 的 size reserver
+- 顺序容器中关于 [emplace_back](https://github.com/liangkang233/leetcode-cpp/blob/main/test_tools/emplace_back.cpp) 用法 还包含了vector 的 size reserver 的注意事项
 
 - 找寻全部解时dfs效果比bfs效果好或者差不多，只需要一条路径或判断是否有效时 推荐bfs。bfs(队列) dfs(栈)的具体实现可采用递归 迭代，一般用递归好写点也好理解。dfs栈的状态如果会返回上次递归 则算法就是回溯。
 
-- multiset是元素可以重复的有序队列，非常好用，会自动排序队内元素。（set是不会出现元素重复的有序数组底层红黑树，所以元素无需排序时尽量hash实现的unordered_set）跟优先队列的区别，这个分析的不错 [优先队列能否被set或multiset（c++语法）替换？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/491514115)
+- Set map 相关
 
-- multiset erase 删除值时会将所有相等值删除，erase单个迭代器才是删单个元素。查询该值范围时可用 equal_range 返回一个pair 指向头 和末尾的后一个元素 erase输入两个迭代器删范围。
+  1. [map 基础语法 包含 key_cmp 与 value_cmp 区别](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/map.cpp)
 
-- unordered_set 不能直接用pair做key，需要传入hash函数 例如下 [参考1](https://blog.csdn.net/hxy1996520/article/details/105876960) [参考2](https://blog.csdn.net/hxy1996520/article/details/105876960)
+  1. multiset是元素可以重复的有序队列，非常好用，会自动排序队内元素。（set是不会出现元素重复的有序数组底层红黑树，所以元素无需排序时尽量hash实现的unordered_set）跟优先队列的区别，这个分析的不错 [优先队列能否被set或multiset（c++语法）替换？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/491514115)
 
-  ```cpp
-  struct SimpleHash {
-      size_t operator()(const std::pair<int, int>& p) const {
-          return hash<int>{}(p.first) ^ hash<int>{}(p.second);
-      }
-  };
-  
-  unordered_set<pair<int, int>, SimpleHash> myset; 
-  ```
+  2. multiset erase 删除值时会将所有相等值删除，erase单个迭代器才是删单个元素。查询该值范围时可用 equal_range 返回一个pair 指向头 和末尾的后一个元素 erase输入两个迭代器删范围。
+
+  3. unordered_set 不能直接用pair做key，需要传入hash函数 例如下 [参考1](https://blog.csdn.net/hxy1996520/article/details/105876960) [参考2](https://blog.csdn.net/hxy1996520/article/details/105876960)
+
+     ```cpp
+     struct SimpleHash {
+         size_t operator()(const std::pair<int, int>& p) const {
+             return hash<int>{}(p.first) ^ hash<int>{}(p.second);
+         }
+     };
+     
+     unordered_set<pair<int, int>, SimpleHash> myset; 
+     ```
 
 - [greater less 模板解析](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/greater等模板类的用法.cpp)
 
 - [字符串相关](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/读字符串.cpp)     [stringstream、istringstream、ostringstream 三者的区别](https://www.cnblogs.com/alking1001/p/11766002.html)
 
-- [常见容器 queue stack hashmap](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/常见语法备注.cpp) 双端队列:[*deque*](http://c.biancheng.net/view/6860.html) 双向链表 [*list*](http://c.biancheng.net/view/6892.html)
+- [常见容器 vector queue stack](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/常见语法备注.cpp) 双端队列:[*deque*](http://c.biancheng.net/view/6860.html) 双向链表 [*list*](http://c.biancheng.net/view/6892.html)
 
-- [基本类构造 重载 priority forrange 使用](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/基本类构造、重载、priority使用.cpp)
+- [基本类构造 重载 priority forrange 使用](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/基本类构造、重载、priority使用.cpp) 关于[堆的自实现](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/堆实现.cpp)
 
 - [C++格式的转换: **static_cast**  **dynamic_cast**]([static_cast 运算符](https://docs.microsoft.com/zh-cn/cpp/cpp/static-cast-operator?view=msvc-170)) 比c的强转安全
 
 - C++ 类定义的函数方法要在类内使用 需要 static 修饰 [举例](https://github.com/liangkang233/leetcode-cpp/blob/main/705.设计哈希集合.cpp) 102行  此处的自定义比较函数一般使用匿名函数
 
+- [C、C++格式化字符串 , Jacky Walker (wukongcoo1.github.io)](https://wukongcoo1.github.io/2019/09/10/C、CPlusPlus格式化字符串/) 可以实现 前缀补0 等操作
+
 - 在声明时可以不加 形参名，定义时再加。且在类内声明static函数，类外定义时不要加static [示例](https://blog.csdn.net/sinat_36053757/article/details/72636903) (声明时需要告诉编译器这是什么类型， 但定义时， 编译器会自己找声明C++中有很多类似语法：比如， 默认参数列表， 是声明的时候加默认参数， 定义函数的时候不需要; 定义inline函数也是声明的时候加inline， 定义的时候不加
+
+- 动态规划 [背包问题总结:](https://seramasumi.github.io/docs/Algorithms/mc-%E5%BE%AE%E8%AF%BE%E5%A0%82-%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98.html)
+
+  1. 常规 01 背包 i j 遍历  优化为1维 需要 j 逆序    i 为背包种类 j 为背包上限
+  2. 多重 01 背包 i j k 遍历 优化为1维 需要 j 逆序   i 为背包种类 j 为背包上限 k为对应背包可以出现的个数
+  3. 完全 01 背包 i j 遍历  优化为1维 需要 j 正序    i 为背包种类 j 为背包上限
 
