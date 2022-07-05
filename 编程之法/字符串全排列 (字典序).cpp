@@ -4,15 +4,15 @@
 // #include <vector>
 using namespace std;
 
-// À¶ÇÅ±­ÖĞ´ø·ÖÊıÊ¹ÓÃµ½ÕâĞ©Ë¼Ïë
-// »òÕßÖ±½ÓÊ¹ÓÃ next_permutation
-/* ¶ÔÓÚ next_permutation º¯Êı£¬Æäº¯ÊıÔ­ĞÍÎª£º
+// è“æ¡¥æ¯ä¸­å¸¦åˆ†æ•°ä½¿ç”¨åˆ°è¿™äº›æ€æƒ³
+// æˆ–è€…ç›´æ¥ä½¿ç”¨ next_permutation
+/* å¯¹äº next_permutation å‡½æ•°ï¼Œå…¶å‡½æ•°åŸå‹ä¸ºï¼š
     #include <algorithm>
     bool next_permutation(iterator start,iterator end)
-µ±µ±Ç°ĞòÁĞ²»´æÔÚÏÂÒ»¸öÅÅÁĞÊ±£¬º¯Êı·µ»Øfalse£¬·ñÔò·µ»Øtrue */
+å½“å½“å‰åºåˆ—ä¸å­˜åœ¨ä¸‹ä¸€ä¸ªæ’åˆ—æ—¶ï¼Œå‡½æ•°è¿”å›falseï¼Œå¦åˆ™è¿”å›true */
 
-// ´Ë·½·¨Î´¸Ä±äÔ­×Ö·û´®£¬Òª×öÈÎºÎ´¦ÀíÊ±¼ÓÔÚelseÍâ¼´¿É£¨ÖØ¸´×Ö·ûµÄÊä³öÅÅÁĞ´æÔÚÖØ¸´£©
-void StrAll(string str, int start, int end)     //È«ÅÅÁĞµİ¹é·¨(·Ç×ÖµäĞò)  
+// æ­¤æ–¹æ³•æœªæ”¹å˜åŸå­—ç¬¦ä¸²ï¼Œè¦åšä»»ä½•å¤„ç†æ—¶åŠ åœ¨elseå¤–å³å¯ï¼ˆé‡å¤å­—ç¬¦çš„è¾“å‡ºæ’åˆ—å­˜åœ¨é‡å¤ï¼‰
+void StrAll(string str, int start, int end)     //å…¨æ’åˆ—é€’å½’æ³•(éå­—å…¸åº)  
 {
     if (end <= 1)
         return ;
@@ -30,21 +30,21 @@ void StrAll(string str, int start, int end)     //È«ÅÅÁĞµİ¹é·¨(·Ç×ÖµäĞò)
     }
 }
 
-// ´Ë·½·¨Ê¹ÓÃÁËÒıÓÃ£¬Ã¿´ÎÅÅÁĞ»á¸Ä±äÔ­×Ö·û´®£¬Ê¹ÓÃ¸ü¼ÓÁé»î¿ÉÒÔÃæ¶ÔÖØ¸´×Ö·ûÎŞÖØ¸´ÅÅÁĞ £¨ÍÆ¼ö£©
-bool CalcAllPermutation(string& perm, int num){   //È«ÅÅÁĞ×ÖµäĞò
+// æ­¤æ–¹æ³•ä½¿ç”¨äº†å¼•ç”¨ï¼Œæ¯æ¬¡æ’åˆ—ä¼šæ”¹å˜åŸå­—ç¬¦ä¸²ï¼Œä½¿ç”¨æ›´åŠ çµæ´»å¯ä»¥é¢å¯¹é‡å¤å­—ç¬¦æ— é‡å¤æ’åˆ— ï¼ˆæ¨èï¼‰
+bool CalcAllPermutation(string& perm, int num){   //å…¨æ’åˆ—å­—å…¸åº
     
     int i, k;
-    //¢ÙÕÒµ½ÅÅÁĞÖĞ×îºó£¨×îÓÒ£©Ò»¸öÉıĞòµÄÊ×Î»Î»ÖÃi£¬x = ai   (ËµÃ÷Ö®ºóµÄÒ»¶¨ÊÇ½µĞò Ö®ºóµÄ·­×ª¾Í¿É±äÎªÉıĞò)
+    //â‘ æ‰¾åˆ°æ’åˆ—ä¸­æœ€åï¼ˆæœ€å³ï¼‰ä¸€ä¸ªå‡åºçš„é¦–ä½ä½ç½®iï¼Œx = ai   (è¯´æ˜ä¹‹åçš„ä¸€å®šæ˜¯é™åº ä¹‹åçš„ç¿»è½¬å°±å¯å˜ä¸ºå‡åº)
     for (i = num - 2; i>=0 && perm[i] >= perm[i + 1]; --i) ;
     if (i < 0)
         return false;
 
-    //¢ÚÕÒµ½ÅÅÁĞÖĞµÚiÎ»ÓÒ±ß×îºóÒ»¸ö±Èai ´óµÄÎ»ÖÃj£¬y = aj
+    //â‘¡æ‰¾åˆ°æ’åˆ—ä¸­ç¬¬iä½å³è¾¹æœ€åä¸€ä¸ªæ¯”ai å¤§çš„ä½ç½®jï¼Œy = aj
     for (k = num - 1; (perm[k] <= perm[i]); --k) ;
 
-    //¢Û½»»»x£¬y
+    //â‘¢äº¤æ¢xï¼Œy
     swap(perm[i], perm[k]);
-    //¢Ü°ÑµÚ(i+ 1)Î»µ½×îºóµÄ²¿·Ö·­×ª
+    //â‘£æŠŠç¬¬(i+ 1)ä½åˆ°æœ€åçš„éƒ¨åˆ†ç¿»è½¬
     reverse(perm.begin() + i + 1, perm.end());
     cout << perm << endl;
     return true;
@@ -53,14 +53,14 @@ bool CalcAllPermutation(string& perm, int num){   //È«ÅÅÁĞ×ÖµäĞò
 int main ()
 {
     string str;
-    cin >> str;     //ÊäÈëÒ»¸ö²»ÖØ¸´µÄ×Ö·û´®
+    cin >> str;     //è¾“å…¥ä¸€ä¸ªä¸é‡å¤çš„å­—ç¬¦ä¸²
 
-    // µİ¹é·¨
-    // cout << "È«²¿ÅÅÁĞÎª£º" << endl;
+    // é€’å½’æ³•
+    // cout << "å…¨éƒ¨æ’åˆ—ä¸ºï¼š" << endl;
     // cout << str << " size :" << str.size() << endl;
     // StrAll(str, 0, str.size());
 
-    // ×Öµä·¨
+    // å­—å…¸æ³•
     sort(str.begin(), str.end());
     cout << str << endl;
     while ( CalcAllPermutation(str, str.size()) ) ;

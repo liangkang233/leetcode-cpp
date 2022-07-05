@@ -20,7 +20,6 @@ struct node {
 class LFUCache {
 private:
     int cap, minF = 0;
-    list<node> li;                                // li 是根据 使用顺序 排列的链表
     unordered_map<int, list<node>> M;             // M 记录 该频率 对应的 list
     unordered_map<int, list<node>::iterator> mp;  // mp 记录 key 对应 list 元素 指针
 public:

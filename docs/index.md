@@ -142,6 +142,12 @@
 
   ​	需要去重和减枝 去重思路跟[90.子集-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/90.子集-ii.cpp)一样
 
+  
+
+- [ ] [42.接雨水](https://github.com/liangkang233/leetcode-cpp/blob/main/42.接雨水.cpp)    **[array , two-pointers , stack]**
+
+  ​	很经典的题 单调栈 动态规划 (优化为双指针) 皆可。注意单调栈在使用时是计入区间内雨水 所以元素至少两个作为边界
+
 - [ ] [43.字符串相乘](https://github.com/liangkang233/leetcode-cpp/blob/main/43.字符串相乘.cpp)    [math , string]
 
   ​	直接按照模拟的运算法则，num2的每一位乘上num1的每一位 再用[415.字符串相加](https://github.com/liangkang233/leetcode-cpp/blob/main/415.字符串相加.cpp)将数字相加，效果不好，而且代码量很大。官方直接用数组位来做 会好很多  之前的加法也应该这么做，真菜啊
@@ -918,6 +924,12 @@
 
   ​	
 
+- [ ] [460.lfu-缓存](https://github.com/liangkang233/leetcode-cpp/blob/main/460.lfu-缓存.cpp)    **[design]**
+
+  ​	经典 缓存机制设计 另一个 [LRU缓存](https://github.com/liangkang233/leetcode-cpp/blob/main/146.lru-缓存.cpp)
+
+  
+
 - [ ] [464.我能赢吗](https://github.com/liangkang233/leetcode-cpp/blob/main/464.我能赢吗.cpp)    **[dynamic-programming , minimax]**
 
   ​	[292.nim-游戏](https://github.com/liangkang233/leetcode-cpp/blob/main/292.nim-游戏.cpp)的扩展，一道很经典的博弈题，动态规划
@@ -1562,6 +1574,7 @@
 
   1. 舍得用变量，千万别想着节省变量，否则容易被逻辑绕晕
   2. head 有可能需要改动时，先增加一个 假head，返回的时候直接取 假head.next，这样就不需要为修改 head 增加一大堆逻辑了。
+  3. 链表指针 使用 next prev 来做 ++ -- 操作。
 
 - leetcode输入测试：
 
@@ -1600,10 +1613,9 @@
              return hash<int>{}(p.first) ^ hash<int>{}(p.second);
          }
      };
-     
      unordered_set<pair<int, int>, SimpleHash> myset; 
      ```
-
+  
 - [greater less 模板解析](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/greater等模板类的用法.cpp)
 
 - [字符串相关](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/读字符串.cpp)     [stringstream、istringstream、ostringstream 三者的区别](https://www.cnblogs.com/alking1001/p/11766002.html)
@@ -1625,4 +1637,18 @@
   1. 常规 01 背包 i j 遍历  优化为1维 需要 j 逆序    i 为背包种类 j 为背包上限
   2. 多重 01 背包 i j k 遍历 优化为1维 需要 j 逆序   i 为背包种类 j 为背包上限 k为对应背包可以出现的个数
   3. 完全 01 背包 i j 遍历  优化为1维 需要 j 正序    i 为背包种类 j 为背包上限
+
+- [LRU](https://github.com/liangkang233/leetcode-cpp/blob/main/146.lru-缓存.cpp)   [LFU](https://github.com/liangkang233/leetcode-cpp/blob/main/460.lfu-缓存.cpp)
+
+  1. Least Recently Used    LRU对于循环出现的数据，缓存命中不高
+
+     比如，这样的数据，1，1，1，2，2，2，3，4，1，1，1，2，2，2.....
+
+     当走到3，4的时候，1，2会被淘汰掉，但是后面还有很多1，2
+
+  2. Least Frequently Used  LFU对于交替出现的数据，缓存命中不高
+
+     比如，1，1，1，2，2，3，4，3，4，3，4，3，4，3，4，3，4......
+
+     由于前面被（1(3次)，2(2次)）3加入把2淘汰，4加入把3淘汰，3加入把4淘汰，然而3，4才是最需要缓存的，1去到了3次，谁也淘汰不了它了。
 

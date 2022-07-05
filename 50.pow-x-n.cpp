@@ -49,7 +49,7 @@ public:
 };
 // 链接：https://leetcode-cn.com/problems/powx-n/solution/powx-n-by-leetcode-solution/
 
-// 位运算 也是不考虑转正问题
+// 位运算 也是long long不考虑转正问题
 class Solution {
 public:
     double quickMul(double x, long long N) {

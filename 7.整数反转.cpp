@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <string>
 #include <algorithm>
 using namespace std;
 
@@ -66,3 +67,27 @@ public:
 
 
 
+// 二刷 坑略多
+class Solution {
+public:
+    int reverse(int x) {
+        bool flag = false;
+        if(x < 0) { // x 为负数 不会溢出  由于题意 尾号最大为0 或 1
+            flag = true;
+            if(x == INT_MIN) return 0;
+            x = -x;
+        }
+        string s = to_string(x);
+        std::reverse(s.begin(), s.end());
+        cout << s << endl;
+        int ans = 0;
+        for (int i = 0; i < s.size(); i++) {
+            // if(ans > INT_MAX / 10 || (ans == INT_MAX / 10 && s[i] > '7'))
+            if(ans > INT_MAX / 10)
+                return 0;
+            cout << s[i] << endl;
+            ans = 10 * ans + (s[i] - '0');
+        }
+        return flag ? -ans : ans;
+    }
+};

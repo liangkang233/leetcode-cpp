@@ -126,3 +126,26 @@ public:
         return s.substr(index, maxLen);
     }
 };
+
+// 四刷
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int len = s.length(), max = 1, index = 0;
+        vector<bool> dp(len, true);
+        for (int r = 1; r < len; r++) {
+            for (int l = 0; l < r; l++) {
+                if(s[l] == s[r] && dp[l+1]) {
+                    dp[l] = true;
+                    if(r-l+1 > max) {
+                        index = l;
+                        max = r-l+1;
+                    }
+                }
+                else
+                    dp[l] = false;
+            }
+        }
+        return s.substr(index, max);
+    }
+};

@@ -114,3 +114,28 @@ public:
         return ans;
     }
 };
+
+// 三刷 用dfs更省空间 好好温习下
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> v;
+        queue<TreeNode*> que;
+        if(root)
+            que.push(root);
+        while (!que.empty()) {
+            int size = que.size();
+            que.pop();
+            TreeNode* temp;
+            for (int i = 0; i < size; i++) {
+                temp = que.front();
+                if(temp->left)
+                    que.push(temp->left);
+                if(temp->right)
+                    que.push(temp->right);
+            }
+            v.push_back(temp->val);
+        }
+        return v;
+    }
+};

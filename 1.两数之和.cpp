@@ -74,3 +74,19 @@ public:
         return {};
     }
 };
+
+
+// 二刷
+// 这道题就是哈希的边遍历 边查询 一开始用排序双指针没去重也太菜了
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> mp;
+        for(int i = 0; i < nums.size(); i++) {
+            if(mp.find(target - nums[i]) != mp.end())
+                return vector<int>{mp[target-nums[i]], i};
+            mp[nums[i]] = i;
+        }
+        return vector<int>{-1, -1};
+    }
+};

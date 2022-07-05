@@ -67,7 +67,33 @@ public:
 // [10,4]\n
 // [-1,5,3,4,0]\n
 
-
+// 归并简洁写法
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        if(!head || !head->next) return head;
+		ListNode* fast = head, *slow = head, h = ListNode(-1), *p = &h; 
+		while (fast->next && fast->next->next) {
+			fast = fast->next->next;
+			slow = slow->next;
+		} // 快慢指针找中点
+		fast = slow->next;
+		slow->next = nullptr;
+		ListNode* l = sortList(head), * r = sortList(fast);
+		while (l && r) {
+			if(l->val <= r->val) {
+				p->next = l;
+				l = l->next;
+			} else {
+				p->next = r;
+				r = r->next;
+			}
+			p = p->next;
+		}
+		p->next = l ? l : r;
+		return h.next;
+    }
+};
 
 // 官方题解 自底向上 归并 只需要 O(1) 空间复杂度  起始就是 递归改成遍历
 class Solution {

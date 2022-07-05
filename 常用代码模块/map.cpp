@@ -34,6 +34,7 @@ int main ()
 int main () 
 {
     std::map<char,int> mymap;
+    // std::map<char,int, greater<int>> mymap; // map set 的自定义比较函数 传函数 而不是类
     mymap['x']=1001;
     mymap['y']=2002;
     mymap['z']=3003;

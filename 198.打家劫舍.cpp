@@ -72,3 +72,19 @@ public:
         return now;
     }
 };
+
+// 三刷
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        if(nums.empty())
+            return 0;
+        int last = 0, now = nums[0];
+        for (int i = 1; i < nums.size(); i++) {
+            int temp = now;
+            now = max(now, last + nums[i]);
+            last = temp;
+        }
+        return now;
+    }
+};

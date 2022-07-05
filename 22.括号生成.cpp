@@ -123,3 +123,32 @@ public:
 // 4\n
 // 7\n
 // 8\n
+
+// 三刷
+class Solution {
+private:
+    vector<string> ans;
+public:
+    void mydfs(int n, int l, string& temp) { // n代表剩下括号对数 l代表还有几个左括号未配对
+        if(n == 0) {
+            ans.push_back(temp);
+        } else {
+            if(n > l) {
+                temp.push_back('(');
+                mydfs(n, l+1, temp);
+                temp.pop_back();
+            }
+            if(l > 0) {
+                temp.push_back(')');
+                mydfs(n-1, l-1, temp);
+                temp.pop_back();                
+            }
+        }
+    }
+
+    vector<string> generateParenthesis(int n) {
+        string temp;
+        mydfs(n, 0, temp);
+        return ans;
+    }
+};

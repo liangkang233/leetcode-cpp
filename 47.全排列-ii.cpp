@@ -12,6 +12,34 @@ using namespace std;
 // Your runtime beats 100 % of cpp submissions
 // Your memory usage beats 96.43 % of cpp submissions (8.2 MB)
 
+
+// ！！！  和90题写法不太一样    ！！！
+// 字典序全排列 递归法
+class Solution {
+    vector<vector<int>> ans;
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        perm(nums, 0, nums.size() - 1);
+        return ans;
+    }
+    
+    // 注意此处传的是nums 非引用所以不用swap回来
+    // 并且按照 遍历 swap后，每次新的组合 第一个数字后的 数字皆为正序
+    void perm(vector<int> nums, int left, int right) { 
+        if (left == right)
+            ans.push_back(nums);
+        else {
+            for (int i = left; i <= right; i++) {
+                if (i != left && nums[left] == nums[i]) continue;  // 去重
+                swap(nums[left], nums[i]);
+                perm(nums, left + 1, right);
+            }
+        }
+    }
+};
+
+
 // @lc code=start
 class Solution {
 public:

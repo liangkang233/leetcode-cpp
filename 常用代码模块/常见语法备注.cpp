@@ -26,12 +26,13 @@ void test () {
 // copy只负责拷贝元素，不负责开辟空间，源容器空间不足复制会报错
 // 追加容器一般用 insert
 
+// ** insert 为vector成员函数 **
 //用法1:在指定位置it前“插入”值为val的元素,返回指向这个元素的迭代器,
 iterator insert( iterator it, const TYPE &val ); 
 //用法2:在指定位置it前“插入”num个值为val的元素 
-void insert( iterator it, size_type num, const TYPE &val ); 
+iterator insert( iterator it, size_type num, const TYPE &val ); 
 //用法3:在指定位置it前“插入”区间[start, end)的所有元素. 
-void insert( iterator it, input_iterator start, input_iterator end ); 
+iterator insert( iterator it, input_iterator start, input_iterator end ); 
 
 // 使用back_inserter
 copy(v2.begin(),v2.end(),back_inserter(v1));

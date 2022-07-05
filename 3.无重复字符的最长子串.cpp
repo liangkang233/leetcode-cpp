@@ -76,3 +76,19 @@ public:
         return ans;
     }
 };
+
+// 三刷 滑动窗口
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int ans = 0, l = 0;
+        int set[127] = {0};
+        for (int r = 0; r < s.size(); r++) {
+            while (l < r && set[s[r]] > 0) {
+                set[s[l++]]--;
+            } set[s[r]]++;
+            ans = max(ans, r-l+1);
+        }
+        return ans;
+    }
+};

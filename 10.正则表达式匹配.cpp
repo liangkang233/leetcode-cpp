@@ -19,7 +19,7 @@ public:
     bool isMatch(string s, string p) {
         int sl = s.size(), pl = p.size();
         vector<vector<int>> f_map;
-        f_map.assign(sl + 1, vector<int>(pl + 1, 0));
+        f_map.assign(sl + 1, vector<int>(pl + 1, 0)); // f_map[i][j] 表示 i长度s j长度p 是否匹配
         f_map[0][0] = 1;
         // p为正则表达式字符串
 
@@ -33,14 +33,14 @@ public:
                 return s[i - 1] == p[j - 1];
         };
 
-        for (int i = 0; i <= sl; i++) {         // i j代表第几个字符，若为0 表示字符为空
+        for (int i = 0; i <= sl; i++) {
             for (int j = 1; j <= pl; j++) {     // j为0时除非i=0否则必定匹配失败,初始化时已经给所有除f_map[0][0]外赋0
                 if(p[j-1] == '*') {
                     if( matches(i, j-1) )
                         // f_map[i][j] = f_map[i-1][j];         i-1表示*复制一份前字符，j-2表示*和之前字符代表空
-                        f_map[i][j] = f_map[i-1][j] || f_map[i][j-2]; //加上或，防止当前s头不能减少的情况
+                        f_map[i][j] = f_map[i-1][j] || f_map[i][j-2]; // 加上或，防止 AA 与 AAA* 匹配导致返回false 上面注释的就是错误语句
                     else
-                        f_map[i][j] = f_map[i][j-2];        // 
+                        f_map[i][j] = f_map[i][j-2];        // 表示删除 j 字符
                 }
                 else{
                     if( matches(i, j) ) 

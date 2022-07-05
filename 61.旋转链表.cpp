@@ -39,3 +39,25 @@ public:
 // @lc code=end
 
 // [1,2,3,4,5]\n0
+
+
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        if(!head) return nullptr;
+        int size = 1;
+        ListNode* now = head, *tail = head;
+        while (tail->next) {
+            tail = tail->next;
+            size++;
+        } tail->next = head;
+        k %= size;
+        k = size - k - 1;
+        for (int i = 0; i < k; i++) {
+            now = now->next;
+        }
+        head = now->next;
+        now->next = nullptr;
+        return head;
+    }
+};

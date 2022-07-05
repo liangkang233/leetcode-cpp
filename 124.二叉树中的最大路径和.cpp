@@ -45,3 +45,22 @@ public:
 // [1,2,1]\n
 // [-10,9,20,null,null,15,7]
 // [1,2,3,null,3,null,5,5,-123,34,45,-12,34,-453,-1,2,-54]
+
+// 二刷
+class Solution {
+private:
+    int ans = INT_MIN;
+public:
+    int mydfs(TreeNode* root) { // 返回包含该节点的某个分枝最大值
+        if(root) { // 不要忘了分支可能为负数
+            int L = max(mydfs(root->left), 0), R = max(mydfs(root->right), 0);
+            ans = max(ans, root->val + L + R);
+            return root->val + max(L, R);
+        }
+        return 0;
+    }
+    int maxPathSum(TreeNode* root) {
+        mydfs(root);
+        return ans;
+    }
+};

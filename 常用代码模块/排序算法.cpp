@@ -153,6 +153,24 @@ void QuickSort(int A[], int low, int high) //快排母函数
     }
 }
 
+// 随机数版本 自实现快排
+void mysort(vector<int>& nums, int left, int right){
+    if(left >= right) return;
+    int p = rand() % (right - left + 1) + left;
+    swap(nums[left], nums[p]);
+    int pivot = nums[left];
+    int l = left, r = right;
+    while(l < r){
+        while(l<r && nums[r] >= pivot) r--;
+        nums[l] = nums[r];
+        while(l<r && nums[l] <= pivot) l++;
+        nums[r] = nums[l];
+    }
+    nums[l] = pivot;
+    mysort(nums, left, l-1);
+    mysort(nums, l+1, right);
+}
+
 // 堆排序
 // 父节点: i,   子节点: 2i+1 2i+2
 // 子节点: i,   父节点: (i-1)/2

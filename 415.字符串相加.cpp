@@ -35,5 +35,21 @@ public:
     }
 };
 // @lc code=end
-
 // ""1234"\n"5646""
+
+// 二刷
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        if(num1=="0")   return num2;
+        else if(num2=="0")   return num1;
+        string ans(max(num1.size(), num2.size()) + 1, '0');
+        int t = 0;
+        for (int i = ans.size()-1, i1 = num1.size() - 1, i2 = num2.size() - 1; i >= 0; i--, i1--, i2--) {
+            int a = i1>=0 ? num1[i1]-'0' : 0, b = i2>=0 ? num2[i2]-'0' : 0;
+            ans[i] += (t + a + b) % 10;
+            t = (t + a + b) / 10;
+        }
+        return ans[0] == '0' ? ans.substr(1) : ans;
+    }
+};

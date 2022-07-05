@@ -92,3 +92,33 @@ public:
         return ans;
     }
 };
+
+// 二刷
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> ans;
+        stack<TreeNode*> st, st1;
+        if(root) st.push(root);
+        bool flag = true;
+        while (!st.empty()) {
+            vector<int> v;
+            while(!st.empty()) {
+                TreeNode* t = st.top();
+                st.pop();
+                v.push_back(t->val);
+                if(flag) {
+                    if(t->left) st1.push(t->left);
+                    if(t->right) st1.push(t->right);
+                } else {
+                    if(t->right) st1.push(t->right);
+                    if(t->left) st1.push(t->left);
+                }
+            }
+            flag = ~flag;
+            ans.push_back(v);
+            swap(st1, st);
+        }
+        return ans;
+    }
+};

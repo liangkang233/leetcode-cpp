@@ -53,3 +53,30 @@ public:
         sort(nums.begin(), nums.end());
 
     }
+
+// 二刷 还是不会
+// 使用 桶 的思想将 任务划分。
+// 以出现频率为最大的为桶个数 而非任务个数做判断 而桶的长度即最小任务长度为 n+1
+class Solution {
+public:
+    int leastInterval(vector<char>& tasks, int n) {
+        int ans = 0, num = 0, s[26] = {0};
+        vector<int> v;
+        for (int i = 0; i < tasks.size(); i++)
+            s[tasks[i]-'A']++;
+        for (int i = 0; i < 26; i++) {
+            if(s[i])
+                v.push_back(s[i]);
+        } sort(v.begin(), v.end(), greater<int>());
+        for (int i = 0; i < v.size(); i++) {
+            if(v[i] == v[0]) {
+                num++;
+            } else {
+                break;
+            }
+        }
+        ans = (v[0] - 1) * (n+1) + num;
+        return max((int)tasks.size(), ans);
+    }
+};
+// ["A","A","A","A","A","A","B","C","D","E","F","G"]\n2

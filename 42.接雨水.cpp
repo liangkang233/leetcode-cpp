@@ -59,17 +59,13 @@ public:
         int L = 0, R = height.size()-1, ans = 0, ML = height[L], MR = height[R];
         while (L < R) {
             while (L < R && height[L] <= MR) {
-                ML = max(ML, height[L]);
                 ans += min(ML, MR) - height[L];
-                L++;
+                ML = max(ML, height[++L]);
             }
-            ML = max(ML, height[L]);
             while (L < R && height[R] <= ML) {
-                MR = max(MR, height[R]);
                 ans += min(ML, MR) - height[R];
-                R--;
+                MR = max(MR, height[--R]);
             }
-            MR = max(MR, height[R]);
         }
         return ans;
     }

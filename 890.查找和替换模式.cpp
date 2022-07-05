@@ -64,3 +64,30 @@ public:
         }
         return ans;
     }
+
+// 二刷
+class Solution {
+public:
+    bool match(const string& a, const string& b) {
+        if(a.size() != b.size())
+            return false;
+        int s1[128] = {0}, s2[128] = {0};
+        for (int i = 0; i < a.size(); i++) {
+            if(s1[a[i]] == 0 && s2[b[i]] == 0) {
+                s1[a[i]] = b[i];
+                s2[b[i]] = a[i];
+            }
+            else if(s1[a[i]] != b[i] || s2[b[i]] != a[i])
+                return false;
+        }
+        return true;
+    }
+    vector<string> findAndReplacePattern(vector<string>& words, string pattern) {
+        vector<string> ans;
+        for (int i = 0; i < words.size(); i++) {
+            if(match(words[i], pattern))
+                ans.push_back(words[i]);
+        }
+        return ans;
+    }
+};

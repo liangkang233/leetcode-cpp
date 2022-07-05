@@ -43,7 +43,7 @@ public:
         }
         return temp;
     }
-    // 为了加速删除析构部分
+    // 为了加速 删除了析构部分
     int findMaximumXOR(vector<int>& nums) {
         int ans = 0;
         trieNode* root = new trieNode();
@@ -59,7 +59,7 @@ public:
 
 // 为了后面累加计算 倒着计算每个数的二进制 最大31位
 // 在计算异或结果最大值 ans 的前 ii位 时
-// 如果 a ^ b = c 成立，那么a ^ c = b 与 b ^ c = a 均成立。
+// 如果 a ^ b = c 成立，那么 a ^ c = b 与 b ^ c = a 均成立。
 // 遍历到 第ii位时 当前最大值应该为 2*ans + 1
 // 所以 若存在 num1 ^ num2 == ans 则 ans ^ numi 应该能在 set 中查询到
 class Solution {

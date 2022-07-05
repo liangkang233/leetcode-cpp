@@ -91,3 +91,25 @@ public:
         return ans;
     }
 };
+
+// 二刷
+// DFS 按照先序遍历 第一个递归到达最底层的节点 即为最左侧节点
+class Solution {
+private:
+    pair<int, int> pi;
+public:
+    void mydfs(TreeNode* root, int depth) {
+        if(root) {
+            if(depth > pi.first) {
+                pi = make_pair(depth, root->val);
+            }
+            mydfs(root->left, depth+1);
+            mydfs(root->right, depth+1);
+        }
+    }
+    int findBottomLeftValue(TreeNode* root) {
+        pi = make_pair(-1, -1);
+        mydfs(root, 0);
+        return pi.second;
+    }
+};

@@ -77,3 +77,35 @@ public:
         return ans;
     }
 };
+
+// 三刷
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> ans;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < (int)nums.size()-2 && nums[i] <= 0; i++) {
+            int l = i+1, r = nums.size()-1, t = -nums[i];
+            if(nums[l] + nums[l+1] > t)
+                break;
+            if(nums[r] + nums[r-1] < t)
+                continue;
+            while (l < r) {
+                if(nums[l] + nums[r] == t)
+                    ans.push_back(vector<int>{nums[i], nums[l], nums[r]});
+                if(nums[l] + nums[r] <= t) {
+                    while (l+1 < r && nums[l+1] == nums[l]) {
+                        l++;
+                    } l++;
+                }
+                else {
+                    while (l < r-1 && nums[r-1] == nums[r]) {
+                        r--;
+                    } r--;
+                }
+            }
+            while (i < (int)nums.size()-2 && nums[i+1] == nums[i]) i++;
+        }
+        return ans;
+    }
+};

@@ -65,3 +65,25 @@ public:
         return myhead.next;
     }
 };
+
+// 三刷
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+		ListNode vhead(-1000), *now = head, *last = &vhead;
+		last->next = head;
+		while (now && now->next) {
+			if(now->val == now->next->val) {
+				int v = now->val;
+				while (now && now->val == v)
+					now = now->next;
+				last->next = now;
+				// last = last->next; // 有这句就无法删除连续的重复数字
+			} else {
+				last = now;
+				now = now->next;
+			}
+		}
+		return vhead.next;
+    }
+};

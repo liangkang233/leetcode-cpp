@@ -36,7 +36,6 @@ public:
 
 
 // 二刷
-
 class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {
@@ -49,6 +48,25 @@ public:
                 dp[j] = grid[i][j] + min(dp[j], dp[j-1]);
                 // dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]);
             }
+        }
+        return dp.back();
+    }
+};
+
+// 三刷
+class Solution {
+public:
+    int minPathSum(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        vector<int> dp(grid[0].begin(), grid[0].end()), temp(dp);
+        for (int i = 1; i < n; i++)
+            dp[i] += dp[i-1];
+        for (int i = 1; i < m; i++) {
+            temp[0] = dp[0] + grid[i][0];
+            for (int j = 1; j < n; j++) {
+                temp[j] = min(temp[j-1], dp[j]) + grid[i][j];
+            }
+            swap(temp, dp);
         }
         return dp.back();
     }
