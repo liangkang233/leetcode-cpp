@@ -19,6 +19,12 @@ int main ()
     mymap['y']=2002;
     mymap['z']=3003;
 
+    // map重载 与 优先队列一样
+    // struct MyCmp {
+    //     bool operator()(string l, string r) const { return strcasecmp(l.c_str(), r.c_str()) < 0; }
+    // };
+    // map<string, int, MyCmp> mymap;
+
     // map::value_comp
     auto value_cmp = mymap.value_comp();
     std::cout << "mymap contains:\n";

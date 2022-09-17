@@ -69,3 +69,47 @@ public:
  */
 // @lc code=end
 // ["MagicDictionary", "buildDict", "search", "search", "search", "search"]\n[[], [["hello","leetcode"]], ["hello"], ["hhllo"], ["helllq"], ["helloq"]]
+
+
+// 二刷
+struct trienode{
+    vector<trienode*> son;
+    bool end;
+    trienode(): end(false), son(26) {}
+};
+
+class MagicDictionary {
+private:
+    trienode* root;
+public:
+    MagicDictionary() {
+        root = new trienode();
+    }
+    
+    void buildDict(vector<string> dictionary) {
+        for (int i = 0; i < dictionary.size(); i++) {
+            trienode* now = root;
+            for (const char& t : dictionary[i]) {
+                if(!now->son[t-'a'])
+                    now->son[t-'a'] = new trienode();
+                now = now->son[t-'a'];
+            } now->end = true;
+        }
+    }
+    bool mysearch(const string& s, trienode* now, int index, int change) {
+        if(change > 1) return false;
+        if(index == s.size())
+            return change == 1 && now->end;
+        int N = s[index] - 'a';
+        for (int j = 0; j < 26; j++) {
+            int c = change + (j != N ? 1 : 0);
+            if(now->son[j] && mysearch(s, now->son[j], index+1, c))
+                return true;
+        }
+        return false;
+    }
+    
+    bool search(string searchWord) {
+        return mysearch(searchWord, root, 0, 0);
+    }
+};

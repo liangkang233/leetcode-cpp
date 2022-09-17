@@ -23,6 +23,7 @@ public:
         s /= 2;
         vector<int> dp(s+1, false);
         dp[0] = true;
+        // dp[i][j] 表示从数组的 [0,i] 下标范围内选取若干个正整数（可以是 0 个），是否存在一种选取方案使得被选取的正整数的和等于 j
         for (int i = 1; i < nums.size(); i++) {
             for (int j = s; j>=0; j--) { // 注意与 494题一样需要逆序
                 if(j-nums[i-1] >= 0 && dp[j-nums[i-1]])
@@ -36,7 +37,7 @@ public:
 };
 // @lc code=end
 
-/* 进阶 计算分割方法数
+/* 进阶 计算分割方法数 s为数组元素和的一半
 vector<int> dp(s+1, 0);
 dp[0] = 1;
 for (int i = 1; i <= nums.size(); i++) {

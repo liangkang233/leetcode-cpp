@@ -74,7 +74,13 @@
 
   ​	常规方法使用栈，只扫描一次的方法: 快指针到达队尾后 慢指针再行动即可。
 
-  
+- [ ] [20.有效的括号](https://github.com/liangkang233/leetcode-cpp/blob/main/20.有效的括号.cpp)    **[string , stack]**
+
+  ​	题不难 条件判断多
+
+- [x] [21.合并两个有序链表](https://github.com/liangkang233/leetcode-cpp/blob/main/21.合并两个有序链表.cpp)    **[linked-list]**
+
+  ​	合并k链表前提
 
 - [ ] [22.括号生成](https://github.com/liangkang233/leetcode-cpp/blob/main/22.括号生成.cpp)	**[string , backtracking]**
 
@@ -92,17 +98,21 @@
 
   ​	链表翻转操作的进阶题 [206.反转链表](https://github.com/liangkang233/leetcode-cpp/blob/main/206.反转链表.cpp)
 
-  
+- [x] [26.删除有序数组中的重复项](https://github.com/liangkang233/leetcode-cpp/blob/main/26.删除有序数组中的重复项.cpp)    **[array , two-pointers]**
+
+- [x] [27.移除元素](https://github.com/liangkang233/leetcode-cpp/blob/main/27.移除元素.cpp)    **[array , two-pointers]**
+
+- [ ] [28.实现-str-str](https://github.com/liangkang233/leetcode-cpp/blob/main/28.实现-str-str.cpp)    **[two-pointers , string]**
+
+  ​	经典的KMP 没想到居然是简单题??  直接调用现有函数 strstr 也可完成。
 
 - [x] [29.两数相除](https://github.com/liangkang233/leetcode-cpp/blob/main/29.两数相除.cpp)	**[math , binary-search]**
 
   ​	此题有问题，慎做  可以复习下二进制补码的知识
 
-  
-
 - [ ] [30.串联所有单词的子串](https://github.com/liangkang233/leetcode-cpp/blob/main/30.串联所有单词的子串.cpp)    **[hash-table , two-pointers , string]**
 
-  ​	#TODO
+  ​	太难了 直接摆烂。以为是kmp 结果是滑动窗口 双指针
 
 - [ ] [31.下一个排列](https://github.com/liangkang233/leetcode-cpp/blob/main/31.下一个排列.cpp)    **[array]**
 
@@ -132,7 +142,7 @@
 
   ​	一开始需要填入已经存在的值作为初始值，其次回溯要注意的点这题都有，很经典 n皇后 类似
 
-  
+- [x] [38.外观数列](https://github.com/liangkang233/leetcode-cpp/blob/main/38.外观数列.cpp)    **[string]**
 
 - [ ] [39.组合总和](https://github.com/liangkang233/leetcode-cpp/blob/main/39.组合总和.cpp)    **[array , backtracking]**
 
@@ -141,6 +151,12 @@
 - [ ] [40.组合总和-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/40.组合总和-ii.cpp)    **[array , backtracking]**
 
   ​	需要去重和减枝 去重思路跟[90.子集-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/90.子集-ii.cpp)一样
+
+- [ ] [41.缺失的第一个正数](https://github.com/liangkang233/leetcode-cpp/blob/main/41.缺失的第一个正数.cpp)    **[array]**
+
+  ​	直接偷懒set一把梭，战术后仰 时间空间O(n)
+
+  ​	类似这种题 只用空间1的必然需要修改原空间  这里取巧 对范围nums[i]1-n的值 直接放入nums[t-1]中，注意为 [3,4,0,1]这类答案 需要将替换的元素while判断下去。
 
   
 
@@ -204,7 +220,7 @@
 
 - [ ] [57.插入区间](https://github.com/liangkang233/leetcode-cpp/blob/main/57.插入区间.cpp)    **[arrary , sort]**
 
-  ​	**好题** 用二分走了不少弯路，最后还是要遍历push，不如一开始就找遍历合并区间的方法
+  ​	**好题** 用二分走了不少弯路，最后还是要遍历push，不如一开始就找遍历合并区间的方法  边界问题 太蛋疼。这里二分推荐  *在intervals右界限递增序列中 找到第一个 大于等于newInterval的左边界的迭代器*。而不是全部左界限二分。
 
 - [x] [58.最后一个单词的长度](https://github.com/liangkang233/leetcode-cpp/blob/main/58.最后一个单词的长度.cpp)    **[string]**
 
@@ -232,6 +248,8 @@
 
   
 
+- [x] [66.加一](https://github.com/liangkang233/leetcode-cpp/blob/main/66.加一.cpp)    **[array]**
+
 - [x] [67.二进制求和](https://github.com/liangkang233/leetcode-cpp/blob/main/67.二进制求和.cpp)    **[math , string]**
 
   
@@ -240,7 +258,9 @@
 
   ​	注意边界, 求浮点数也可用二分 推荐牛顿法
 
-  
+- [x] [70.爬楼梯](https://github.com/liangkang233/leetcode-cpp/blob/main/70.爬楼梯.cpp)    **[dynamic-programming]**
+
+  ​	简易动态规划，注意使用 last now 节约空间
 
 - [ ] [71.简化路径](https://github.com/liangkang233/leetcode-cpp/blob/main/71.简化路径.cpp)    **[string , stack]**
 
@@ -250,7 +270,7 @@
 
   ​	动态规划 YYDS [583.两个字符串的删除操作](https://github.com/liangkang233/leetcode-cpp/blob/main/583.两个字符串的删除操作.cpp) 字符匹配问题 进阶题
 
-  
+- [x] [73.矩阵置零](https://github.com/liangkang233/leetcode-cpp/blob/main/73.矩阵置零.cpp)    **[array]**
 
 - [ ] [74.搜索二维矩阵](https://github.com/liangkang233/leetcode-cpp/blob/main/74.搜索二维矩阵.cpp)    **[array , binary-search]**
 
@@ -280,6 +300,12 @@
 
   
 
+- [ ] [80.删除有序数组中的重复项-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/80.删除有序数组中的重复项-ii.cpp)    **[array , two-pointers]**
+
+  ​	不使用额外空间的做法 即为直接双指针 无视无效数据   妙啊
+
+  
+
 - [ ] [82.删除排序链表中的重复元素-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/82.删除排序链表中的重复元素-ii.cpp)    **[linked-list]**
 
   ​	链表难处理时，推荐添加一个虚拟头。加了delete 就很慢 刷题不考虑内存泄漏也太 👶🌶
@@ -294,7 +320,15 @@
 
   ​	84进阶 真想不出来还能二维加单调栈
 
+- [ ] [86.分隔链表](https://github.com/liangkang233/leetcode-cpp/blob/main/86.分隔链表.cpp)    **[linked-list , two-pointers]**
+
+  ​	链表边界处理有点麻烦
+
   
+
+- [ ] [88.合并两个有序数组](https://github.com/liangkang233/leetcode-cpp/blob/main/88.合并两个有序数组.cpp)    **[array , two-pointers]**
+
+  ​	写的那叫一个一言难尽
 
 - [ ] [89.格雷编码](https://github.com/liangkang233/leetcode-cpp/blob/main/89.格雷编码.cpp)    **[backtracking]**
 
@@ -308,7 +342,9 @@
 
   ​	这道题动态规划的状态转移方程很好找 就是处理边界和特殊情况有点头疼，通过率居然只有31%
 
-  
+- [ ] [92.反转链表-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/92.反转链表-ii.cpp)    **[linked-list]**
+
+  ​	不方便处理链表的话 多加几个变量记录就好了。
 
 - [ ] [93.复原-ip-地址](https://github.com/liangkang233/leetcode-cpp/blob/main/93.复原-ip-地址.cpp)    **[string , backtracking]**
 
@@ -316,11 +352,23 @@
 
 - [x] [94.二叉树的中序遍历](https://github.com/liangkang233/leetcode-cpp/blob/main/94.二叉树的中序遍历.cpp)    **[hash-table , stack , tree]**
 
+- [ ] [95.不同的二叉搜索树-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/95.不同的二叉搜索树-ii.cpp)    **[dynamic-programming , tree]**
+
+  ​	一开始思路错了，想常规的从root递归找。。。。 
+
+- [ ] [96.不同的二叉搜索树.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/96.不同的二叉搜索树.cpp)    **[dynamic-programming , tree]**
+
+  ​	理解题意即可，数学公式证明 [卡塔兰数](https://baike.baidu.com/item/catalan/7605685?fr=aladdin)
+
   
 
 - [ ] [98.验证二叉搜索树](https://github.com/liangkang233/leetcode-cpp/blob/main/98.验证二叉搜索树.cpp)    **[tree , depth-first-search]**
 
   ​	中序深度递归，Solution3值得思考(二叉搜索树中序一定升序)
+
+- [ ] [99.恢复二叉搜索树](https://github.com/liangkang233/leetcode-cpp/blob/main/99.恢复二叉搜索树.cpp)    **[tree , depth-first-search]**
+
+  ​	中序遍历，查找修改即可，写起来有点绕
 
   
 
@@ -332,13 +380,15 @@
 
   ​	可以使用栈来做，注意需要切换 入栈左右节点顺序每层遍历后需切换。官方使用queue来bfs，双端队列来存入数据。
 
-  
+- [x] [104.二叉树的最大深度](https://github.com/liangkang233/leetcode-cpp/blob/main/104.二叉树的最大深度.cpp)    **[tree , depth-first-search]**
 
 - [ ] [105.从前序与中序遍历序列构造二叉树](https://github.com/liangkang233/leetcode-cpp/blob/main/105.从前序与中序遍历序列构造二叉树.cpp)    **[array , tree , depth-first-search]**
 
   ​	使用分治递归的思想，此题结果唯一。类似题目[889.根据前序和后序遍历构造二叉树](https://github.com/liangkang233/leetcode-cpp/blob/main/889.根据前序和后序遍历构造二叉树)，该题结果不唯一。
 
   
+
+- [x] [107.二叉树的层序遍历-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/107.二叉树的层序遍历-ii.cpp)    **[tree , breadth-first-search]**
 
 - [ ] [108.将有序数组转换为二叉搜索树](https://github.com/liangkang233/leetcode-cpp/blob/main/108.将有序数组转换为二叉搜索树.cpp)    **[tree , depth-first-search]**
 
@@ -350,7 +400,9 @@
 
   ​	题目不难 蠢到用了个全局变量 导致测试案例 一直没过
 
-  
+- [ ] [114.二叉树展开为链表](https://github.com/liangkang233/leetcode-cpp/blob/main/114.二叉树展开为链表.cpp)    **[tree , depth-first-search]**
+
+  ​	将其压缩为只用空间1的链表还是需要构建一个返回尾部链表的节点mydfs。
 
 - [ ] [115.不同的子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/115.不同的子序列.cpp)    **[string , dynamic-programming]**
 
@@ -412,6 +464,12 @@
 
   
 
+- [ ] [134.加油站](https://github.com/liangkang233/leetcode-cpp/blob/main/134.加油站.cpp)    **[greedy]**
+
+  ​	脑筋急转弯 遍历一遍找寻 合适的起点。若 某 A-B 最后不可 说明 A-B 中皆不可为起点 直接继续在 B+1 后遍历即可
+
+  
+
 - [x] [136.只出现一次的数字](https://github.com/liangkang233/leetcode-cpp/blob/main/136.只出现一次的数字.cpp)    **[hash-table , bit-manipulation]**
 
   ​	貌似是第一次做leetcode的题，印象深刻
@@ -461,6 +519,10 @@
   ​	理解题意即可
 
   
+
+- [ ] [152.乘积最大子数组](https://github.com/liangkang233/leetcode-cpp/blob/main/152.乘积最大子数组.cpp)    **[array , dynamic-programming]**
+
+  ​	动态规划 跟 [53.最大子序和](https://github.com/liangkang233/leetcode-cpp/blob/main/53.最大子序和.cpp) 一样，多维护一个最小值，好题。
 
 - [ ] [153.寻找旋转排序数组中的最小值](https://github.com/liangkang233/leetcode-cpp/blob/main/153.寻找旋转排序数组中的最小值.cpp)    **[array , binary-search]**
 
@@ -553,7 +615,9 @@
 
 - [x] [206.反转链表](https://github.com/liangkang233/leetcode-cpp/blob/main/206.反转链表.cpp)    **[linked-list]**
 
-  
+- [ ] [207.课程表](https://github.com/liangkang233/leetcode-cpp/blob/main/207.课程表.cpp)    **[depth-first-search , breadth-first-search , graph , topological-sort]**
+
+  ​	跟210一样的拓扑排序
 
 - [ ] [208.实现-trie-前缀树.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/208.实现-trie-前缀树.cpp)    **[design , trie]**
 
@@ -585,11 +649,21 @@
 
   ​	用排序sort做，每添加一个新元素就对原有元素左右相减 窗口遍历过程中 若出现重复必定true
 
+- [ ] [221.最大正方形](https://github.com/liangkang233/leetcode-cpp/blob/main/221.最大正方形.cpp)    **[dynamic-programming]**
+
+  ​	整错了，以为用dfs，居然使用动态规划做。🐂 转移方程参考[1277. 统计全为 1 的正方形子矩阵](https://leetcode.cn/problems/count-square-submatrices-with-all-ones/) 小学奥赛题。
+
+  
+
+- [x] [226.翻转二叉树](https://github.com/liangkang233/leetcode-cpp/blob/main/226.翻转二叉树.cpp)    **[tree , depth-first-search]**
+
   
 
 - [ ] [230.二叉搜索树中第k小的元素](https://github.com/liangkang233/leetcode-cpp/blob/main/230.二叉搜索树中第k小的元素.cpp)    **[binary-search , tree]**
 
   ​	二叉搜索树 经常会和中序遍历 (恰节点元素正序) 串联。
+
+- [x] [231.2-的幂](https://github.com/liangkang233/leetcode-cpp/blob/main/231.2-的幂.cpp)    **[math , bit-manipulation]**
 
   
 
@@ -619,7 +693,9 @@
 
   ​	 没想到 官方的Z字寻找 时间复杂度 O(n*m) 跑出来效果比二维二分好。可能是样本数据量大部分比较小 这个二维效果不太好。
 
-  
+- [ ] [241.为运算表达式设计优先级](https://github.com/liangkang233/leetcode-cpp/blob/main/241.为运算表达式设计优先级.cpp)    **[divide-and-conquer]**
+
+  ​	分治递归回溯一遍即可，官方的题解太复杂了，抄了个简易的写法
 
 - [x] [242.有效的字母异位词](https://github.com/liangkang233/leetcode-cpp/blob/main/242.有效的字母异位词.cpp)    **[hash-table , sort]**
 
@@ -635,6 +711,12 @@
 - [ ] [258.各位相加.cpp](258.各位相加.cpp)    **[math]**
 
   ​	O(1)的方法是真的难想到
+
+  
+  
+- [ ] [260.只出现一次的数字-iii](https://github.com/liangkang233/leetcode-cpp/blob/main/260.只出现一次的数字-iii.cpp)    **[bit-manipulation]**
+
+  ​	妙不可言，🐂的 利用遍历全部数组的N，将vector区分为两组
 
   
 
@@ -661,9 +743,21 @@
 
   
 
+- [ ] [283.移动零](https://github.com/liangkang233/leetcode-cpp/blob/main/283.移动零.cpp)    **[array , two-pointers]**
+
+  ​	思路是双指针，但是写的不好，看看其他人写的吧
+
+  
+
 - [ ] [285.二叉树的中序后继](https://github.com/liangkang233/leetcode-cpp/blob/main/285.二叉树的中序后继.cpp)    **[tree]**
 
   ​	恶心人的plus会员题
+
+  
+
+- [ ] [287.寻找重复数](https://github.com/liangkang233/leetcode-cpp/blob/main/287.寻找重复数.cpp)    **[array , two-pointers , binary-search]**
+
+  ​	采用448一样的做法修改原数组来记录遍历 最后还原回去即可
 
   
 
@@ -683,6 +777,10 @@
 
   ​	动态规划 二分(牛的) 都可，直接看进接题的做法[673.最长递增子序列的个数](https://github.com/liangkang233/leetcode-cpp/blob/main/673.最长递增子序列的个数.cpp)
 
+- [ ] [301.删除无效的括号](https://github.com/liangkang233/leetcode-cpp/blob/main/301.删除无效的括号.cpp)    **[depth-first-search , breadth-first-search]**
+
+  ​	常规回溯 加上左右括号的判断。题目中描述使用最少删除 那么应该优先使用bfs
+
   
 
 - [ ] [304.二维区域和检索-矩阵不可变](https://github.com/liangkang233/leetcode-cpp/blob/main/304.二维区域和检索-矩阵不可变.cpp)    **[dynamic-programming]**
@@ -697,6 +795,10 @@
 
   
 
+- [ ] [309.最佳买卖股票时机含冷冻期](https://github.com/liangkang233/leetcode-cpp/blob/main/309.最佳买卖股票时机含冷冻期.cpp)   **[dynamic-programming]**
+
+  ​	我是个彩笔 动态规划 还是不会  想不出转移方程先用暴力递归找规律
+
 - [ ] [310.最小高度树](https://github.com/liangkang233/leetcode-cpp/blob/main/310.最小高度树.cpp)    **[breadth-first-search , graph]**
 
   ​	证明比较复杂，直接记结论好了。
@@ -706,6 +808,10 @@
   ​	bfs法2：将所有度为1的节点删除，不断重复后，最后只剩度为1的节点即为最小数的根
 
   
+
+- [ ] [312.戳气球](https://github.com/liangkang233/leetcode-cpp/blob/main/312.戳气球.cpp)    **[divide-and-conquer , dynamic-programming]**
+
+  ​	区间动态规划，想不到啊 太菜了  分治法也能做 反着思考 添加气球(戳爆最后一个气球)  时间复杂度 O(n^3)
 
 - [ ] [313.超级丑数](https://github.com/liangkang233/leetcode-cpp/blob/main/313.超级丑数.cpp)	**[math , heap]**
 
@@ -725,9 +831,21 @@
 
   
 
+- [ ] [324.摆动排序-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/324.摆动排序-ii.cpp)    **[sort]**
+
+  ​	其他做法 证明较难，没掌握。直接sort 加o(n) 遍历效果还行。
+
+  
+
 - [ ] [329.矩阵中的最长递增路径](https://github.com/liangkang233/leetcode-cpp/blob/main/329.矩阵中的最长递增路径.cpp)    **[depth-first-search , topological-sort , memoization]**
 
   ​	直接dfs遍历即可 注意标记去重。
+
+  
+
+- [ ] [332.重新安排行程](https://github.com/liangkang233/leetcode-cpp/blob/main/332.重新安排行程.cpp)    **[depth-first-search , graph]**
+
+  ​	map对string key排序默认为字典序 结合dfs 回溯即可解答
 
   
 
@@ -736,6 +854,10 @@
   ​	把问题想的过于简单了。。。  其实只要思路 如此也很快解决：贪心遍历 维护 三元中的最小值 中值
 
   
+
+- [ ] [337.打家劫舍-iii](https://github.com/liangkang233/leetcode-cpp/blob/main/337.打家劫舍-iii.cpp)    **[tree , depth-first-search]**
+
+  ​	又是一道打家劫舍，此处是反向的动态规划 和 深度遍历。直接dfs会超时 用动态规划的思想 或 hashmap 做后序遍历。
 
 - [ ] [338.比特位计数](https://github.com/liangkang233/leetcode-cpp/blob/main/338.比特位计数.cpp)    **[dynamic-programming , bit-manipulation]**
 
@@ -830,11 +952,29 @@
 
   ​	就硬解，考虑的东西还蛮多的。 注意4字节上限不是1FFFFF 是10FFFF   题目有问题，没有考虑其unicode码不在取值范围内
 
+- [ ] [394.字符串解码](https://github.com/liangkang233/leetcode-cpp/blob/main/394.字符串解码.cpp)    **[stack , depth-first-search]**
+
+  ​	纯恶心人，逻辑题 没啥意思
+
+- [ ] [395.至少有-k-个重复字符的最长子串](https://github.com/liangkang233/leetcode-cpp/blob/main/395.至少有-k-个重复字符的最长子串.cpp)    **[sliding-window , divide-and-conquer ]**
+
+  ​	没想出来怎么做，题解的分治 和 滑动窗口 牛的
+
+- [ ] [396.旋转函数](https://github.com/liangkang233/leetcode-cpp/blob/main/396.旋转函数.cpp)    **[math]**
+
+  ​	找规律即可，求出前缀和即可解决
+
   
 
 - [ ] [399.除法求值](https://github.com/liangkang233/leetcode-cpp/blob/main/399.除法求值.cpp)    **[union-find , graph]**
 
   ​	题不难，但是写起来很累
+
+  
+
+- [ ] [406.根据身高重建队列](https://github.com/liangkang233/leetcode-cpp/blob/main/406.根据身高重建队列.cpp)    **[greedy]**
+
+  ​	妙啊，一次排序就可做出。建议二刷
 
   
 
@@ -911,6 +1051,12 @@
   ​	写的很shit 直接stack 反向加，其他做法是转成string 两数相加
 
   
+  
+- [ ] [448.找到所有数组中消失的数字](/448.找到所有数组中消失的数字.cpp)    **[array]**
+
+  ​	有意思，不使用额外空间就只能对原数组标记更改 遍历过的值将值换为对应下标标记为负数 类似题[287.寻找重复数](https://github.com/liangkang233/leetcode-cpp/blob/main/287.寻找重复数.cpp)
+
+  
 
 
 - [ ] [450.删除二叉搜索树中的节点](https://github.com/liangkang233/leetcode-cpp/blob/main/450.删除二叉搜索树中的节点.cpp)    **[tree]**
@@ -928,6 +1074,8 @@
 
   ​	经典 缓存机制设计 另一个 [LRU缓存](https://github.com/liangkang233/leetcode-cpp/blob/main/146.lru-缓存.cpp)
 
+- [ ] [461.汉明距离](https://github.com/liangkang233/leetcode-cpp/blob/main/461.汉明距离.cpp)    **[bit-manipulation]**
+
   
 
 - [ ] [464.我能赢吗](https://github.com/liangkang233/leetcode-cpp/blob/main/464.我能赢吗.cpp)    **[dynamic-programming , minimax]**
@@ -935,6 +1083,12 @@
   ​	[292.nim-游戏](https://github.com/liangkang233/leetcode-cpp/blob/main/292.nim-游戏.cpp)的扩展，一道很经典的博弈题，动态规划
 
   ​	
+
+- [ ] [478.在圆内随机生成点](https://github.com/liangkang233/leetcode-cpp/blob/main/478.在圆内随机生成点.cpp)    **[rand]**
+
+  ​	法1使用拒绝采样方式在正方形内裁出圆形 
+
+  ​	法2计算概率密度函数  朴素做法  直接用半径的等分会错 会导致 圆心更容易被选中  
 
 - [ ] [479.最大回文数乘积](https://github.com/liangkang233/leetcode-cpp/blob/main/479.最大回文数乘积.cpp)    **[unknow]**
 
@@ -944,13 +1098,29 @@
 
 - [ ] [494.目标和](https://github.com/liangkang233/leetcode-cpp/blob/main/494.目标和.cpp)    **[dynamic-programming , depth-first-search]**
 
-  ​	do动态规划的转移式难想到，此题数据规模小 直接哈希打表记录勉强能过。
+  ​	动态规划的转移式难想到，此题数据规模小 直接哈希打表记录勉强能过。
+
+  
+
+- [ ] [497.非重叠矩形中的随机点](https://github.com/liangkang233/leetcode-cpp/blob/main/497.非重叠矩形中的随机点.cpp)    **[rand]**
+
+  ​	以面积做二分查找，权值加权做随机值 确定里面随机一点，注意此处面积包含四周所以 点数为 (长+1) * (宽+1)
+
+- [ ] [498.对角线遍历](https://github.com/liangkang233/leetcode-cpp/blob/main/498.对角线遍历.cpp)    **[unknow]**
+
+  ​	直接模拟遍历一遍，判断条件写的较丑
+
+  
+
+- [x] [508.出现次数最多的子树元素和](https://github.com/liangkang233/leetcode-cpp/blob/main/508.出现次数最多的子树元素和.cpp)    **[hash-table , tree]**
+
+  ​	典型dfs题
 
   
 
 - [ ] [513.找树左下角的值](https://github.com/liangkang233/leetcode-cpp/blob/main/513.找树左下角的值.cpp)    **[tree , depth-first-search , breadth-first-search]**
 
-  ​	[199.二叉树的右视图](https://github.com/liangkang233/leetcode-cpp/blob/main/199.二叉树的右视图.cpp) 进阶题，dfs不太好想 
+  ​	[199.二叉树的右视图](https://github.com/liangkang233/leetcode-cpp/blob/main/199.二叉树的右视图.cpp) 进阶题，dfs不太好想
 
   
 
@@ -961,6 +1131,12 @@
 - [ ] [516.最长回文子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/516.最长回文子序列.cpp)    **[dynamic-programming]**
 
   ​	[5.最长回文子串](https://github.com/liangkang233/leetcode-cpp/blob/main/5.最长回文子串.cpp)扩展，这个动态规划可以压缩为一维的做优化。不过能ac就行，没必要为了这点空间做优化。
+
+  
+
+- [ ] [518.零钱兑换-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/518.零钱兑换-ii.cpp)    **[dynamic-programming]**
+
+  ​	完全背包变种
 
   
 
@@ -986,6 +1162,18 @@
 
   
 
+- [ ] [532.数组中的-k-diff-数对](https://github.com/liangkang233/leetcode-cpp/blob/main/532.数组中的-k-diff-数对.cpp)    **[array , two-pointers]**
+
+  ​	set典型应用，注意添加数可能为 nums[i] + -  k
+
+  
+
+- [ ] [535.tiny-url-的加密与解密.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/535.tiny-url-的加密与解密.cpp)    **[hash-table , math]**
+
+  ​	这题没限制直接return原串也行，逆天
+
+  
+
 - [ ] [537.复数乘法](https://github.com/liangkang233/leetcode-cpp/blob/main/537.复数乘法.cpp)    **[math , string]**
 
   ​	写起来不太舒服，sscanf sprintf 格式化的做法，答案用正则表达式 查字符 切割字符(split=>strtok)皆可
@@ -1008,6 +1196,12 @@
 - [ ] [542.01-矩阵.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/542.01-矩阵.cpp)    **[depth-first-search , breadth-first-search]**
 
   ​	此题用bfs扫描感觉比较好，dfs写不出来。答案的动态规划 想不到..
+  
+- [ ] [543.二叉树的直径](https://github.com/liangkang233/leetcode-cpp/blob/main/543.二叉树的直径.cpp)    **[tree]**
+
+  ​	和 进阶题 [124.二叉树中的最大路径和](https://github.com/liangkang233/leetcode-cpp/blob/main/124.二叉树中的最大路径和.cpp) 一样的思路
+
+  
 
 
 - [ ] [547.省份数量](https://github.com/liangkang233/leetcode-cpp/blob/main/547.省份数量.cpp) 	**[depth-first-search , union-find]**
@@ -1022,13 +1216,27 @@
 
   
 
+- [ ] [556.下一个更大元素-iii](https://github.com/liangkang233/leetcode-cpp/blob/main/556.下一个更大元素-iii.cpp)    **[string]**
+
+  ​	全排列，这个处理数字溢出的部分让我想起联发科笔试的痛苦回忆。。。
+
 - [x] [557.反转字符串中的单词-iii](https://github.com/liangkang233/leetcode-cpp/blob/main/557.反转字符串中的单词-iii.cpp)    **[string]**
+
+- [x] [558.四叉树交集](https://github.com/liangkang233/leetcode-cpp/blob/main/558.四叉树交集.cpp)    **[unknow]**
+
+  ​	理解题意即可
 
   
 
 - [ ] [560.和为-k-的子数组](https://github.com/liangkang233/leetcode-cpp/blob/main/560.和为-k-的子数组.cpp)    **[array , hash-table]**
 
   ​	nums[i] 包含0 边界处理很棘手 且有正有负 说明滑动窗口不可行。使用前缀和 map记录查询很好 学到新活！
+
+  
+
+- [ ] [565.数组嵌套](https://github.com/liangkang233/leetcode-cpp/blob/main/565.数组嵌套.cpp)    **[array]**
+
+  ​	按照题意 set 遍历一遍，递归查找。效果很差。看了下 官解 方法1跟我一样不过没用递归，方法二使用原地标记。看来深度过大的递归时间消耗会很大。。。
 
   
 
@@ -1044,9 +1252,25 @@
 
   
 
+- [ ] [581.最短无序连续子数组](https://github.com/liangkang233/leetcode-cpp/blob/main/581.最短无序连续子数组.cpp)    **[array]**
+
+  ​	单调栈的思路是想复杂了 官方这样反着遍历一次出答案难想到
+
+  
+
 - [ ] [583.两个字符串的删除操作](https://github.com/liangkang233/leetcode-cpp/blob/main/583.两个字符串的删除操作.cpp)    **[string , dynamic-programming]**
 
   ​	相关题目[1143.最长公共子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/1143.最长公共子序列.cpp)
+
+  
+
+- [ ] [592.分数加减运算](https://github.com/liangkang233/leetcode-cpp/blob/main/592.分数加减运算.cpp)    **[math]**
+
+  ​	按照数学通分公式做即可，最后求分子分母的最大公因数来约分。有点意思。
+
+- [ ] [593.有效的正方形](https://github.com/liangkang233/leetcode-cpp/blob/main/593.有效的正方形.cpp)    **[math]**
+
+  ​	题不难 坑略多，要判断 是否重合 边长相等 角度正交 四点坐标三种情况。用向量来做，即为 向量xy不能全为0，向量模相等，向量积为0。
 
   
 
@@ -1062,6 +1286,10 @@
   ​	vivo面试题
 
   
+  
+- [x] [617.合并二叉树](https://github.com/liangkang233/leetcode-cpp/blob/main/617.合并二叉树.cpp)   **[tree]**
+
+  
 
 
 - [ ] [621.任务调度器](https://github.com/liangkang233/leetcode-cpp/blob/main/621.任务调度器.cpp)    **[array , greedy , queue]**
@@ -1070,11 +1298,41 @@
 
   
 
+- [x] [622.设计循环队列](https://github.com/liangkang233/leetcode-cpp/blob/main/622.设计循环队列.cpp)    **[queue]**
+
+  ​	循环队列 可以用一个固定长度的vector来实现
+
 - [ ] [623.在二叉树中增加一行](https://github.com/liangkang233/leetcode-cpp/blob/main/623.在二叉树中增加一行.cpp)    **[tree , dfs]**
 
   ​	dfs的应用，一定按照题意对 depth-1 行操作，吃了这个亏花了很长时间才发现题目理解错了，添加的那行树的左右子树顺序是有要求的
 
   
+
+- [ ] [632.最小区间](https://github.com/liangkang233/leetcode-cpp/blob/main/632.最小区间.cpp)    **[hash-table , two-pointers , string]**
+
+  ​	想不出来。。 看了题解 能用堆做，仿着答案做了个自己理解的。此题关键在于 *该问题可以转化为，从 k 个列表中各取一个数，使得这 k 个数中的最大值与最小值的差最小。*
+
+  
+
+- [ ] [636.函数的独占时间](https://github.com/liangkang233/leetcode-cpp/blob/main/636.函数的独占时间.cpp)    **[stack]**
+
+  ​	计算函数占用时间 **注意结束时间要加一**  剩下的就是字符处理 stack 记录递归了。
+
+  
+
+- [ ] [640.求解方程](https://github.com/liangkang233/leetcode-cpp/blob/main/640.求解方程.cpp)    **[math]**
+
+  ​	傻X题目，面向案例编程 居然会有 0X=0X 这种输入 坑很多 题目写的一堆 if else shit一样的代码
+
+- [ ] [641.设计循环双端队列](https://github.com/liangkang233/leetcode-cpp/blob/main/641.设计循环双端队列.cpp)    **[dequeue]**
+
+  ​	手写双向链表 很多坑 麻烦啊
+
+  
+
+- [ ] [646.最长数对链](https://github.com/liangkang233/leetcode-cpp/blob/main/646.最长数对链.cpp)    **[dynamic-programming]**
+
+  ​	注意题中没说明 链在原pairs中必须连续。所以先按照首元素大小排序 确保遍历顺序正确
 
 - [ ] [647.回文子串](https://github.com/liangkang233/leetcode-cpp/blob/main/647.回文子串.cpp)    **[string , dynamic-programming]**
 
@@ -1086,11 +1344,52 @@
 
   
 
+- [ ] [652.寻找重复的子树](https://github.com/liangkang233/leetcode-cpp/blob/main/652.寻找重复的子树.cpp)    **[tree]**
+
+  ​	注意这里的先序转字符串加入特殊符号即可保证 答案唯一性。
+
 - [ ] [653.两数之和-iv-输入-bst.cpp](https://github.com/liangkang233/leetcode-cpp/blob/main/653.两数之和-iv-输入-bst.cpp)    **[tree]**
 
   ​	搜索树中序遍历比较大小 set查询是否存在
 
+- [x] [654.最大二叉树](https://github.com/liangkang233/leetcode-cpp/blob/main/654.最大二叉树.cpp)    **[tree]**
+
+- [x] [655.输出二叉树](https://github.com/liangkang233/leetcode-cpp/blob/main/655.输出二叉树.cpp)    **[tree]**
+
+  ​	
+
+- [x] [658.找到-k-个最接近的元素](https://github.com/liangkang233/leetcode-cpp/blob/main/658.找到-k-个最接近的元素.cpp)    **[binary-search]**
+
+  ​	双指针基础应用 初始值用二分找
+
   
+
+- [ ] [662.二叉树最大宽度](https://github.com/liangkang233/leetcode-cpp/blob/main/662.二叉树最大宽度.cpp)    **[tree]**
+
+  ​	注意直接用 完全二叉树的标号会越界 每层都要修改id
+
+  
+
+- [ ] [667.优美的排列-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/667.优美的排列-ii.cpp)    **[array]**
+
+  ​	理解题意即可 找出规律
+
+  
+
+- [ ] [669.修剪二叉搜索树](https://github.com/liangkang233/leetcode-cpp/blob/main/669.修剪二叉搜索树.cpp)    **[tree]**
+
+  ​	理解题意 递归即可
+
+- [x] [670.最大交换](https://github.com/liangkang233/leetcode-cpp/blob/main/670.最大交换.cpp)    **[array , math]**
+
+  
+
+- [x] [672.灯泡开关-ⅱ](https://github.com/liangkang233/leetcode-cpp/blob/main/672.灯泡开关-ⅱ.cpp)    **[math]**
+
+  ​	脑经急转弯了，可以推导出公式 想不到。
+
+  
+
 
 - [ ] [673.最长递增子序列的个数](https://github.com/liangkang233/leetcode-cpp/blob/main/673.最长递增子序列的个数.cpp)    **[dynamic-programming]**
 
@@ -1118,6 +1417,12 @@
 
   
 
+- [ ] [687.最长同值路径](https://github.com/liangkang233/leetcode-cpp/blob/main/687.最长同值路径.cpp)    **[tree , recursion]**
+
+  ​	大意了，居然写了个双重递归 判断值不需要传参给子节点  父节点自己进行判断即可  **还要注意计算个数的时候 需要两边都要加节点**
+
+  
+
 - [ ] [688.马-在棋盘上的概率](https://github.com/liangkang233/leetcode-cpp/blob/main/688.马-在棋盘上的概率.cpp)    **[dynamic-programming]**
 
   ​	动态规划，维护一个 n*n dp容器记录每个位置的成功概率。进行k次遍历更新dp每个格子的概率，其每个格子的当前概率为对应8个方向的格子上一次遍历概率。若是第一次进行遍历则格子对应初始概率为1.0。
@@ -1131,6 +1436,12 @@
 - [x] [695.岛屿的最大面积](https://github.com/liangkang233/leetcode-cpp/blob/main/695.岛屿的最大面积.cpp)    **[array , depth-first-search]**
 
   ​	
+
+- [ ] [698.划分为k个相等的子集](https://github.com/liangkang233/leetcode-cpp/blob/main/698.划分为k个相等的子集.cpp)    **[dynamic-programming , recursion]**
+
+  ​	直接递归会超时, 使用状态dp来做 秒啊
+
+  
 
 - [ ] [703.数据流中的第-k-大元素](https://github.com/liangkang233/leetcode-cpp/blob/main/703.数据流中的第-k-大元素.cpp)    **[heap]**
 
@@ -1155,9 +1466,21 @@
 
   
 
+- [ ] [710.黑名单中的随机数](https://github.com/liangkang233/leetcode-cpp/blob/main/710.黑名单中的随机数.cpp)    **[rand]**
+
+  ​	随机数的有意思题，注意不可直接 遍历做映射很慢，只需要对在左区间内为黑名单的值映射到右区间即可。
+
+  
+
 - [ ] [713.乘积小于k的子数组](https://github.com/liangkang233/leetcode-cpp/blob/main/713.乘积小于k的子数组.cpp)    **[array , two-pointers , sliding-window]**
 
   ​	这个滑动窗口要考虑到子数组如何计算和缩减的问题，不妨假设窗口遍历时前面的子数组统计完备，那之后的子数据计入必需包含右边界则可以很容器的解决该问题。
+
+  
+
+- [ ] [715.range-模块](https://github.com/liangkang233/leetcode-cpp/blob/main/715.range-模块.cpp)    **[segment-tree , ordered-map]**
+
+  ​	线段树 官解用map也可，这里推荐用 [珂朵莉树（Chtholly Tree）](https://blog.csdn.net/CC_dsm/article/details/98166835)
 
   
 
@@ -1177,7 +1500,15 @@
 
   ​	用有序map二分查来做，之后的做法类似[56.合并区间](https://github.com/liangkang233/leetcode-cpp/blob/main/56.合并区间.cpp) 要注意map下标没有重载+- 必须再创一个变量。还有线段树的做法 学不来。
 
-  
+- [ ] [730.统计不同回文子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/730.统计不同回文子序列.cpp)   **[string , dynamic-programming]**
+
+    ​	这。。。 还要去重 实在想不出怎么动规 看[官解](https://leetcode.cn/problems/count-different-palindromic-subsequences/solution/tong-ji-bu-tong-hui-wen-zi-xu-lie-by-lee-7slg/)
+    
+- [ ] [731.我的日程安排表-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/731.我的日程安排表-ii.cpp)    **[ordered-map]**
+
+    ​	有序map 新题型，学到了。使用 map 记录边界次数 左边界+1 右边界-1  这样遍历map时 某一段second和出现 大于 2 就代表同时出现三个及以上区间叠加。
+
+    
 
 - [x] [735.行星碰撞](https://github.com/liangkang233/leetcode-cpp/blob/main/735.行星碰撞.cpp)    **[stack]**
 
@@ -1195,9 +1526,21 @@
 
   
 
+- [ ] [741.摘樱桃](https://github.com/liangkang233/leetcode-cpp/blob/main/741.摘樱桃.cpp)    **[dynamic-programming]**
+
+  ​	记忆化搜索 动态规划皆可， 注意的是要将题意转化为两个人同时出发。妙啊
+
+  
+
+- [ ] [745.前缀和后缀搜索](https://github.com/liangkang233/leetcode-cpp/blob/main/745.前缀和后缀搜索.cpp)    **[binary-search]**
+
+  ​	直接暴力穷举也可以，官方采用字典树的方法，将前缀后缀拼接在一起 比较权重。绝了。
+
 - [x] [746.使用最小花费爬楼梯](https://github.com/liangkang233/leetcode-cpp/blob/main/746.使用最小花费爬楼梯.cpp)    **[trie , dynamic-programming]**
 
 - [x] [747.至少是其他数字两倍的最大数](https://github.com/liangkang233/leetcode-cpp/blob/main/747.至少是其他数字两倍的最大数.cpp)    **[array , dynamic-programming]**
+
+- [x] [748.最短补全词](https://github.com/liangkang233/leetcode-cpp/blob/main/748.最短补全词.cpp)    **[array]**
 
   ​	
 
@@ -1255,6 +1598,12 @@
 
   
 
+- [ ] [829.连续整数求和](https://github.com/liangkang233/leetcode-cpp/blob/main/829.连续整数求和.cpp)    **[math , hash-table]**
+
+  ​	等差数列 技巧题 双指针在 10^9 这个数量级别 双指针肯定会超时
+
+  
+
 - [ ] [838.推多米诺](https://github.com/liangkang233/leetcode-cpp/blob/main/838.推多米诺.cpp)    **[linked-list , design]**
 
   ​	走弯路了，看完官方 豁然开朗。模拟多米诺 只要找中间全为竖立状态的 进行判断： 
@@ -1284,6 +1633,16 @@
 - [x] [852.山脉数组的峰顶索引](https://github.com/liangkang233/leetcode-cpp/blob/main/852.山脉数组的峰顶索引.cpp)    **[array , binary-search]**
 
   
+  
+- [x] [857.雇佣-k-名工人的最低成本](https://github.com/liangkang233/leetcode-cpp/blob/main/857.雇佣-k-名工人的最低成本.cpp)    **[greedy , array , heap]**
+
+  ​	资本家最喜欢的题了 属于是  很难想到计算的公式 看题解
+  
+  
+  
+- [ ] [863.二叉树中所有距离为-k-的结点](https://github.com/liangkang233/leetcode-cpp/blob/main/863.二叉树中所有距离为-k-的结点.cpp)    **[tree , depth-first-search]**
+
+    ​	常规递归加上父节点递归 三个方向即可，写起来有点麻烦，后面第二次查可以用set以免重复或者 记录该节点父节点即可。
 
 
 - [ ] [873.最长的斐波那契子序列的长度](https://github.com/liangkang233/leetcode-cpp/blob/main/873.最长的斐波那契子序列的长度.cpp)    **[minimax , dynamic-programming]**
@@ -1330,6 +1689,12 @@
 
   
 
+- [ ] [899.有序队列](https://github.com/liangkang233/leetcode-cpp/blob/main/899.有序队列.cpp)    **[math]**
+
+  ​	找规律的脑经急转弯，有意思。
+
+  
+
 - [ ] [917.仅仅反转字母](https://github.com/liangkang233/leetcode-cpp/blob/main/917.仅仅反转字母.cpp)    **[two-pointers , greedy]**
 
   ​	双指针简单应用  判断是否为字符使用 isalpha()
@@ -1361,6 +1726,16 @@
 
   
 
+- [ ] [946.验证栈序列](https://github.com/liangkang233/leetcode-cpp/blob/main/946.验证栈序列.cpp)    **[math , greedy]**
+
+  ​	最近笔试倒是经常做验证栈的题 有意思
+
+  
+
+- [ ] [952.按公因数计算最大组件大小](https://github.com/liangkang233/leetcode-cpp/blob/main/952.按公因数计算最大组件大小.cpp)    **[math , unionfind]**
+
+  ​	好难 想不到要用因数 并查集的思路 了解下吧。
+
 - [x] [953.验证外星语词典](https://github.com/liangkang233/leetcode-cpp/blob/main/953.验证外星语词典.cpp)    **[string]**
 
   ​	
@@ -1387,7 +1762,9 @@
 
   ​	理解题意即可 注意 空数组边界。本质上是图论题目的出度 入度
 
-  
+- [ ] [998.最大二叉树-ii](https://github.com/liangkang233/leetcode-cpp/blob/main/998.最大二叉树-ii.cpp)    **[tree]**
+
+  ​	弱智语文题 。。。
 
 
 - [ ] [1006.笨阶乘](https://github.com/liangkang233/leetcode-cpp/blob/main/1006.笨阶乘.cpp)    **[hash-table , string]**
@@ -1398,9 +1775,30 @@
 
   
 
+- [ ] [1037.有效的回旋镖](https://github.com/liangkang233/leetcode-cpp/blob/main/1037.有效的回旋镖.cpp)    **[greedy , sliding-window]**
+
+  ​	类似 [149.直线上最多的点数](https://github.com/liangkang233/leetcode-cpp/blob/main/149.直线上最多的点数.cpp) 的做法 此处数据量较小 用乘法相比做斜率不错
+
 - [ ] [1038.从二叉搜索树到更大和树](https://github.com/liangkang233/leetcode-cpp/blob/main/1038.从二叉搜索树到更大和树.cpp)    **[math , backtracking , graph]**
 
   ​	与[538.把二叉搜索树转换为累加树](https://github.com/liangkang233/leetcode-cpp/blob/main/538.把二叉搜索树转换为累加树.cpp) 相同
+
+  
+
+- [ ] [1048.最长字符串链](https://github.com/liangkang233/leetcode-cpp/blob/main/1048.最长字符串链.cpp)    **[math , string]**
+
+  ​	直接暴力模拟，将不同长度的string 划分不同的数组中，计算并记录 其与长度减一的字符串是否匹配。
+
+  
+
+- [ ] [1051.高度检查器](https://github.com/liangkang233/leetcode-cpp/blob/main/1051.高度检查器.cpp)    **[dynamic-programming , greedy]**
+
+
+
+
+- [ ] [1089.复写零](https://github.com/liangkang233/leetcode-cpp/blob/main/1089.复写零.cpp)    **[Unknown]**
+
+  ​	为了不用额外空间需要使用二指针，反向遍历一遍。傻的一批，直接复制个副本不香么。
 
   
 
@@ -1409,6 +1807,10 @@
   ​	dfs容易超时，**找寻一个解或答案时bfs有效，比较全部路径时一般用dfs更好** ，这题还要注意起点会有坑...
 
   ​	bfs只要找到路就可以return 最先找到的必定等于最短值, 标记走过的路直接赋值原数组1 **(bfs，dfs少用set)**
+
+  
+
+- [x] [1108.ip-地址无效化](https://github.com/liangkang233/leetcode-cpp/blob/main/1108.ip-地址无效化.cpp)    **[string]**
 
   
 
@@ -1428,9 +1830,33 @@
 
   
 
-- [ ] [1163.按字典序排在最后的子串](https://github.com/liangkang233/leetcode-cpp/blob/main/1163.按字典序排在最后的子串.cpp)    **[unknow]**
+- [ ] [1161.最大层内元素和](https://github.com/liangkang233/leetcode-cpp/blob/main/1161.最大层内元素和.cpp)    **[breadth-first-search]**
+
+  
+
+- [ ] [1163.按字典序排在最后的子串](https://github.com/liangkang233/leetcode-cpp/blob/main/1163.按字典序排在最后的子串.cpp)    **[Unknown]**
 
   ​	思路容易想到，就是实现时总是忘考虑各种情况。容易知道ans的头一定为string中最大的元素，设计两个string 一个为输出的答案。一个为遍历过程中string缓存ans1，出现当前字符最大值后，迭代的与ans比较来确定该ans1是补上ans还是重新定义为ans。
+
+  
+
+- [ ] [1175.质数排列](https://github.com/liangkang233/leetcode-cpp/blob/main/1175.质数排列.cpp)    **[Unknown]**
+
+  ​	一道质数相关题目，求阶乘即可
+
+  
+
+- [x] [1200.最小绝对差](https://github.com/liangkang233/leetcode-cpp/blob/main/1200.最小绝对差.cpp)    **[sort]**
+
+  
+
+- [x] [1206.设计跳表](https://github.com/liangkang233/leetcode-cpp/blob/main/1206.设计跳表.cpp)    **[Unknown]**
+
+  ​	redis zset 跳表的实现 了解即可 以防面试等通知。。
+
+  
+
+- [x] [1217.玩筹码](https://github.com/liangkang233/leetcode-cpp/blob/main/1217.玩筹码.cpp)    **[Unknown]**
 
   
 
@@ -1446,15 +1872,99 @@
 
   
 
-- [ ] [1332.删除回文子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/1332.删除回文子序列.cpp)    **[unkown]**
+- [x] [1252.奇数值单元格的数目](https://github.com/liangkang233/leetcode-cpp/blob/main/1252.奇数值单元格的数目.cpp)    **[Unknown]**
+
+  ​	进阶法也只是扫描一次行与列即可，因为只要记录奇偶数即可。
+
+  
+
+- [ ] [1260.二维网格迁移](https://github.com/liangkang233/leetcode-cpp/blob/main/1260.二维网格迁移.cpp)    **[Unknown]**
+
+  ​	题目不难直接模拟即可，写起来很麻烦。tnnd 直接一维展开简单多了。
+
+  
+
+- [x] [1282.用户分组](https://github.com/liangkang233/leetcode-cpp/blob/main/1282.用户分组.cpp)    **[Unknown]**
+
+  
+
+- [x] [1302.层数最深叶子节点的和](https://github.com/liangkang233/leetcode-cpp/blob/main/1302.层数最深叶子节点的和.cpp)    **[tree]**
+
+  
+
+- [ ] [1331.数组序号转换](https://github.com/liangkang233/leetcode-cpp/blob/main/1331.数组序号转换.cpp)    **[sort]**
+
+  ​	sort应用，稍微改下就是树状数组来做了。
+
+- [ ] [1332.删除回文子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/1332.删除回文子序列.cpp)    **[Unknown]**
 
   ​	想复杂了，注意题目中删除回文字符串不一定为连续。给的案例拿来误导的。
 
   
 
-- [ ] [1353.最多可以参加的会议数目](https://github.com/liangkang233/leetcode-cpp/blob/main/1353.最多可以参加的会议数目.cpp)    **[unkown]**
+- [ ] [1353.最多可以参加的会议数目](https://github.com/liangkang233/leetcode-cpp/blob/main/1353.最多可以参加的会议数目.cpp)    **[Unknown]**
 
   ​	贪心优先队列，算是应用题了
+
+  
+
+- [x] [1374.生成每种字符都是奇数个的字符串](https://github.com/liangkang233/leetcode-cpp/blob/main/1374.生成每种字符都是奇数个的字符串.cpp)    **[string]**
+
+  
+
+- [x] [1403.非递增顺序的最小子序列](https://github.com/liangkang233/leetcode-cpp/blob/main/1403.非递增顺序的最小子序列.cpp)    **[Unknown]**
+
+  ​	
+
+- [ ] [1405.最长快乐字符串](https://github.com/liangkang233/leetcode-cpp/blob/main/1405.最长快乐字符串.cpp)    **[greedy]**
+
+  ​	题目不难 贪心也好想到 就是写成代码不好写  还是得多练啊 看了官方的答案才知道怎么写。
+
+  
+
+- [ ] [1408.数组中的字符串匹配](https://github.com/liangkang233/leetcode-cpp/blob/main/1408.数组中的字符串匹配.cpp)    **[Unknown]**
+
+  ​	直接暴力 map查居然可以
+
+  
+
+- [x] [1413.逐步求和得到正数的最小值](https://github.com/liangkang233/leetcode-cpp/blob/main/1413.逐步求和得到正数的最小值.cpp)    **[greedy]**
+
+  
+
+- [ ] [1416.恢复数组](https://github.com/liangkang233/leetcode-cpp/blob/main/1416.恢复数组.cpp)    **[dynamic-programming]**
+
+  ​	边界处理要小心，为了节约判断直接用longlong吧，注意数字过长需要提前退出。
+
+- [x] [1417.重新格式化字符串](https://github.com/liangkang233/leetcode-cpp/blob/main/1417.重新格式化字符串.cpp)    **[Unknown]**
+
+  
+
+- [x] [1422.分割字符串的最大得分](https://github.com/liangkang233/leetcode-cpp/blob/main/1422.分割字符串的最大得分.cpp)    **[Unknown]**
+
+  
+
+- [x] [1450.在既定时间做作业的学生人数](https://github.com/liangkang233/leetcode-cpp/blob/main/1450.在既定时间做作业的学生人数.cpp)    **[Unknown]**
+
+  ​	
+
+- [x] [1455.检查单词是否为句中其他单词的前缀](https://github.com/liangkang233/leetcode-cpp/blob/main/1455.检查单词是否为句中其他单词的前缀.cpp)    **[string]**
+
+  ​	
+
+- [x] [1460.通过翻转子数组使两个数组相等](https://github.com/liangkang233/leetcode-cpp/blob/main/1460.通过翻转子数组使两个数组相等.cpp)    **[Unknown]**
+
+  
+
+- [x] [1464.数组中两元素的最大乘积](https://github.com/liangkang233/leetcode-cpp/blob/main/1464.数组中两元素的最大乘积)    **[sort]**
+
+  
+
+- [x] [1470.重新排列数组](https://github.com/liangkang233/leetcode-cpp/blob/main/1470.重新排列数组.cpp)    **[two-pointers]**
+
+  
+
+- [x] [1475.商品折扣后的最终价格](https://github.com/liangkang233/leetcode-cpp/blob/main/1475.商品折扣后的最终价格.cpp)    **[Unknown]**
 
   
 
@@ -1464,57 +1974,90 @@
 
   
 
-- [ ] [1568.使陆地分离的最少天数](https://github.com/liangkang233/leetcode-cpp/blob/main/1568.使陆地分离的最少天数.cpp)	**[unkown]**
+- [ ] [1568.使陆地分离的最少天数](https://github.com/liangkang233/leetcode-cpp/blob/main/1568.使陆地分离的最少天数.cpp)	**[Unknown]**
 
   ​	脑经急转弯。。 
 
   
 
-- [ ] [1594.矩阵的最大非负积](https://github.com/liangkang233/leetcode-cpp/blob/main/1594.矩阵的最大非负积.cpp)    **[unkown]**
+- [ ] [1582.二进制矩阵中的特殊位置](https://github.com/liangkang233/leetcode-cpp/blob/main/1582.二进制矩阵中的特殊位置.cpp)    **[Unknown]**
+
+  ​	
+
+- [x] [1592.重新排列单词间的空格](https://github.com/liangkang233/leetcode-cpp/blob/main/1592.重新排列单词间的空格.cpp)    **[Unknown]**
+
+  
+
+- [ ] [1594.矩阵的最大非负积](https://github.com/liangkang233/leetcode-cpp/blob/main/1594.矩阵的最大非负积.cpp)    **[Unknown]**
 
   ​	万能的DP
 
   
 
-- [x] [1629.按键持续时间最长的键](https://github.com/liangkang233/leetcode-cpp/blob/main/1629.按键持续时间最长的键.cpp)    **[unkown]**
+- [ ] [1598.文件夹操作日志搜集器](https://github.com/liangkang233/leetcode-cpp/blob/main/1598.文件夹操作日志搜集器.cpp)    **[Unknown]**
 
   
 
-- [ ] [1664.生成平衡数组的方案数](https://github.com/liangkang233/leetcode-cpp/blob/main/1664.生成平衡数组的方案数.cpp)    **[unkown]**
+- [ ] [1608.特殊数组的特征值](https://github.com/liangkang233/leetcode-cpp/blob/main/1608.特殊数组的特征值.cpp)    **[Unknown]**
+
+  ​	降序排序后好些 正序写的啥呀。。。
+
+  
+  
+- [ ] [1619.删除某些元素后的数组均值](https://github.com/liangkang233/leetcode-cpp/blob/main/1619.删除某些元素后的数组均值.cpp)    **[Unknown]**
+
+  ​	
+  
+- [x] [1624.两个相同字符之间的最长子字符串](https://github.com/liangkang233/leetcode-cpp/blob/main/1624.两个相同字符之间的最长子字符串.cpp)    **[Unknown]**
 
   
 
-- [ ] [1706.球会落何处](https://github.com/liangkang233/leetcode-cpp/blob/main/1706.球会落何处.cpp)    **[unkown]**
+
+- [x] [1629.按键持续时间最长的键](https://github.com/liangkang233/leetcode-cpp/blob/main/1629.按键持续时间最长的键.cpp)    **[Unknown]**
+
+  
+
+- [x] [1656.设计有序流](https://github.com/liangkang233/leetcode-cpp/blob/main/1656.设计有序流.cpp)    **[Unknown]**
+
+  ​	理解题意即可
+
+  
+
+- [ ] [1664.生成平衡数组的方案数](https://github.com/liangkang233/leetcode-cpp/blob/main/1664.生成平衡数组的方案数.cpp)    **[Unknown]**
+
+  
+
+- [ ] [1706.球会落何处](https://github.com/liangkang233/leetcode-cpp/blob/main/1706.球会落何处.cpp)    **[Unknown]**
 
   ​	让我想到了[多米诺题目](https://github.com/liangkang233/leetcode-cpp/blob/main/838.推多米诺.cpp)，也是左右判断是否停止。
 
   
 
-- [x] [1716.计算力扣银行的钱](https://github.com/liangkang233/leetcode-cpp/blob/main/1716.计算力扣银行的钱.cpp)    **[unkown]**
+- [x] [1716.计算力扣银行的钱](https://github.com/liangkang233/leetcode-cpp/blob/main/1716.计算力扣银行的钱.cpp)    **[Unknown]**
 
   
 
-- [x] [1791.找出星型图的中心节点](https://github.com/liangkang233/leetcode-cpp/blob/main/1791.找出星型图的中心节点.cpp)    **[unkown]**
+- [x] [1791.找出星型图的中心节点](https://github.com/liangkang233/leetcode-cpp/blob/main/1791.找出星型图的中心节点.cpp)    **[Unknown]**
 
   ​	
 
-- [ ] [1823.找出游戏的获胜者](https://github.com/liangkang233/leetcode-cpp/blob/main/1823.找出游戏的获胜者.cpp)    **[unknow]**
+- [ ] [1823.找出游戏的获胜者](https://github.com/liangkang233/leetcode-cpp/blob/main/1823.找出游戏的获胜者.cpp)    **[Unknown]**
 
   ​	想不出好方法，直接拿链表硬做的。[约瑟夫环问题](https://blog.csdn.net/u011500062/article/details/72855826) 
 
   
 
-- [ ] [1935.可以输入的最大单词数](https://github.com/liangkang233/leetcode-cpp/blob/main/1935.可以输入的最大单词数.cpp)    **[unkown]**
+- [ ] [1935.可以输入的最大单词数](https://github.com/liangkang233/leetcode-cpp/blob/main/1935.可以输入的最大单词数.cpp)    **[Unknown]**
 
   ​	注意边界和最后一个单词
 
   
 
-- [x] [1953.你可以工作的最大周数](https://github.com/liangkang233/leetcode-cpp/blob/main/1953.你可以工作的最大周数.cpp)    **[unkown]**
+- [x] [1953.你可以工作的最大周数](https://github.com/liangkang233/leetcode-cpp/blob/main/1953.你可以工作的最大周数.cpp)    **[Unknown]**
 
   
 
-- [ ] [2016.增量元素之间的最大差值](https://github.com/liangkang233/leetcode-cpp/blob/main/2016.增量元素之间的最大差值.cpp)    **[unkown]**
+- [ ] [2016.增量元素之间的最大差值](https://github.com/liangkang233/leetcode-cpp/blob/main/2016.增量元素之间的最大差值.cpp)    **[Unknown]**
 
   ​	一开始想着用堆做导致问题后面解析复杂了。只需要维护一个前缀即可
 
@@ -1526,31 +2069,43 @@
 
   
 
-- [ ] [2034.股票价格波动](https://github.com/liangkang233/leetcode-cpp/blob/main/2034.股票价格波动.cpp)    **[unkown]**
+- [ ] [2034.股票价格波动](https://github.com/liangkang233/leetcode-cpp/blob/main/2034.股票价格波动.cpp)    **[Unknown]**
 
   ​	很有意思的题 结构设计 注意multiset erase 的坑，有条件尽量用无序的来做
+
   
-  
-  
-- [x] [2038.如果相邻两个颜色均相同则删除当前颜色](https://github.com/liangkang233/leetcode-cpp/blob/main/2038.如果相邻两个颜色均相同则删除当前颜色.cpp)    **[unkown]**
+
+- [x] [2038.如果相邻两个颜色均相同则删除当前颜色](https://github.com/liangkang233/leetcode-cpp/blob/main/2038.如果相邻两个颜色均相同则删除当前颜色.cpp)    **[Unknown]**
 
   ​	
-  
+
 - [ ] [2055.蜡烛之间的盘子](https://github.com/liangkang233/leetcode-cpp/blob/main/2055.蜡烛之间的盘子.cpp)    **[binary-search]**
 
   ​	二分题目真的是每次都会在边界问题上卡好久，还是得多练。将盘子前缀记录在数组中，然后二分的查相减即可
+
   
-  
-  
+
 - [ ] [2100.适合打劫银行的日子](https://github.com/liangkang233/leetcode-cpp/blob/main/2100.适合打劫银行的日子.cpp)    **[dynamic-programming , two-pointers]**
 
   ​	望文生义，直接找出并记录所有满足时间的长度递减和递增下标 重合时间下标即为适合打劫的日子，省时间费空间 注意，time可以为0， 所以建立下标时要考虑 ``i==0 i==size-1``  看看官方的动态规划 和 大佬的双指针（推荐）
+
   
-  
-  
+
 - [ ] [2104.子数组范围和](https://github.com/liangkang233/leetcode-cpp/blob/main/2104.子数组范围和.cpp)    **[stack , sliding-window]**
 
   ​	直接暴力的滑动窗口 时间复杂度O(n^2) 容易超时，使用[单调栈](https://www.bilibili.com/video/BV1Y441117gR?from=search&seid=16970796620628411939&spm_id_from=333.337.0.0)来做
+
+  
+
+- [x] [2110.股票平滑下跌阶段的数目](https://github.com/liangkang233/leetcode-cpp/blob/main/2110.股票平滑下跌阶段的数目.cpp)    **[Unknown]**
+
+  ​	翻译题意就是求递减数列 并且求其等差数列和即可
+
+  
+
+- [ ] [2257.统计网格图中没有被保卫的格子数](https://github.com/liangkang233/leetcode-cpp/blob/main/2257.统计网格图中没有被保卫的格子数.cpp)    **[depth-first-search , breadth-first-search , graph]**
+
+  ​	暴力dfs居然能过，官解使用bfs 加状态法做。
 
 # 关键
 
@@ -1590,9 +2145,8 @@
   2. 判断是否为字符使用 isalpha()
   3. C++ 科学计数法表达数字(double)  `0.01 => 1e-2;  100 => 1e2;`
   4. [C++ std库实现的二分查找](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/bound.cpp) lower_bound()返回第一个大于等于 upper_bound()返回第一个大于
-  5. 随机值问题：[382.链表随机节点](https://github.com/liangkang233/leetcode-cpp/blob/main/382.链表随机节点.cpp) 无需注入srand随机种子   [rand使用方法](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/rand.cpp) ***srand正确用法应该放在类的构造函数内***，只初始化一次。
   5. size() 返回值为无符号数，其与负数相比较时负数会转为无符号数，所以判断结果会出问题。一定要在判断前转为int。
-
+  
 - 顺序容器中关于 [emplace_back](https://github.com/liangkang233/leetcode-cpp/blob/main/test_tools/emplace_back.cpp) 用法 还包含了vector 的 size reserver 的注意事项
 
 - 找寻全部解时dfs效果比bfs效果好或者差不多，只需要一条路径或判断是否有效时 推荐bfs。bfs(队列) dfs(栈)的具体实现可采用递归 迭代，一般用递归好写点也好理解。dfs栈的状态如果会返回上次递归 则算法就是回溯。
@@ -1600,6 +2154,8 @@
 - Set map 相关
 
   1. [map 基础语法 包含 key_cmp 与 value_cmp 区别](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/map.cpp)
+
+  1.  map set 的自定义比较函数 传函数 而不是类
 
   1. multiset是元素可以重复的有序队列，非常好用，会自动排序队内元素。（set是不会出现元素重复的有序数组底层红黑树，所以元素无需排序时尽量hash实现的unordered_set）跟优先队列的区别，这个分析的不错 [优先队列能否被set或multiset（c++语法）替换？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/491514115)
 
@@ -1615,7 +2171,7 @@
      };
      unordered_set<pair<int, int>, SimpleHash> myset; 
      ```
-  
+
 - [greater less 模板解析](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/greater等模板类的用法.cpp)
 
 - [字符串相关](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/读字符串.cpp)     [stringstream、istringstream、ostringstream 三者的区别](https://www.cnblogs.com/alking1001/p/11766002.html)
@@ -1637,6 +2193,7 @@
   1. 常规 01 背包 i j 遍历  优化为1维 需要 j 逆序    i 为背包种类 j 为背包上限
   2. 多重 01 背包 i j k 遍历 优化为1维 需要 j 逆序   i 为背包种类 j 为背包上限 k为对应背包可以出现的个数
   3. 完全 01 背包 i j 遍历  优化为1维 需要 j 正序    i 为背包种类 j 为背包上限
+  4. **[完全背包归纳](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/完全背包问题总结.cpp)**
 
 - [LRU](https://github.com/liangkang233/leetcode-cpp/blob/main/146.lru-缓存.cpp)   [LFU](https://github.com/liangkang233/leetcode-cpp/blob/main/460.lfu-缓存.cpp)
 
@@ -1651,4 +2208,25 @@
      比如，1，1，1，2，2，3，4，3，4，3，4，3，4，3，4，3，4......
 
      由于前面被（1(3次)，2(2次)）3加入把2淘汰，4加入把3淘汰，3加入把4淘汰，然而3，4才是最需要缓存的，1去到了3次，谁也淘汰不了它了。
+  
+- 类内 sort 调用谓词函数报错 相关
 
+  ​	出现sort() error: reference to non-static member function must be called
+  原因：sort()函数接受二元谓词，但是在类内定义的myCompare函数作为成员函数，实际上有三个参数，this指针、m、n。
+  解决方案：
+
+  1. 将myCompare()函数挪到类定义的外面，即改为非成员函数；
+  2. 将myCompare()函数定义为静态成员函数，没有this指针。
+  3. 将myCompare()函数定义为类的友元函数，但是此时必须在类外声明该函数，否则，即使在类内定义了该友元函数，该函数仍然是不可见的。
+  
+- [求一堆点中曼哈顿距离最大的值](https://leetcode.cn/problems/maximum-of-absolute-value-expression/solution/miao-sha-ci-ti-jing-dian-man-ha-dun-ju-chi-suan-fa/)
+
+- 随机值问题：
+
+  - [如何等概率地从n个数中随机抽出m个数？__牛客网 (nowcoder.com)](https://www.nowcoder.com/questionTerminal/12796031452e4ced8a16255bb02c4168)
+  - [382.链表随机节点](https://github.com/liangkang233/leetcode-cpp/blob/main/382.链表随机节点.cpp) 无需注入srand随机种子
+  - [rand使用方法](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/rand.cpp) ***srand正确用法应该放在类的构造函数内***，只初始化一次。
+  
+- [求所有 质因数](https://github.com/liangkang233/leetcode-cpp/blob/main/常用代码模块/求解质因数.cpp)
+
+- [B. Zero Tree 思维 树形dp](https://blog.csdn.net/zstuyyyyccccbbbb/article/details/108567001)

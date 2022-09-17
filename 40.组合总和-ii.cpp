@@ -88,8 +88,8 @@ public:
                 // cout << candidates[i] << " ";
                 mydfs(candidates, temp, i+1, target-candidates[i]);
                 temp.pop_back();
+                // 这个 while 去重是针对 例如 111222 这种情况 当当前下标到达第一个2时 后面多余的2就不会进入递归 所以这种写法很蠢
                 while (i+1 < candidates.size() && candidates[i+1] == candidates[i]) i++; // 相同元素只需对第一次出现的进行dfs 
-                // 这一步相当于把当前不选的值相同的都删了 多次一举直接之前就continue
             }
         }
     }

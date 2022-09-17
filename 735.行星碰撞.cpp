@@ -100,3 +100,29 @@ public:
         return res;
     }
 };
+
+// 二刷
+class Solution {
+public:
+    vector<int> asteroidCollision(vector<int>& asteroids) {
+        vector <int> ans;
+        for (int i = 0; i < asteroids.size(); i++) {
+            if(!ans.empty() && ans.back() > 0 && asteroids[i] < 0) { // 只有左正右负 才进入删减判断
+                bool flag = true;
+                while (!ans.empty() && ans.back() > 0) {
+                    if(ans.back() >= -asteroids[i]) {
+                        if(ans.back() == -asteroids[i]) ans.pop_back();
+                        flag = false;
+                        break;
+                    } else {
+                        ans.pop_back();
+                    }
+                }
+                if(flag) ans.push_back(asteroids[i]);
+            } else {
+                ans.push_back(asteroids[i]);
+            }
+        }
+        return ans;
+    }
+};

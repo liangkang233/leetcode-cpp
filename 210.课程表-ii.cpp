@@ -52,6 +52,8 @@ public:
                 return vector<int>{};
         }
         reverse(ans.begin(), ans.end());
+        // 一定要反正push 最后 reverse  否则会出现 例如 4->5->1->2->3 
+        // 先排 1 2 3 之后排 4 5 时就会导致反了一部分 如果 在递归后添加元素 则 为 3 2 1 再后面 添加 5 4 翻转后为 45123 正确 
         return ans;
     }
 };

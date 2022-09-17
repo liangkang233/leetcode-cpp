@@ -67,3 +67,50 @@ public:
 };
 // @lc code=end
 
+
+
+// 二刷
+struct Tree {
+    vector<Tree*> son;
+    bool end;
+    Tree() : son(26, nullptr), end(false) {}
+};
+
+class Solution {
+public:
+    void creater_tree(Tree* root, vector<string>& dictionary) {
+        for (int i = 0; i < dictionary.size(); i++) {
+            Tree* now = root;
+            int j = 0;
+            for (; j < dictionary[i].size(); j++) {
+                if(!now->son[dictionary[i][j] - 'a'])
+                    now->son[dictionary[i][j] - 'a'] = new Tree();
+                now = now->son[dictionary[i][j] - 'a'];
+            }
+            now->end = true;
+        }
+    }
+    string myfun(string& s, Tree* root) {
+        Tree* now = root;
+        int len = 0;
+        for (int j = 0, l = 0; j < s.size() && now->son[s[j] - 'a']; j++) {
+            now = now->son[s[j] - 'a'];
+            if(now->end) {
+                len = ++l;
+                break;
+            }
+            ++l;
+        }
+        return len == 0 ? s : s.substr(0, len);
+    }
+    string replaceWords(vector<string>& dictionary, string sentence) {
+        Tree* root = new Tree();
+        creater_tree(root, dictionary);
+        istringstream in(sentence);
+        string ans, temp;
+        while (in >> temp) {
+            ans += myfun(temp, root) + " ";
+        } ans.pop_back();
+        return ans;
+    }
+};

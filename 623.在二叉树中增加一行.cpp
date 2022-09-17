@@ -68,3 +68,30 @@ public:
         return root;
     }
 };
+
+// 二刷
+class Solution {
+public:
+    TreeNode* addOneRow(TreeNode* root, int val, int depth) {
+        if(depth <= 1) return new TreeNode(val, root, nullptr);
+        depth--;
+        queue<TreeNode*> que;
+        que.push(root);
+        while(!que.empty() && depth) {
+            int size = que.size();
+            --depth;
+            for(int i = 0; i < size; i++) {
+                TreeNode* curr = que.front();
+                que.pop();
+                if(!depth) {
+                    curr->left = new TreeNode(val, curr->left, nullptr);
+                    curr->right = new TreeNode(val, nullptr, curr->right);
+                } else {
+                    if(curr->left) que.push(curr->left);
+                    if(curr->right) que.push(curr->right);
+                }
+            }
+        }
+        return root;
+    }
+};

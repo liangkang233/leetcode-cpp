@@ -20,7 +20,7 @@ public:
     }
     bool book(int start, int end) {
         // 新加区间要在 it1尾部后 it头部前
-         // map empty时 begin() == end()
+        // map empty时 begin() == end()
         map<int, int>::iterator it = mymap.upper_bound(start), it1 = it;
         if(it != mymap.begin() && (--it1)->second > start) {
             return false;
