@@ -19,6 +19,7 @@ struct ListNode {
 };
 // @lc code=start
 
+// 单向链表的实现
 class MyLinkedList {
 private:
     ListNode* myhead;
@@ -46,7 +47,7 @@ public:
         now->next = new ListNode(val, nullptr);
     }
     
-    void addAtIndex(int index, int val) {
+    void addAtIndex(int index, int val) { 
         ListNode* now = myhead;
         while (now && index > 0) {
             now = now->next;
@@ -81,3 +82,78 @@ public:
  */
 // @lc code=end
 
+
+struct ListNode1 {
+    int val;
+    ListNode1* next;
+    ListNode1* pre;
+    ListNode1(int n, ListNode1* p, ListNode1* q): val(n), pre(p), next(q) {}
+};
+// 双向链表的实现  太多细节要考虑了 折磨
+class MyLinkedList {
+private:
+    ListNode1* myhead;  // 虚拟头
+    ListNode1* tail;  // 链表尾
+public:
+    MyLinkedList() {
+        myhead = new ListNode1(-1, nullptr, nullptr);
+        tail = myhead;
+    }
+    
+    int get(int index) {
+        ListNode1* now = myhead;
+        while (now && index >= 0) {
+            // cout << now->val << " ";
+            now = now->next;
+            index--;
+        }
+        // cout << endl;
+        return now ? now->val : -1;
+    }
+    
+    void addAtHead(int val) {
+        ListNode1* now = new ListNode1(val, myhead, myhead->next);
+        if(myhead->next)
+            myhead->next->pre = now;
+        myhead->next = now;
+        if(tail == myhead) tail = now; // 空链表时 添加头 也会更新尾部
+    }
+    
+    void addAtTail(int val) {
+        ListNode1* now = new ListNode1(val, tail, nullptr);
+        tail->next = now;
+        tail = now;
+    };
+    
+    void addAtIndex(int index, int val) {
+        ListNode1* now = myhead;
+        while (now && index > 0) { // index <= 0 等价 index == 0  这里找的是index 下标前一位
+            now = now->next;
+            index--;
+        }
+        if(!now) return;
+        ListNode1* add = new ListNode1(val, now, now->next);
+        ListNode1* temp = now->next;
+        now->next = add;
+        if(temp)
+            temp->pre = add;
+        else 
+            tail = add;
+    }
+    
+    void deleteAtIndex(int index) {
+        if(index < 0) return;
+        ListNode1* now = myhead;
+        while (now && index >= 0) {
+            // cout << now -> val << endl;
+            now = now->next;
+            index--;
+        }
+        if(!now) return;
+        now->pre->next = now->next;
+        if(now->next)
+            now->next->pre = now->pre;
+        else
+            tail = now->pre;
+    }
+};
